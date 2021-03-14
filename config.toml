@@ -64,7 +64,7 @@ DefaultContentLanguage = "en"
 
 
         [params.widgets.archives]
-            limit = 5
+            limit = 20
 
         [params.widgets.tagCloud]
             limit = 10
@@ -107,7 +107,7 @@ DefaultContentLanguage = "en"
     [[menu.main]]
         identifier = "about-cn"
         name = "About"
-        url = "about"
+        url = "/about"
         weight = -90
         pre = "user"
     [[menu.main]]
@@ -125,6 +125,6 @@ DefaultContentLanguage = "en"
     [[menu.main]]
         identifier = "archives"
         name = "Archives"
-        url = "archives"
+        url = "/archives"
         weight = -60
         pre = "archives"

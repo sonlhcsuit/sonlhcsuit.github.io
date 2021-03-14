@@ -13,6 +13,8 @@ categories = [
     "themes",
     "syntax",
 ]
+draft = true
+
 series = ["Themes Guide"]
 aliases = ["migrate-from-jekyl"]
 image = "pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg"
