@@ -5,6 +5,7 @@ date: 2019-03-08
 description: A brief guide to setup KaTeX
 math: true
 draft: true
+expiryDate: 2020-09-09
 
 ---
 

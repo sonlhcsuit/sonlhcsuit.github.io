@@ -4,6 +4,7 @@ draft = true
 author = "Hugo Authors"
 title = "Emoji Support"
 date = "2019-03-05"
+expiryDate = "2020-09-09"
 description = "Guide to emoji usage in Hugo"
 categories = [
     "Test"

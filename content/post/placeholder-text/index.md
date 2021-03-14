@@ -7,6 +7,8 @@ categories = [
     "Test",
     "Test with whitespaces"
 ]
+expiryDate = "2020-09-09"
+
 tags = [
     "markdown",
     "text",
