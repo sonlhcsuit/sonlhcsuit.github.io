@@ -96,6 +96,31 @@ DefaultContentLanguage = "en"
             enabled = true
         [content]
             enabled = true
+[menu]
+    [[menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/"
+        weight = -100
+        pre = "home"
+    [[menu.main]]
+        identifier = "about-cn"
+        name = "About"
+        url = "about"
+        weight = -90
+        pre = "user"
+    [[menu.main]]
+        identifier = "archives"
+        name = "Archives"
+        url = "archives"
+        weight = -70
+        pre = "archives"
+    [[menu.main]]
+        identifier = "series"
+        name = "Series"
+        url = "/series"
+        weight = -90
+        pre = "series"
 
 ### Custom menu
 ### See https://docs.stack.jimmycai.com/configuration/custom-menu
