@@ -1,9 +1,5 @@
 {{ define "main"}}
-<main id="main">
-    <style>
-
-    </style>
-
+<main id="main" style="width: 100%; height: 100%;position: relative;left: 0;right: 0;background-color: #28254C;">
     <div class="box">
         <div class="box__ghost">
             <div class="symbol"></div>
@@ -35,33 +31,10 @@
                 <div class="box__description-text">It seems like we couldn't find the page you were looking for</div>
             </div>
 
-            <a href="./" target="_blank" class="box__button">Go back</a>
+            <a href="./"  class="box__button">Go back</a>
 
         </div>
 
     </div>
-
-    <script>
-        //based on https://dribbble.com/shots/3913847-404-page
-
-        var pageX = $(document).width();
-        var pageY = $(document).height();
-        var mouseY = 0;
-        var mouseX = 0;
-
-        $(document).mousemove(function (event) {
-            //verticalAxis
-            mouseY = event.pageY;
-            yAxis = (pageY / 2 - mouseY) / pageY * 300;
-            //horizontalAxis
-            mouseX = event.pageX / -pageX;
-            xAxis = -mouseX * 100 - 100;
-
-            $('.box__ghost-eyes').css({ 'transform': 'translate(' + xAxis + '%,-' + yAxis + '%)' });
-
-            //console.log('X: ' + xAxis);
-
-        });
-    </script>
 </main>
 {{ end }}
