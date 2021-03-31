@@ -1,4 +1,115 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sơn Lưu Blog</title><link>https://sonlhcsuit.github.io/</link><description>Recent content on Sơn Lưu Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 Mar 2021 01:17:31 +0700</lastBuildDate><atom:link href="https://sonlhcsuit.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Valentine Trang</title><link>https://sonlhcsuit.github.io/p/valentine-trang/</link><pubDate>Mon, 15 Mar 2021 01:17:31 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/valentine-trang/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/valentine-trang/Nhieu_Loc_Thi_Nghe.jpg" alt="Featured image of post Valentine Trang" />&lt;p>Hôm nay cũng như bao hôm khác, sẽ là một ngày chủ nhật thật đẹp với bầu trời xanh của thành phố quen thuộc.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sơn Lưu Blog</title><link>https://sonlhcsuit.github.io/</link><description>Recent content on Sơn Lưu Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 31 Mar 2021 11:14:24 +0700</lastBuildDate><atom:link href="https://sonlhcsuit.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Event Bubbling &amp; Capturing</title><link>https://sonlhcsuit.github.io/p/event-bubbles/</link><pubDate>Wed, 31 Mar 2021 11:14:24 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/event-bubbles/</guid><description>&lt;p>Khi xử lý với Event thông qua DOM ở trong Javascript, cần phải hiểu một chút kỹ càng về cách các event hoạt động. Mỗi khi một event được &lt;strong>trigger&lt;/strong>, bắt đầu thực thi &lt;strong>listener&lt;/strong> thì cùng lúc cũng có nhiều &lt;strong>listener&lt;/strong> được kích hoạt cùng lúc. Có các cơ chế để trình duyệt thực hiện những &lt;strong>listener&lt;/strong> theo một thứ tự xác định. Các cơ chế cơ bản đó là bubble &amp;amp; capturing.&lt;/p>
+&lt;p>Xem xét các ví dụ sau đây về độ sâu (depth) của cây DOM thông qua đoạn HTML&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html">&amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;box box-1&amp;#34;&lt;/span>&amp;gt;
+&amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;box box-2&amp;#34;&lt;/span>&amp;gt;
+&amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;box box-3&amp;#34;&lt;/span>&amp;gt;
+&amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&amp;lt;/&lt;span style="color:#f92672">div&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-css" data-lang="css">&lt;span style="color:#f92672">*&lt;/span>{
+&lt;span style="color:#66d9ef">margin&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">padding&lt;/span>: &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">box-sizing&lt;/span>: &lt;span style="color:#66d9ef">border-box&lt;/span>;
+}
+.&lt;span style="color:#a6e22e">box&lt;/span> {
+&lt;span style="color:#66d9ef">display&lt;/span>: &lt;span style="color:#66d9ef">block&lt;/span>;
+&lt;span style="color:#66d9ef">margin&lt;/span>:&lt;span style="color:#ae81ff">20&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span>;
+}
+.&lt;span style="color:#a6e22e">box&lt;/span>.&lt;span style="color:#a6e22e">box-1&lt;/span>{
+&lt;span style="color:#66d9ef">width&lt;/span>: &lt;span style="color:#ae81ff">40&lt;/span>&lt;span style="color:#66d9ef">vh&lt;/span>;
+&lt;span style="color:#66d9ef">height&lt;/span>: &lt;span style="color:#ae81ff">40&lt;/span>&lt;span style="color:#66d9ef">vh&lt;/span>;
+&lt;span style="color:#66d9ef">border&lt;/span>: &lt;span style="color:#66d9ef">solid&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span> &lt;span style="color:#66d9ef">red&lt;/span>;
+}
+.&lt;span style="color:#a6e22e">box&lt;/span>.&lt;span style="color:#a6e22e">box-2&lt;/span>{
+&lt;span style="color:#66d9ef">width&lt;/span>: &lt;span style="color:#ae81ff">30&lt;/span>&lt;span style="color:#66d9ef">vh&lt;/span>;
+&lt;span style="color:#66d9ef">height&lt;/span>: &lt;span style="color:#ae81ff">30&lt;/span>&lt;span style="color:#66d9ef">vh&lt;/span>;
+&lt;span style="color:#66d9ef">border&lt;/span>: &lt;span style="color:#66d9ef">solid&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span> &lt;span style="color:#66d9ef">black&lt;/span>;
+}
+.&lt;span style="color:#a6e22e">box&lt;/span>.&lt;span style="color:#a6e22e">box-3&lt;/span>{
+&lt;span style="color:#66d9ef">width&lt;/span>: &lt;span style="color:#ae81ff">20&lt;/span>&lt;span style="color:#66d9ef">vh&lt;/span>;
+&lt;span style="color:#66d9ef">height&lt;/span>: &lt;span style="color:#ae81ff">20&lt;/span>&lt;span style="color:#66d9ef">vh&lt;/span>;
+&lt;span style="color:#66d9ef">border&lt;/span>: &lt;span style="color:#66d9ef">solid&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>&lt;span style="color:#66d9ef">px&lt;/span> &lt;span style="color:#66d9ef">blue&lt;/span>;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Khi hiển thị trên trình duyệt thì kết quả sẽ gồm 3 hình vuông lớn nhỏ theo kích thước và thứ tự sau:
+&lt;figure style="flex-grow: 153; flex-basis: 367px">
+&lt;a href="https://sonlhcsuit.github.io/p/event-bubbles/pic-1.png" data-size="1338x874">&lt;img src="https://sonlhcsuit.github.io/p/event-bubbles/pic-1.png"
+srcset="https://sonlhcsuit.github.io/p/event-bubbles/pic-1_hu36b15a2e5c4bbafff2e4a73ac93e0b68_42228_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/event-bubbles/pic-1_hu36b15a2e5c4bbafff2e4a73ac93e0b68_42228_1024x0_resize_box_2.png 1024w"
+width="1338"
+height="874"
+loading="lazy"
+alt="Hiển thị đoạn của code ở phía trên">
+&lt;/a>
+&lt;figcaption>Hiển thị đoạn của code ở phía trên&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Box 3 - nằm trong Box 2 - nằm trong Box 1. Sử dụng một chút logic thì ta cũng có thể nhận thấy rằng khi người dùng click vào Box 3 thì cũng là người dùng click vào Box 2 và Box 1 (bởi vì Box 2 và Box 1 có kích thước lớn hơn và Box 3 nằm ở bên trong)&lt;/p>
+&lt;p>Nếu chúng ta thêm các &lt;strong>listener&lt;/strong> vào event click, thì khi event được trigger ở Box 3 thì các &lt;strong>listener&lt;/strong> ở Box 2, Box 1 cũng được trigger theo. Và kết quả là cả 3 &lt;strong>listener&lt;/strong> đều được thực thi. Điều này đúng với logic căn bản, tuy nhiên nếu các &lt;strong>listener&lt;/strong> này xung đột lẫn nhau (ví dụ ẩn/hiện các component thì không hợp lý chút nào ). Cần nắm rõ cơ chế lan truyền - propagation - các event.&lt;/p>
+&lt;p>Có 2 cơ chế lan truyền chính của các trình duyệt hiện tại là bubble &amp;amp; capture. Nhiều trình duyệt đã chuyển sang cơ chế mặc định là bubbles - từ &amp;ldquo;dưới lên &amp;ldquo;trên&amp;rdquo;. Còn cơ chế capture sẽ ngược lại, từ &amp;ldquo;trên&amp;rdquo; xuống &amp;ldquo;dưới&amp;rdquo;.&lt;/p>
+&lt;p>Đối với cơ chế capture: trình duyệt sẽ bắt đầu từ gốc của cây DOM, tìm dần xuống tới element được kích hoạt (Box 3). Để tới được Box 3 thì phải trải qua các Node sau : html -&amp;gt; body -&amp;gt; box 1 -&amp;gt; box 2 -&amp;gt; box 3. Như vậy theo cách duyệt cây này thì các &lt;strong>listener&lt;/strong> sẽ được trigger theo thứ tự trên (nếu đã được định nghĩa). Còn cơ chế bubble sẽ thực hiện ngược lại, từ node lá duyệt ngược lên gốc: box 3 -&amp;gt; box 2 -&amp;gt; box 1 -&amp;gt; body -&amp;gt; html. Và các &lt;strong>listener&lt;/strong> sẽ được kích hoạt với thứ tự trên.&lt;/p>
+&lt;p>Mặc định các trình duyệt hiện đại đều sử dụng cơ chế bubble. Tuy nhiên ta có thể chỉ định sử dụng cơ chết capture bằng cách sau.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">document.&lt;span style="color:#a6e22e">querySelectorAll&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;.box&amp;#39;&lt;/span>).&lt;span style="color:#a6e22e">forEach&lt;/span>(&lt;span style="color:#a6e22e">element&lt;/span> =&amp;gt; {
+&lt;span style="color:#a6e22e">element&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">function&lt;/span> (){
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">classList&lt;/span>.&lt;span style="color:#a6e22e">value&lt;/span>)
+})
+})
+&lt;span style="color:#75715e">// bubbles
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure style="flex-grow: 221; flex-basis: 531px">
+&lt;a href="https://sonlhcsuit.github.io/p/event-bubbles/pic-2.png" data-size="474x214">&lt;img src="https://sonlhcsuit.github.io/p/event-bubbles/pic-2.png"
+srcset="https://sonlhcsuit.github.io/p/event-bubbles/pic-2_hu33a54f6207db267ccf397f69cccdda5b_8851_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/event-bubbles/pic-2_hu33a54f6207db267ccf397f69cccdda5b_8851_1024x0_resize_box_2.png 1024w"
+width="474"
+height="214"
+loading="lazy"
+alt="Cơ chế bubble">
+&lt;/a>
+&lt;figcaption>Cơ chế bubble&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">document.&lt;span style="color:#a6e22e">querySelectorAll&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;.box&amp;#39;&lt;/span>).&lt;span style="color:#a6e22e">forEach&lt;/span>(&lt;span style="color:#a6e22e">element&lt;/span> =&amp;gt; {
+&lt;span style="color:#a6e22e">element&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">function&lt;/span>() {
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">classList&lt;/span>.&lt;span style="color:#a6e22e">value&lt;/span>)
+}, { &lt;span style="color:#a6e22e">capture&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#66d9ef">true&lt;/span> })
+})
+&lt;span style="color:#75715e">// capture
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure style="flex-grow: 213; flex-basis: 511px">
+&lt;a href="https://sonlhcsuit.github.io/p/event-bubbles/pic-3.png" data-size="550x258">&lt;img src="https://sonlhcsuit.github.io/p/event-bubbles/pic-3.png"
+srcset="https://sonlhcsuit.github.io/p/event-bubbles/pic-3_hua5307662f227eb14e7aaa5c68edc7b51_10014_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/event-bubbles/pic-3_hua5307662f227eb14e7aaa5c68edc7b51_10014_1024x0_resize_box_2.png 1024w"
+width="550"
+height="258"
+loading="lazy"
+alt="Cơ chế capture">
+&lt;/a>
+&lt;figcaption>Cơ chế capture&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Tuy nhiên đôi khi chúng ta cần ngăn chặn sự lan truyền (tức là chỉ kích hoạt những listener phía trước để đảm bảo đúng dữ kiện ) bằng cách sử dụng phương thức &lt;strong>Event.stopPropagation()&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">document.&lt;span style="color:#a6e22e">querySelectorAll&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;.box&amp;#39;&lt;/span>).&lt;span style="color:#a6e22e">forEach&lt;/span>(&lt;span style="color:#a6e22e">element&lt;/span> =&amp;gt; {
+&lt;span style="color:#a6e22e">element&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">function&lt;/span>(&lt;span style="color:#a6e22e">event&lt;/span>) {
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">classList&lt;/span>.&lt;span style="color:#a6e22e">value&lt;/span>)
+&lt;span style="color:#a6e22e">event&lt;/span>.&lt;span style="color:#a6e22e">stopPropagation&lt;/span>()
+},
+{
+&lt;span style="color:#75715e">// capture:true
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> }
+)
+})
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;figure style="flex-grow: 173; flex-basis: 416px">
+&lt;a href="https://sonlhcsuit.github.io/p/event-bubbles/pic-4.png" data-size="430x248">&lt;img src="https://sonlhcsuit.github.io/p/event-bubbles/pic-4.png"
+srcset="https://sonlhcsuit.github.io/p/event-bubbles/pic-4_hu4046789cdb57c522a976de3cc6f690b0_6032_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/event-bubbles/pic-4_hu4046789cdb57c522a976de3cc6f690b0_6032_1024x0_resize_box_2.png 1024w"
+width="430"
+height="248"
+loading="lazy"
+alt="Cơ chế bubble với stopPropagation">
+&lt;/a>
+&lt;figcaption>Cơ chế bubble với stopPropagation&lt;/figcaption>
+&lt;/figure>
+&lt;figure style="flex-grow: 178; flex-basis: 428px">
+&lt;a href="https://sonlhcsuit.github.io/p/event-bubbles/pic-5.png" data-size="414x232">&lt;img src="https://sonlhcsuit.github.io/p/event-bubbles/pic-5.png"
+srcset="https://sonlhcsuit.github.io/p/event-bubbles/pic-5_hue6344ce93fbc2e689f10c298a8dd30f4_5414_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/event-bubbles/pic-5_hue6344ce93fbc2e689f10c298a8dd30f4_5414_1024x0_resize_box_2.png 1024w"
+width="414"
+height="232"
+loading="lazy"
+alt="Cơ chế capture với stopPropagation">
+&lt;/a>
+&lt;figcaption>Cơ chế capture với stopPropagation&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Wednesday 31/03/2021&lt;/p></description></item><item><title>Valentine Trang</title><link>https://sonlhcsuit.github.io/p/valentine-trang/</link><pubDate>Mon, 15 Mar 2021 01:17:31 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/valentine-trang/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/valentine-trang/Nhieu_Loc_Thi_Nghe.jpg" alt="Featured image of post Valentine Trang" />&lt;p>Hôm nay cũng như bao hôm khác, sẽ là một ngày chủ nhật thật đẹp với bầu trời xanh của thành phố quen thuộc.&lt;/p>
 &lt;p>Mới vừa bước ra công ty sau một ngày chủ nhật mệt mỏi, lái trên đường về dọc kênh Nhiêu Lộc - Thị Nghè. Đang trên đường mà cứ thả hồn vào trời mây, việc lái xe thì nhường lại cho tay chân với phản xạ cơ bản.&lt;/p>
 &lt;p>Không hiểu vì lí do gì mà cảm xúc trống rỗng, buồn,&amp;hellip; lấp đầy tâm trí. Không biết buồn vì điều chi, chỉ cảm thấy thiếu 1 thứ gì đó rất quan trọng.&lt;/p>
 &lt;p>Càng lớn, cảm xúc tích cực càng ít đi, thay vào đó là những khoảng lặng.&lt;/p>
