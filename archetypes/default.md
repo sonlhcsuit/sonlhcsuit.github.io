@@ -8,5 +8,6 @@ categories:
     - none
 tags:
     - none
+image: cover.png
 ---
 

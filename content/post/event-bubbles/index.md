@@ -8,6 +8,7 @@ categories:
     - Javascript
 tags:
     - event
+image: cover.png
 ---
 Khi xử lý với Event thông qua DOM ở trong Javascript, cần phải hiểu một chút kỹ càng về cách các event hoạt động. Mỗi khi một event được **trigger**, bắt đầu thực thi **listener** thì cùng lúc cũng có nhiều **listener** được kích hoạt cùng lúc. Có các cơ chế để trình duyệt thực hiện những **listener** theo một thứ tự xác định. Các cơ chế cơ bản đó là bubble & capturing.
 
