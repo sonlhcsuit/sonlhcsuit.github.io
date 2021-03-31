@@ -2,7 +2,7 @@
 title: "Event Bubbling & Capturing"
 description: "Event's bubbling & capturing explained"
 date: 2021-03-31T11:14:24+07:00
-draft: true
+draft: false
 slug: "event-bubbles"
 categories:
     - Javascript
