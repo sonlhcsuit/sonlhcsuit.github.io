@@ -23,7 +23,7 @@ Nói về việc đặt tên biến thì có nhiều quy tắc
     - Bao gồm các ký tự trong bảng chữ cái (cả thường và hoa), số, ký tự đặc biệt cho phép tuỳ theo mỗi ngôn ngữ lập trình (JS thì chỉ cho phép 2 ký tự là "_" và "$")
     - Không được trùng với các reserved word (keyword)
     - Không được bắt đầu bằng số
-- Có thể có :
+- Nên có:
     - Ít mang động từ
     - Ngắn ngọn, súc tích, có nghĩa 
     - Sử dụng cách nối (như kebab case, snake case, camel case,etc.) khi có nhiều hơn 2 từ
@@ -118,7 +118,7 @@ console.log(z)
 // i được khai báo ở lexical f, khi thực hiện vòng lặp với post operator là i++ thì 
 // đang thay đổi giá trị của biến i ở lexical f. 
 ```
-Ngoại trừ việc **bind** khác một chút `var` vẫn tuân theo quy tắc của **scope chain**. Có nhiều bạn tưởng rằng `var` sẽ tạo một property ở global object (cụ thể window ) - Nhưng thực sự không phải vậy. chỉ khi nào bạn khai báo bằng `var` ở global scope thì mới tạo property, còn lại thì không.
+Ngoại trừ việc **bind** khác một chút `var` vẫn tuân theo quy tắc của **scope chain**. Có nhiều bạn tưởng rằng `var` sẽ tạo một property ở global object (cụ thể window ) - chưa hoàn toàn đúng, chỉ khi nào bạn khai báo bằng `var` ở global scope thì mới tạo property, còn lại thì không.
 ```js
 function f() {
     var z = '111'
@@ -127,6 +127,7 @@ function f() {
 }
 f()
 ```
+
 
 ## `const`
 Điều khiến **identifier** đặc biệt là không cho phép **direct assignment**. Assignment là một toán tử cho phép cập nhật **giá trị** đã được lưu trữ của **identifier**.
@@ -152,7 +153,74 @@ console.log(z)
 // {name: "z"}
 ```
 
-<!-- ## Hoisting & TDZ -->
+## Hoisting & Tempotary Dead Zone
+- Một **identifier** được khỏi tạo thông qua 1 hoặc 2 giai đoạn : **declaration** (**defination**) và **initialization**. Giai đoạn 2 có thể có hoặc không. **declaration** mang ý nghĩa cấp vùng nhớ dùng để lưu giá trị và **bind** **identifier**, **initialization** mang ý nghĩa khởi tạo cho giá trị ban đầu là bao nhiêu. Nếu không có **initialization** thì giá trị mạc định là **undefined**
+```js
+let z;
+// declaration
+let z = 100;
+// declaration + initialization
+```
+
+Hãy xem xét các ví dụ sau:
+
+```js
+console.log(z)
+let z = 10;
+// ReferenceError: Cannot access 'z' before initialization
+// Chúng ta đã sử dụng biến z trước khi nó được khai báo, đây được gọi là tdz
+```
+
+```js
+console.log(z)
+var z = 10;
+// undefined
+// Nếu thay let bằng var thì ta lại nhận được giá trị. Đây là ví dụ cho việc hoisting
+```
+Tempotary Dead Zone là khái niệm dùng để nói về việc sử dụng một **identifier** trước khi được tạo ra.Hoisting áp dụng đối với **identifier** được khai báo bằng từ khoá `var` và `function`. Hoisting chỉ hiệu quả trong một **lexical**. Hoisting nghĩa là Javascript sẽ đem tất cả các biến phù hợp ( khai báo bằng `var` và `function`), thực hiện việc **declaration** trước, khi đến dòng thực sự khai báo, chỉ phải thực hiện assignment mà thôi.
+
+TDZ không phải ám chỉ thứ tự khai báo các biến và sử dụng, mà thường dùng để nói về thứ tự thực thi (Execution Order). Miễn là tại thời điểm thực thi các biến đã được khởi là là ổn. TDZ thường hay đề cập đối với `let` hơn là `var` (`var` sẽ Javascript áp dụng hoisting nên chuyện chưa được khởi tạo không xảy ra - chỉ có vấn đề là giá trị là undefined mà thôi). Để khắc phục tình trạng một biến gặp trường hợp **tdz** thì nên cân nhắc đem tất cả các biến lên khai báo ở đầu scope/lexical
+```js
+if(true){ 
+  console.log(z); 
+  console.log(x); 
+  var z = 'this is z';
+  let x = 'this is x'; 
+}
+// undefined
+// ReferenceError: Cannot access 'x' before initialization
+```
+```js
+// Đây là ví dụ về thực thi
+if (true){
+  // 
+  function f(){
+    console.log(z)
+  }
+  let z = 'this is z'
+}
+f()   // 
+// this is z
+// this is z - khi khai hàm bằng function => giống như var
+//  bind thẳng lexical chứ không phải scope - arrow function 
+// khắc phục được điểm này
+```
+
+Khi bạn sử dụng các từ khoá để khởi tạo các **identifier**, thì các **identifier** được bind vào scope/lexical tuỳ thuộc vào nơi khai báo. Nhưng **nếu** bạn không khai báo biến mà trực tiếp **assignment** thì mặc định Javascript sẽ làm tự động tạo cho bạn 1 biến ở **global scope** (Nếu chưa tồn tại ở **scope chain** dẫn ra **global scope**)
+
+```js
+x = 'this is x';
+    function f() {
+        function g(){
+            z = 'this is z lexical of g'
+        }
+        g()
+    }
+    f();
+    console.log(globalThis)
+    console.log(x, z);
+// this is x this is z lexical of g
+```
 
 ---
 # References & more resources
@@ -160,3 +228,8 @@ console.log(z)
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+---
+
+### P/S:
+Các đoạn code ở trên được mình chạy ở trên engine V8 của Chrome thông qua trình duyệt Brave. Có thể tuỳ thuộc vào các engine có một cách thực thi Javascript khác nhau nên có gì sai sót xin email cho mình để mình cập nhật. Xin cảm ơn!
