@@ -1,6 +1,6 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
-description: none
+description: "No Description"
 date: {{ .Date }}
 draft: true
 slug: "{{.Name}}"
@@ -10,4 +10,10 @@ tags:
     - none
 image: cover.png
 ---
+
+
+
+
+---
+# References & more resources
 
