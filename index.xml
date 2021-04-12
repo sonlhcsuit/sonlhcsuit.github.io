@@ -1,4 +1,128 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sơn Lưu Blog</title><link>https://sonlhcsuit.github.io/</link><description>Recent content on Sơn Lưu Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 31 Mar 2021 11:14:24 +0700</lastBuildDate><atom:link href="https://sonlhcsuit.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Event Bubbling &amp; Capturing</title><link>https://sonlhcsuit.github.io/p/event-bubbles/</link><pubDate>Wed, 31 Mar 2021 11:14:24 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/event-bubbles/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/event-bubbles/cover.png" alt="Featured image of post Event Bubbling &amp; Capturing" />&lt;p>Khi xử lý với Event thông qua DOM ở trong Javascript, cần phải hiểu một chút kỹ càng về cách các event hoạt động. Mỗi khi một event được &lt;strong>trigger&lt;/strong>, bắt đầu thực thi &lt;strong>listener&lt;/strong> thì cùng lúc cũng có nhiều &lt;strong>listener&lt;/strong> được kích hoạt cùng lúc. Có các cơ chế để trình duyệt thực hiện những &lt;strong>listener&lt;/strong> theo một thứ tự xác định. Các cơ chế cơ bản đó là bubble &amp;amp; capturing.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sơn Lưu Blog</title><link>https://sonlhcsuit.github.io/</link><description>Recent content on Sơn Lưu Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 12 Apr 2021 19:01:17 +0700</lastBuildDate><atom:link href="https://sonlhcsuit.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Variable</title><link>https://sonlhcsuit.github.io/p/variable/</link><pubDate>Mon, 12 Apr 2021 19:01:17 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/variable/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/variable/cover.png" alt="Featured image of post Variable" />&lt;h2 id="variable">Variable&lt;/h2>
+&lt;p>Biến là một khái niệm rất quan trọng trong nhiều ngôn ngữ lập trình, được sử dụng để lưu trữ cá giá trị. Chúng ta có thể gán một giá trị cho một biến, khi nào cần giá trị (số, chuỗi, etc) thì gọi tên biến thay vì giá trị, các &lt;em>interpreter&lt;/em>, &lt;em>compiler&lt;/em> truy xuất đến giá trị đã được gán vào biến khi thực hiện việc tính toán thay cho chúng ta. Con người dễ tiếp thu ngôn ngữ hơn là những giá trị, con số, biến là một ánh xạ đơn giản, từ &lt;em>một từ&lt;/em> sinh ra &lt;em>giá trị&lt;/em>. Tên của biến phải là độc nhất theo những quy tắc đặt tên của các ngôn ngữ lập trình, một biến chỉ lưu trữ một giá trị tại 1 thời điểm nhất định.&lt;/p>
+&lt;p>Thoát khỏi việc ghi nhớ các giá trị bằng cách sử dụng biến, các lập trình viên lại có thêm vài vấn đề như sau: Đặt tên biến như thế nào để ngắn gọn, dễ nhớ? Muốn nhiều biến có cùng tên được không? etc. Nhằm giải quyết vấn đề về &lt;em>cách đặt tên biến&lt;/em>, các ngôn ngữ lập trình đã hỗ trợ thêm những khái niệm &lt;em>lexical, scope,&amp;hellip;&lt;/em>&lt;/p>
+&lt;h2 id="variable-naming">Variable naming&lt;/h2>
+&lt;p>Nói về việc đặt tên biến thì có nhiều quy tắc&lt;/p>
+&lt;ul>
+&lt;li>Tối thiểu:
+&lt;ul>
+&lt;li>Tên của một biến phải độc nhất trong một phạm vi nhất định&lt;/li>
+&lt;li>Bao gồm các ký tự trong bảng chữ cái (cả thường và hoa), số, ký tự đặc biệt cho phép tuỳ theo mỗi ngôn ngữ lập trình (JS thì chỉ cho phép 2 ký tự là &amp;ldquo;_&amp;rdquo; và &amp;ldquo;$&amp;quot;)&lt;/li>
+&lt;li>Không được trùng với các reserved word (keyword)&lt;/li>
+&lt;li>Không được bắt đầu bằng số&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Có thể có :
+&lt;ul>
+&lt;li>Ít mang động từ&lt;/li>
+&lt;li>Ngắn ngọn, súc tích, có nghĩa&lt;/li>
+&lt;li>Sử dụng cách nối (như kebab case, snake case, camel case,etc.) khi có nhiều hơn 2 từ&lt;/li>
+&lt;li>&amp;hellip;
+Và quan trọng hơn hết là phải tuân thủ cú pháp để khai báo biến của ngôn ngữ lập trình!&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#75715e">// ở trong javascript, chúng ta có 3 cách khai báo biến
+&lt;/span>&lt;span style="color:#75715e">// bằng viêc sử dụng 3 reserved word như var, let, const
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">revenues&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">costs&lt;/span>;
+&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">profits&lt;/span>;
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Vốn từ vựng nhiều là một lợi thế khi đặt tên biến, tuy nhiên chúng ta không đặt tên biến khác nhau hoàn toàn. Nếu đặt tên biến khác nhau hoàn toàn thì sẽ có rất nhiều biến, việc nhớ chúng sẽ rất tốn thời gian. Thay vì đó, các ngôn ngữ lập trình hỗ trợ các khái niệm &lt;em>idetifier, scope, lexical,etc.&lt;/em> để giúp chúng ta tiết kiệm thời gian, công sức.&lt;/p>
+&lt;h2 id="identifier--access-scope">Identifier &amp;amp; access scope&lt;/h2>
+&lt;p>Biến là một &lt;strong>identifier&lt;/strong>, tức là định danh (identifier còn có thể các function, class,etc). Chúng ta có thể khởi tạo (tạo ra) nhiều biến có cùng tên, lưu trữ các giá trị khác nhau ở các &lt;strong>scope&lt;/strong> khác nhau. Trình duyệt sẽ dựa vào các scope, xác định các &lt;strong>identifier&lt;/strong> và giá trị của chúng phù hợp. Các &lt;strong>identifier&lt;/strong> khi được khởi tạo luôn được gắn chặt với &lt;strong>scope&lt;/strong> nơi mà chúng được khởi tạo. Chúng ta chỉ có thể truy cập tới các identifier ở các &lt;strong>outer scope&lt;/strong>, không đối với &lt;strong>inner scope&lt;/strong>. &lt;strong>Scope&lt;/strong> có phạm vi truy cập lớn nhất &lt;strong>Global Scope&lt;/strong>. Sự khác biệt giữa &lt;strong>let&lt;/strong> &amp;amp; &lt;strong>var&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">revenues&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">100000&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">costs&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">12345&lt;/span>
+&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">revenue&lt;/span> &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> ){
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">profits&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">revenues&lt;/span> &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#a6e22e">costs&lt;/span>
+}
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">profits&lt;/span>)
+&lt;span style="color:#75715e">// ReferenceError: profits is not defined
+&lt;/span>&lt;span style="color:#75715e">// Hàm console ở global scope truy cập tới biến profits,
+&lt;/span>&lt;span style="color:#75715e">// tuy nhiên biến profits được khởi tạo ở scope của if (inner scope),
+&lt;/span>&lt;span style="color:#75715e">// nên việc truy cập thất bại. Tuy nhiên việc truy cập
+&lt;/span>&lt;span style="color:#75715e">// revenues &amp;amp; costs đều thành công khi ở trong scope của if vì
+&lt;/span>&lt;span style="color:#75715e">// đối vời scope của if thì global là outer scope
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Khi thực hiện việc tìm kiếm các &lt;strong>identifier&lt;/strong> thì ta sẽ tuân theo quy tắc từ trong ra ngoài. Javascript sẽ xét ở scope hiện tại, sau đó chuyện tới outer scope, xét tiếp, tiếp tục chuyển tới outer scope,&amp;hellip; cho tới khi gặp được &lt;strong>identifier&lt;/strong> hợp lệ hoặc tới global scope mà không tìm được thì sẽ báo lỗi - scopes chain. Đối với từ khoá &lt;code>let&lt;/code> thì quy tắc &lt;strong>scopes chain&lt;/strong> đúng hoàn toàn, và nhiều ngôn ngữ khác cũng vậy. Tuy nhiên điều này không đúng với &lt;code>var&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#66d9ef">true&lt;/span>){
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>
+}
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#75715e">// 100
+&lt;/span>&lt;span style="color:#75715e">// Điều này chứng mình rằng khi khai báo var, quy tắc scope chain
+&lt;/span>&lt;span style="color:#75715e">// không còn chính xác nữa
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>var&lt;/code> đặc biệt hơn với &lt;code>let&lt;/code> ở chỗ nó không tuân theo quy tắc chung. Chúng ta có thể kết luận rằng, khi khai báo &lt;strong>identifier&lt;/strong> với từ khoá &lt;code>var&lt;/code> sẽ có scope là global không? Tất nhiên là không!&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">initialVariable&lt;/span>() {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;this is z&amp;#39;&lt;/span>
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+}
+&lt;span style="color:#a6e22e">initialVariable&lt;/span>()
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#75715e">// this is z
+&lt;/span>&lt;span style="color:#75715e">// ReferenceError: z is not defined
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Vậy nên ta không thể kết luận rằng &lt;strong>khai báo identifier với từ khoá &lt;code>var&lt;/code> sẽ có scope là global&lt;/strong>. Vậy thì lí do tại sao ví dụ ở trên lại bị sai nhỉ? Câu trả lời là đối với &lt;strong>scope&lt;/strong> của hàm thì có một chút khác biệt, có tên là &lt;strong>lexical&lt;/strong>. Khi khai báo &lt;strong>identifier&lt;/strong> bằng &lt;code>var&lt;/code>, thay vì &lt;strong>bind&lt;/strong> vào scope, thì &lt;strong>identifier&lt;/strong> được &lt;strong>bind&lt;/strong> vào &lt;strong>lexical&lt;/strong>. Ngoại trừ điều đó ra thì &lt;code>var&lt;/code> còn có khả năng &lt;strong>redeclarion&lt;/strong> (tái khai báo) mà không gặp lỗi. (làm với &lt;code>let&lt;/code> thì sẽ gặp lỗi &lt;code>SyntaxError: Identifier _ has already been declared&lt;/code>)&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;this is z at first&amp;#39;&lt;/span>
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">initialVariable&lt;/span>() {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;this is z&amp;#39;&lt;/span>
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;this is z but 4th&amp;#39;&lt;/span> &lt;span style="color:#75715e">// redeclaration
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+}
+&lt;span style="color:#a6e22e">initialVariable&lt;/span>()
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#75715e">// this is z at first
+&lt;/span>&lt;span style="color:#75715e">// this is z
+&lt;/span>&lt;span style="color:#75715e">// this is z but 4th
+&lt;/span>&lt;span style="color:#75715e">// this is z at first
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Xét thêm trường hợp này&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span>&lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">1000&lt;/span>
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>() {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">fs&lt;/span> &lt;span style="color:#f92672">=&lt;/span> []
+&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">5&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;span style="color:#a6e22e">fs&lt;/span>.&lt;span style="color:#a6e22e">push&lt;/span>(&lt;span style="color:#66d9ef">function&lt;/span> () {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+})
+}
+&lt;span style="color:#a6e22e">fs&lt;/span>[&lt;span style="color:#ae81ff">3&lt;/span>]()
+}
+&lt;span style="color:#a6e22e">f&lt;/span>()
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#75715e">// 5
+&lt;/span>&lt;span style="color:#75715e">// i được khai báo ở lexical f, khi thực hiện vòng lặp với post operator là i++ thì
+&lt;/span>&lt;span style="color:#75715e">// đang thay đổi giá trị của biến i ở lexical f.
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ngoại trừ việc &lt;strong>bind&lt;/strong> khác một chút &lt;code>var&lt;/code> vẫn tuân theo quy tắc của &lt;strong>scope chain&lt;/strong>. Có nhiều bạn tưởng rằng &lt;code>var&lt;/code> sẽ tạo một property ở global object (cụ thể window ) - Nhưng thực sự không phải vậy. chỉ khi nào bạn khai báo bằng &lt;code>var&lt;/code> ở global scope thì mới tạo property, còn lại thì không.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>() {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;111&amp;#39;&lt;/span>
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(window.&lt;span style="color:#a6e22e">z&lt;/span>)
+}
+&lt;span style="color:#a6e22e">f&lt;/span>()
+&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="const">&lt;code>const&lt;/code>&lt;/h2>
+&lt;p>Điều khiến &lt;strong>identifier&lt;/strong> đặc biệt là không cho phép &lt;strong>direct assignment&lt;/strong>. Assignment là một toán tử cho phép cập nhật &lt;strong>giá trị&lt;/strong> đã được lưu trữ của &lt;strong>identifier&lt;/strong>.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>;
+&lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;??&amp;#39;&lt;/span>
+&lt;span style="color:#75715e">// TypeError: Assignment to constant variable.
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tuy nhiên ,việc thay đổi nội tại bên trong, hoặc thay đổi thông qua trung gian vẫn có thể.(Đối với references data type)&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> []
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#a6e22e">z&lt;/span>.&lt;span style="color:#a6e22e">push&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>,&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>)
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#75715e">// []
+&lt;/span>&lt;span style="color:#75715e">// (4) [1, 2, 3, 4]
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> {}
+&lt;span style="color:#a6e22e">z&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;z&amp;#39;&lt;/span>
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#75715e">// {name: &amp;#34;z&amp;#34;}
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;hr>
+&lt;h1 id="references--more-resources">References &amp;amp; more resources&lt;/h1>
+&lt;ul>
+&lt;li>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Event Bubbling &amp; Capturing</title><link>https://sonlhcsuit.github.io/p/event-bubbles/</link><pubDate>Wed, 31 Mar 2021 11:14:24 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/event-bubbles/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/event-bubbles/cover.png" alt="Featured image of post Event Bubbling &amp; Capturing" />&lt;p>Khi xử lý với Event thông qua DOM ở trong Javascript, cần phải hiểu một chút kỹ càng về cách các event hoạt động. Mỗi khi một event được &lt;strong>trigger&lt;/strong>, bắt đầu thực thi &lt;strong>listener&lt;/strong> thì cùng lúc cũng có nhiều &lt;strong>listener&lt;/strong> được kích hoạt cùng lúc. Có các cơ chế để trình duyệt thực hiện những &lt;strong>listener&lt;/strong> theo một thứ tự xác định. Các cơ chế cơ bản đó là bubble &amp;amp; capturing.&lt;/p>
 &lt;p>Xem xét các ví dụ sau đây về độ sâu (depth) của cây DOM thông qua đoạn HTML&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html">&amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;box box-1&amp;#34;&lt;/span>&amp;gt;
 &amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;box box-2&amp;#34;&lt;/span>&amp;gt;
