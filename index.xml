@@ -12,7 +12,7 @@
 &lt;li>Không được bắt đầu bằng số&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>Có thể có :
+&lt;li>Nên có:
 &lt;ul>
 &lt;li>Ít mang động từ&lt;/li>
 &lt;li>Ngắn ngọn, súc tích, có nghĩa&lt;/li>
@@ -91,7 +91,7 @@ Và quan trọng hơn hết là phải tuân thủ cú pháp để khai báo bi�
 &lt;span style="color:#75715e">// 5
 &lt;/span>&lt;span style="color:#75715e">// i được khai báo ở lexical f, khi thực hiện vòng lặp với post operator là i++ thì
 &lt;/span>&lt;span style="color:#75715e">// đang thay đổi giá trị của biến i ở lexical f.
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ngoại trừ việc &lt;strong>bind&lt;/strong> khác một chút &lt;code>var&lt;/code> vẫn tuân theo quy tắc của &lt;strong>scope chain&lt;/strong>. Có nhiều bạn tưởng rằng &lt;code>var&lt;/code> sẽ tạo một property ở global object (cụ thể window ) - Nhưng thực sự không phải vậy. chỉ khi nào bạn khai báo bằng &lt;code>var&lt;/code> ở global scope thì mới tạo property, còn lại thì không.&lt;/p>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ngoại trừ việc &lt;strong>bind&lt;/strong> khác một chút &lt;code>var&lt;/code> vẫn tuân theo quy tắc của &lt;strong>scope chain&lt;/strong>. Có nhiều bạn tưởng rằng &lt;code>var&lt;/code> sẽ tạo một property ở global object (cụ thể window ) - chưa hoàn toàn đúng, chỉ khi nào bạn khai báo bằng &lt;code>var&lt;/code> ở global scope thì mới tạo property, còn lại thì không.&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>() {
 &lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;111&amp;#39;&lt;/span>
 &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
@@ -114,15 +114,69 @@ Và quan trọng hơn hết là phải tuân thủ cú pháp để khai báo bi�
 &lt;span style="color:#a6e22e">z&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;z&amp;#39;&lt;/span>
 &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
 &lt;span style="color:#75715e">// {name: &amp;#34;z&amp;#34;}
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
-&lt;hr>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="hoisting--tempotary-dead-zone">Hoisting &amp;amp; Tempotary Dead Zone&lt;/h2>
+&lt;ul>
+&lt;li>Một &lt;strong>identifier&lt;/strong> được khỏi tạo thông qua 1 hoặc 2 giai đoạn : &lt;strong>declaration&lt;/strong> (&lt;strong>defination&lt;/strong>) và &lt;strong>initialization&lt;/strong>. Giai đoạn 2 có thể có hoặc không. &lt;strong>declaration&lt;/strong> mang ý nghĩa cấp vùng nhớ dùng để lưu giá trị và &lt;strong>bind&lt;/strong> &lt;strong>identifier&lt;/strong>, &lt;strong>initialization&lt;/strong> mang ý nghĩa khởi tạo cho giá trị ban đầu là bao nhiêu. Nếu không có &lt;strong>initialization&lt;/strong> thì giá trị mạc định là &lt;strong>undefined&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span>;
+&lt;span style="color:#75715e">// declaration
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>;
+&lt;span style="color:#75715e">// declaration + initialization
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Hãy xem xét các ví dụ sau:&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+&lt;span style="color:#75715e">// ReferenceError: Cannot access &amp;#39;z&amp;#39; before initialization
+&lt;/span>&lt;span style="color:#75715e">// Chúng ta đã sử dụng biến z trước khi nó được khai báo, đây được gọi là tdz
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">10&lt;/span>;
+&lt;span style="color:#75715e">// undefined
+&lt;/span>&lt;span style="color:#75715e">// Nếu thay let bằng var thì ta lại nhận được giá trị. Đây là ví dụ cho việc hoisting
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tempotary Dead Zone là khái niệm dùng để nói về việc sử dụng một &lt;strong>identifier&lt;/strong> trước khi được tạo ra.Hoisting áp dụng đối với &lt;strong>identifier&lt;/strong> được khai báo bằng từ khoá &lt;code>var&lt;/code> và &lt;code>function&lt;/code>. Hoisting chỉ hiệu quả trong một &lt;strong>lexical&lt;/strong>. Hoisting nghĩa là Javascript sẽ đem tất cả các biến phù hợp ( khai báo bằng &lt;code>var&lt;/code> và &lt;code>function&lt;/code>), thực hiện việc &lt;strong>declaration&lt;/strong> trước, khi đến dòng thực sự khai báo, chỉ phải thực hiện assignment mà thôi.&lt;/p>
+&lt;p>TDZ không phải ám chỉ thứ tự khai báo các biến và sử dụng, mà thường dùng để nói về thứ tự thực thi (Execution Order). Miễn là tại thời điểm thực thi các biến đã được khởi là là ổn. TDZ thường hay đề cập đối với &lt;code>let&lt;/code> hơn là &lt;code>var&lt;/code> (&lt;code>var&lt;/code> sẽ Javascript áp dụng hoisting nên chuyện chưa được khởi tạo không xảy ra - chỉ có vấn đề là giá trị là undefined mà thôi). Để khắc phục tình trạng một biến gặp trường hợp &lt;strong>tdz&lt;/strong> thì nên cân nhắc đem tất cả các biến lên khai báo ở đầu scope/lexical&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#66d9ef">true&lt;/span>){
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>);
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">x&lt;/span>);
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;this is z&amp;#39;&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">x&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;this is x&amp;#39;&lt;/span>;
+}
+&lt;span style="color:#75715e">// undefined
+&lt;/span>&lt;span style="color:#75715e">// ReferenceError: Cannot access &amp;#39;x&amp;#39; before initialization
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#75715e">// Đây là ví dụ về thực thi
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#66d9ef">true&lt;/span>){
+&lt;span style="color:#75715e">//
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>(){
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
+}
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;this is z&amp;#39;&lt;/span>
+}
+&lt;span style="color:#a6e22e">f&lt;/span>() &lt;span style="color:#75715e">//
+&lt;/span>&lt;span style="color:#75715e">// this is z
+&lt;/span>&lt;span style="color:#75715e">// this is z - khi khai hàm bằng function =&amp;gt; giống như var
+&lt;/span>&lt;span style="color:#75715e">// bind thẳng lexical chứ không phải scope - arrow function
+&lt;/span>&lt;span style="color:#75715e">// khắc phục được điểm này
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Khi bạn sử dụng các từ khoá để khởi tạo các &lt;strong>identifier&lt;/strong>, thì các &lt;strong>identifier&lt;/strong> được bind vào scope/lexical tuỳ thuộc vào nơi khai báo. Nhưng &lt;strong>nếu&lt;/strong> bạn không khai báo biến mà trực tiếp &lt;strong>assignment&lt;/strong> thì mặc định Javascript sẽ làm tự động tạo cho bạn 1 biến ở &lt;strong>global scope&lt;/strong> (Nếu chưa tồn tại ở &lt;strong>scope chain&lt;/strong> dẫn ra &lt;strong>global scope&lt;/strong>)&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#a6e22e">x&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;this is x&amp;#39;&lt;/span>;
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>() {
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>(){
+&lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;this is z lexical of g&amp;#39;&lt;/span>
+}
+&lt;span style="color:#a6e22e">g&lt;/span>()
+}
+&lt;span style="color:#a6e22e">f&lt;/span>();
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">globalThis&lt;/span>)
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">x&lt;/span>, &lt;span style="color:#a6e22e">z&lt;/span>);
+&lt;span style="color:#75715e">// this is x this is z lexical of g
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
 &lt;h1 id="references--more-resources">References &amp;amp; more resources&lt;/h1>
 &lt;ul>
 &lt;li>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Event Bubbling &amp; Capturing</title><link>https://sonlhcsuit.github.io/p/event-bubbles/</link><pubDate>Wed, 31 Mar 2021 11:14:24 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/event-bubbles/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/event-bubbles/cover.png" alt="Featured image of post Event Bubbling &amp; Capturing" />&lt;p>Khi xử lý với Event thông qua DOM ở trong Javascript, cần phải hiểu một chút kỹ càng về cách các event hoạt động. Mỗi khi một event được &lt;strong>trigger&lt;/strong>, bắt đầu thực thi &lt;strong>listener&lt;/strong> thì cùng lúc cũng có nhiều &lt;strong>listener&lt;/strong> được kích hoạt cùng lúc. Có các cơ chế để trình duyệt thực hiện những &lt;strong>listener&lt;/strong> theo một thứ tự xác định. Các cơ chế cơ bản đó là bubble &amp;amp; capturing.&lt;/p>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="ps">P/S:&lt;/h3>
+&lt;p>Các đoạn code ở trên được mình chạy ở trên engine V8 của Chrome thông qua trình duyệt Brave. Có thể tuỳ thuộc vào các engine có một cách thực thi Javascript khác nhau nên có gì sai sót xin email cho mình để mình cập nhật. Xin cảm ơn!&lt;/p></description></item><item><title>Event Bubbling &amp; Capturing</title><link>https://sonlhcsuit.github.io/p/event-bubbles/</link><pubDate>Wed, 31 Mar 2021 11:14:24 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/event-bubbles/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/event-bubbles/cover.png" alt="Featured image of post Event Bubbling &amp; Capturing" />&lt;p>Khi xử lý với Event thông qua DOM ở trong Javascript, cần phải hiểu một chút kỹ càng về cách các event hoạt động. Mỗi khi một event được &lt;strong>trigger&lt;/strong>, bắt đầu thực thi &lt;strong>listener&lt;/strong> thì cùng lúc cũng có nhiều &lt;strong>listener&lt;/strong> được kích hoạt cùng lúc. Có các cơ chế để trình duyệt thực hiện những &lt;strong>listener&lt;/strong> theo một thứ tự xác định. Các cơ chế cơ bản đó là bubble &amp;amp; capturing.&lt;/p>
 &lt;p>Xem xét các ví dụ sau đây về độ sâu (depth) của cây DOM thông qua đoạn HTML&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html">&amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;box box-1&amp;#34;&lt;/span>&amp;gt;
 &amp;lt;&lt;span style="color:#f92672">div&lt;/span> &lt;span style="color:#a6e22e">class&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;box box-2&amp;#34;&lt;/span>&amp;gt;
