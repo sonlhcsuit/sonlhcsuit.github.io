@@ -5,7 +5,7 @@ date: 2021-04-12T19:01:17+07:00
 draft: false
 slug: "variable"
 categories:
-    - Programming Language
+    - programming-language
 tags:
     - Javascript
 image: cover.png

@@ -8,7 +8,7 @@ categories:
 tags:
     - Yêu
     - Bâng khuâng
-image: Nhieu_Loc_Thi_Nghe.jpg
+image: cover.png
 ---
 
 Hôm nay cũng như bao hôm khác, sẽ là một ngày chủ nhật thật đẹp với bầu trời xanh của thành phố quen thuộc.
