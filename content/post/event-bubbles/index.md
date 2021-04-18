@@ -5,7 +5,7 @@ date: 2021-03-31T11:14:24+07:00
 draft: false
 slug: "event-bubbles"
 categories:
-    - Javascript
+    - javascript
 tags:
     - event
 image: cover.png
