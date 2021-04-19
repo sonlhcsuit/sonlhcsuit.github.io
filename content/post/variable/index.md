@@ -10,13 +10,12 @@ tags:
     - Javascript
 image: cover.png
 ---
-
-## Variable
+# Variable
 Biến là một khái niệm rất quan trọng trong nhiều ngôn ngữ lập trình, được sử dụng để lưu trữ cá giá trị. Chúng ta có thể gán một giá trị cho một biến, khi nào cần giá trị (số, chuỗi, etc) thì gọi tên biến thay vì giá trị, các *interpreter*, *compiler* truy xuất đến giá trị đã được gán vào biến khi thực hiện việc tính toán thay cho chúng ta. Con người dễ tiếp thu ngôn ngữ hơn là những giá trị, con số, biến là một ánh xạ đơn giản, từ *một từ* sinh ra *giá trị*. Tên của biến phải là độc nhất theo những quy tắc đặt tên của các ngôn ngữ lập trình, một biến chỉ lưu trữ một giá trị tại 1 thời điểm nhất định.
 
 Thoát khỏi việc ghi nhớ các giá trị bằng cách sử dụng biến, các lập trình viên lại có thêm vài vấn đề như sau: Đặt tên biến như thế nào để ngắn gọn, dễ nhớ? Muốn nhiều biến có cùng tên được không? etc. Nhằm giải quyết vấn đề về *cách đặt tên biến*, các ngôn ngữ lập trình đã hỗ trợ thêm những khái niệm *lexical, scope,...* 
 
-## Variable naming
+# Variable naming
 Nói về việc đặt tên biến thì có nhiều quy tắc
 - Tối thiểu:
     - Tên của một biến phải độc nhất trong một phạm vi nhất định
@@ -39,7 +38,7 @@ const profits;
 
 Vốn từ vựng nhiều là một lợi thế khi đặt tên biến, tuy nhiên chúng ta không đặt tên biến khác nhau hoàn toàn. Nếu đặt tên biến khác nhau hoàn toàn thì sẽ có rất nhiều biến, việc nhớ chúng sẽ rất tốn thời gian. Thay vì đó, các ngôn ngữ lập trình hỗ trợ các khái niệm *idetifier, scope, lexical,etc.* để giúp chúng ta tiết kiệm thời gian, công sức.
 
-## Identifier & access scope
+# Identifier & access scope
 Biến là một **identifier**, tức là định danh (identifier còn có thể các function, class,etc). Chúng ta có thể khởi tạo (tạo ra) nhiều biến có cùng tên, lưu trữ các giá trị khác nhau ở các **scope** khác nhau. Trình duyệt sẽ dựa vào các scope, xác định các **identifier** và giá trị của chúng phù hợp. Các **identifier** khi được khởi tạo luôn được gắn chặt với **scope** nơi mà chúng được khởi tạo. Chúng ta chỉ có thể truy cập tới các identifier ở các **outer scope**, không đối với **inner scope**. **Scope** có phạm vi truy cập lớn nhất **Global Scope**. Sự khác biệt giữa **let** & **var**
 
 ```js
@@ -129,7 +128,7 @@ f()
 ```
 
 
-## `const`
+# `const`
 Điều khiến **identifier** đặc biệt là không cho phép **direct assignment**. Assignment là một toán tử cho phép cập nhật **giá trị** đã được lưu trữ của **identifier**.
 
 ```js
@@ -153,8 +152,8 @@ console.log(z)
 // {name: "z"}
 ```
 
-## Hoisting & Tempotary Dead Zone
-- Một **identifier** được khỏi tạo thông qua 1 hoặc 2 giai đoạn : **declaration** (**defination**) và **initialization**. Giai đoạn 2 có thể có hoặc không. **declaration** mang ý nghĩa cấp vùng nhớ dùng để lưu giá trị và **bind** **identifier**, **initialization** mang ý nghĩa khởi tạo cho giá trị ban đầu là bao nhiêu. Nếu không có **initialization** thì giá trị mạc định là **undefined**
+# Hoisting & Tempotary Dead Zone
+- Một **identifier** được khỏi tạo thông qua 1 hoặc 2 giai đoạn : **declaration** (**defination**) và **initialization**. Giai đoạn 2 có thể có hoặc không. **declaration** mang ý nghĩa cấp vùng nhớ dùng để lưu giá trị và **bind identifier** với giá trị có sẵn ở vùng nhớ(C++), **initialization** mang ý nghĩa khởi tạo cho giá trị ban đầu là bao nhiêu. Nếu không có **initialization** thì giá trị mạc định là **undefined**
 ```js
 let z;
 // declaration
@@ -223,6 +222,7 @@ x = 'this is x';
 ```
 
 ---
+
 # References & more resources
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var
