@@ -1,7 +1,194 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sơn Lưu Blog</title><link>https://sonlhcsuit.github.io/</link><description>Recent content on Sơn Lưu Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 12 Apr 2021 19:01:17 +0700</lastBuildDate><atom:link href="https://sonlhcsuit.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Variable</title><link>https://sonlhcsuit.github.io/p/variable/</link><pubDate>Mon, 12 Apr 2021 19:01:17 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/variable/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/variable/cover.png" alt="Featured image of post Variable" />&lt;h2 id="variable">Variable&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sơn Lưu Blog</title><link>https://sonlhcsuit.github.io/</link><description>Recent content on Sơn Lưu Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 18 Apr 2021 00:17:35 +0700</lastBuildDate><atom:link href="https://sonlhcsuit.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Functions</title><link>https://sonlhcsuit.github.io/p/function/</link><pubDate>Sun, 18 Apr 2021 00:17:35 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/function/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/function/cover.png" alt="Featured image of post Functions" />&lt;h1 id="function">Function&lt;/h1>
+&lt;p>&lt;strong>Function&lt;/strong> là một khái niệm quan trọng trong nhiều ngôn ngữ lập trình bậc cao. Theo định nghĩa từ toán học thì &lt;strong>function&lt;/strong> là những &lt;strong>expression, rules,laws&lt;/strong> được sử dụng để định nghĩa những &lt;strong>relation&lt;/strong> giữa nhiều &lt;strong>dependant variables&lt;/strong> (biến độc lập). Nói một cách khó hiểu hơn, là một &lt;strong>mapping&lt;/strong> (ánh xạ) từ một giá trị ở &lt;em>miền giá trị&lt;/em> này sang một giá trị khác ở &lt;em>miền giá trị&lt;/em> khác.&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 208; flex-basis: 500px">
+&lt;a href="https://sonlhcsuit.github.io/p/function/function-algebra.png" data-size="828x397">&lt;img src="https://sonlhcsuit.github.io/p/function/function-algebra.png"
+srcset="https://sonlhcsuit.github.io/p/function/function-algebra_hu311918eba7412b1275f9d8949c4bb2a8_8626_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/function/function-algebra_hu311918eba7412b1275f9d8949c4bb2a8_8626_1024x0_resize_box_2.png 1024w"
+width="828"
+height="397"
+loading="lazy"
+alt="Định nghĩa về function theo toán học">
+&lt;/a>
+&lt;figcaption>Định nghĩa về function theo toán học&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Khi làm việc với các ngôn ngữ lập trình thì chúng ta lại sử dụng hàm khác đi một chút. &lt;strong>Function&lt;/strong> là một &amp;ldquo;cỗ máy&amp;rdquo; nhận vào những &lt;strong>input&lt;/strong> và đưa ra cho chúng ta &lt;strong>output&lt;/strong>. Khi viết một hàm, chúng ta đang thiết kế cách mà &amp;ldquo;cỗ máy&amp;rdquo; hoạt động, cách chuyển đổi từ &lt;strong>input&lt;/strong> sang &lt;strong>output&lt;/strong>, chúng ta có thể sử dụng bản thiết kế này chúng ở mọi nơi bằng cách &lt;strong>invoke,call&lt;/strong> (gọi hàm - sẽ có sự khác biệt phía bên dưới).&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 82; flex-basis: 199px">
+&lt;a href="https://sonlhcsuit.github.io/p/function/function-machine.png" data-size="500x603">&lt;img src="https://sonlhcsuit.github.io/p/function/function-machine.png"
+srcset="https://sonlhcsuit.github.io/p/function/function-machine_huc25f250195a519fdfdea4f9a43f2fd11_14605_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/function/function-machine_huc25f250195a519fdfdea4f9a43f2fd11_14605_1024x0_resize_box_2.png 1024w"
+width="500"
+height="603"
+loading="lazy"
+alt="Định nghĩa về function nhưng bớt khó hiểu hơn">
+&lt;/a>
+&lt;figcaption>Định nghĩa về function nhưng bớt khó hiểu hơn&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h1 id="create-function">Create function&lt;/h1>
+&lt;p>Có một vài điều cần lưu ý khi sử dụng &lt;strong>function&lt;/strong> như sau:
+- Phải khai báo &lt;strong>function&lt;/strong> trước khi sử dụng
+- &lt;strong>function&lt;/strong> không chạy tại thời điểm được khai báo mà chỉ chạy khi được invoke/call
+Ngoại trừ những điều trên thì còn một vài thứ linh tinh nữa. Trong Javascript thì chúng ta có thể khai báo &lt;strong>function&lt;/strong> bằng 2 cách - sử dụng &lt;strong>function definition&lt;/strong> hoặc &lt;strong>function expression&lt;/strong>. Javascript xem &lt;strong>function&lt;/strong> như là một đối tượng, nên &lt;strong>function&lt;/strong> có thể là &lt;strong>output&lt;/strong> của một function khác.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#75715e">// Sử dụng function definition với từ khoá function
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">functionName&lt;/span>(&lt;span style="color:#a6e22e">parameters_comes_here&lt;/span>){
+&lt;span style="color:#75715e">// function_body here
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// remember to return something
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;span style="color:#75715e">// Sử dụng function expression
+&lt;/span>&lt;span style="color:#75715e">// const / let/ var đều có thể
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">myFunctionName&lt;/span> &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#a6e22e">parameters_comes_here&lt;/span>)=&amp;gt;{
+&lt;span style="color:#75715e">// function_body here
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// remember to return something
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="parameter--argument">Parameter / Argument&lt;/h1>
+&lt;p>Khi khai báo hàm thì ta cần phải chú ý &lt;strong>function name&lt;/strong> (quy tắc đặt tên giống tên biến) và &lt;strong>function parameter&lt;/strong>. &lt;strong>Parameter&lt;/strong> nghĩa là tham số đầu vào - một cách gọi khác của &lt;strong>input&lt;/strong>. &lt;strong>Parameter&lt;/strong> là biến dùng để lưu giá trị nhận được khi &lt;strong>function&lt;/strong> được invoke/call. &lt;strong>Function&lt;/strong> sẽ yêu cầu một số lượng nhất định các &lt;strong>parameter&lt;/strong> khi khai báo, đồng thời cũng phải đúng số lượng các &lt;strong>argument&lt;/strong> truyền vào khi hàm được &lt;strong>invoke/call&lt;/strong> và đúng thứ tự được khai báo . Tuy nhiên Javascript không bắt buộc điều này, số lượng các &lt;strong>parameter&lt;/strong> và &lt;strong>argument&lt;/strong> có thể khác nhau. Điều này dẫn tới một số vấn nhỏ.&lt;br>
+Đối với việc số lượng các &lt;strong>parameter&lt;/strong> và &lt;strong>argument&lt;/strong> bằng nhau.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#75715e">// Khai báo hàm cube với 3 parameter là a, b, c
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">cube&lt;/span>(&lt;span style="color:#a6e22e">a&lt;/span>,&lt;span style="color:#a6e22e">b&lt;/span>,&lt;span style="color:#a6e22e">c&lt;/span>){
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">a&lt;/span>&lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">b&lt;/span>&lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>&lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>
+}
+&lt;span style="color:#75715e">// Invoke/call hàm cube với 3 argument tương ứng là 2, 3, 4
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">cube&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>)
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">result&lt;/span>)
+&lt;span style="color:#75715e">// 99
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Đối với việc số lượng các &lt;strong>parameter&lt;/strong> và &lt;strong>argument&lt;/strong> không bằng nhau.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#75715e">// Khai báo hàm cube với 3 parameter là a, b, c
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">cube&lt;/span>(&lt;span style="color:#a6e22e">a&lt;/span>,&lt;span style="color:#a6e22e">b&lt;/span>,&lt;span style="color:#a6e22e">c&lt;/span>){
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">a&lt;/span>&lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">b&lt;/span>&lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">c&lt;/span>&lt;span style="color:#f92672">**&lt;/span>&lt;span style="color:#ae81ff">3&lt;/span>
+}
+&lt;span style="color:#75715e">// Invoke/call hàm cube với 2 argument tương ứng là 2, 3
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">cube&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>)
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">result&lt;/span>)
+&lt;span style="color:#75715e">// NaN
+&lt;/span>&lt;span style="color:#75715e">// Lý do bởi vì giá trị của c không được truyền vào =&amp;gt; các biến
+&lt;/span>&lt;span style="color:#75715e">// có giá trị mặc định là undefined nếu không có quá trình initialization
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#75715e">// Invoke/call hàm cube với 5 argument tương ứng là 2, 3, 4, 5, 6
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">cube&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>)
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">result&lt;/span>)
+&lt;span style="color:#75715e">// 99
+&lt;/span>&lt;span style="color:#75715e">// Thiếu mất giá trị 5, 6. Như vậy liệu rằng hàm
+&lt;/span>&lt;span style="color:#75715e">// của chúng có đang ở dạng tổng quát (general)?
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Thông qua 2 ví dụ trên về sự khác biệt số lượng &lt;strong>parameter/argument&lt;/strong>, ta có thể có vài rắc rối cần phải giải quyết. Một trong cách giải quyết đơn giản nhất là sử dụng duy nhất 1 &lt;strong>parameter&lt;/strong> với kiểu dữ liệu là &lt;strong>array&lt;/strong>. Ngoại trừ cách đó thì chúng ta còn có thể sử dụng &lt;strong>reserved word&lt;/strong> là &lt;strong>arguments&lt;/strong> - giúp chúng ta biến tất cả các &lt;strong>arguments&lt;/strong> thành đối tượng array-like (gần như mảng nhưng không phải mảng).&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#75715e">// Sử dụng mảng
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">cube&lt;/span>(&lt;span style="color:#a6e22e">arrayOfNumbers&lt;/span>){
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">arrayOfNumbers&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">sum&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;&lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span> ; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span> ){
+&lt;span style="color:#a6e22e">sum&lt;/span>&lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#a6e22e">arrayOfNumbers&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>]
+}
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span>
+}
+&lt;span style="color:#75715e">// sử dụng hàm
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">cube&lt;/span>([&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>])
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">result&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#75715e">// Sử dụng từ khoá arguments. Khi sử dụng từ khoá thì chúng
+&lt;/span>&lt;span style="color:#75715e">// ta có thể không khai báo parameter. Nếu khai báo thì cũng
+&lt;/span>&lt;span style="color:#75715e">// vẫn có thể sử dụng như một biến
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">cube&lt;/span>(&lt;span style="color:#a6e22e">a&lt;/span>,&lt;span style="color:#a6e22e">b&lt;/span>,&lt;span style="color:#a6e22e">c&lt;/span>){
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">arguments&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>;
+&lt;span style="color:#75715e">// tuy nhiên chúng ta vẫn có thể truy cập tới arguments[0]
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#75715e">// arguments[1], arguments[2] bằng a, b, c theo thứ tự
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">sum&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
+&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;&lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span> ; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span> ){
+&lt;span style="color:#a6e22e">sum&lt;/span>&lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#a6e22e">arguments&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>]
+}
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">n&lt;/span>
+}
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">cube&lt;/span>(&lt;span style="color:#ae81ff">2&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span>,&lt;span style="color:#ae81ff">4&lt;/span>,&lt;span style="color:#ae81ff">5&lt;/span>,&lt;span style="color:#ae81ff">6&lt;/span>,&lt;span style="color:#ae81ff">7&lt;/span>,&lt;span style="color:#ae81ff">8&lt;/span>,&lt;span style="color:#ae81ff">9&lt;/span>,&lt;span style="color:#ae81ff">10&lt;/span>)
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">result&lt;/span>)
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="lexical-environment--execution-context--execution-stack">Lexical Environment / Execution Context / Execution Stack&lt;/h1>
+&lt;p>Khi khai báo &lt;strong>function&lt;/strong> ta sử dụng cú pháp &lt;strong>{}&lt;/strong> để tạo &lt;strong>scope&lt;/strong> dánh cho &lt;strong>function body&lt;/strong>. &lt;strong>Scope&lt;/strong> này còn có tên là &lt;strong>Lexical Environment&lt;/strong> (&lt;strong>Lexical&lt;/strong>).Khi khai báo identifiers thi identifier sẽ bind với lexical/scope đó (mặc định). &lt;strong>Lexical&lt;/strong> thường chứa thông tin về về các &lt;strong>identifier&lt;/strong> , đồng thời cũng chứa thông tin về &lt;strong>parent lexical&lt;/strong> khi tìm kiếm &lt;strong>identifier&lt;/strong> không tồn tại trong &lt;strong>lexical&lt;/strong> hiện tại. Khi một hàm được &lt;strong>invoke/call&lt;/strong> thì ngay lập tức Javascrit engine tạo ra một &lt;strong>execution context&lt;/strong> và một &lt;strong>lexical&lt;/strong> cho việc lưu trữ các biến (giả sử nếu cùng tên trong hàm). &lt;strong>Execution context&lt;/strong> đặt chúng lên đầu của &lt;strong>execution stack&lt;/strong>, đồng thời lưu vào &lt;strong>lexical&lt;/strong> vị trí của &lt;strong>statement pointer&lt;/strong> hiện tại, đồng thời cập nhật giá trị &lt;strong>statement pointer&lt;/strong> thành nơi bắt đầu hàm vừa được &lt;strong>invoke/call&lt;/strong>. &lt;strong>Execution context&lt;/strong> lớn nhất là &lt;strong>global&lt;/strong>.&lt;/p>
+&lt;p>Javascript engine sẽ thực hiện lần lượt từ trên xuống dưới (top to bottom of stack). Khi &lt;strong>function&lt;/strong> hoàn thành, &lt;strong>execution context&lt;/strong> của &lt;strong>function&lt;/strong> đó sẽ được &lt;strong>pop&lt;/strong> ra khỏi &lt;strong>execution context&lt;/strong>,và &lt;strong>statement pointer&lt;/strong> sẽ quay về vị trí đã gọi &lt;strong>function&lt;/strong> vừa hoàn thành, tiếp tục công việc thực thi từng dùng. &lt;strong>Execution stack&lt;/strong> đảm bảo được rằng các được gọi sau (trong các hàm bất kỳ) hoàn thành trước để đảm bảo tính đúng đắn của chương trình.&lt;/p>
+&lt;p>Quy tắc tìm kiếm các &lt;strong>identifier&lt;/strong> dọc theo mối quan hệ cha - con của &lt;strong>lexical&lt;/strong> được gọi là &lt;strong>scope chain&lt;/strong>
+&lt;strong>function&lt;/strong>&lt;/p>
+&lt;h1 id="hoisting">Hoisting&lt;/h1>
+&lt;p>&lt;strong>Hoisting&lt;/strong> (Xem thêm ở &lt;a class="link" href="https://sonlhcsuit.github.io/p/variable" >Variable&lt;/a>), tuy nhiên có một điều bổ sung nữa là. Giai đoạn &lt;strong>hoisting&lt;/strong> chỉ xảy ra khi một &lt;strong>execution context&lt;/strong> được tạo ra, và việc khai báo đè cũng chỉ ảnh hưởng trong &lt;strong>execution context&lt;/strong> đó.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">f&lt;/span>(){
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">h&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">12&lt;/span>;
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">a&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">22&lt;/span>
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>(){
+&lt;span style="color:#75715e">// Hoisting function =&amp;gt; bị ghi đè
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">h&lt;/span>)
+&lt;span style="color:#75715e">// let h = 10
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">h&lt;/span>(&lt;span style="color:#a6e22e">a&lt;/span>){
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">a&lt;/span>)
+&lt;span style="color:#75715e">// debugger;
+&lt;/span>&lt;span style="color:#75715e">&lt;/span> &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;From h w/love&amp;#39;&lt;/span>)
+}
+&lt;span style="color:#a6e22e">h&lt;/span>()
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;From g w/love&amp;#39;&lt;/span>)
+}
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">h&lt;/span>)
+&lt;span style="color:#a6e22e">g&lt;/span>()
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">h&lt;/span>)
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;From f w/love&amp;#39;&lt;/span>)
+}
+&lt;span style="color:#a6e22e">f&lt;/span>()
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Một vài sự chú ý nhỏ đây là trong &lt;strong>lexical&lt;/strong> của hàm &lt;strong>f&lt;/strong> thì &lt;strong>identifier&lt;/strong> &lt;strong>h&lt;/strong> đã được khai báo bằng từ khoá &lt;code>let&lt;/code>, vậy tại sao khi in &lt;strong>h&lt;/strong> ra console lại bị thay đổi? Khi sử dụng từ khoá &lt;strong>function&lt;/strong> thì &lt;strong>hoisting&lt;/strong> xảy ra, thay thế &lt;strong>identifier&lt;/strong> &lt;strong>h&lt;/strong> của hàm &lt;strong>f&lt;/strong>, thay thế bằng &lt;strong>h&lt;/strong> của hàm &lt;strong>g&lt;/strong>. Vì &lt;strong>lexical&lt;/strong> hiện tại là hàm &lt;strong>g&lt;/strong> Javascript engine sẽ chọn &lt;strong>identifier&lt;/strong> ở gần &lt;strong>lexical&lt;/strong> hiện tại nhất (là &lt;strong>idetitier&lt;/strong> &lt;strong>h&lt;/strong> của hàm &lt;strong>g&lt;/strong> chứ không phải &lt;strong>f&lt;/strong>).&lt;/p>
+&lt;p>Ngoài ra thì ở dòng đầu tiên của hàm &lt;strong>h&lt;/strong>, kết quả chúng ta nhận được &lt;strong>undefined&lt;/strong> chứ không phải &lt;strong>12&lt;/strong>. Lí do là các &lt;strong>parameter&lt;/strong> cũng được khai báo bằng từ khoá &lt;strong>var&lt;/strong> giống như biến (tức là cũng xảy ra &lt;strong>hoisting&lt;/strong>). Sau đó mới được gán giá trị được truyền vào lúc được &lt;strong>invoke/call&lt;/strong>. Vậy nên giá trị của &lt;strong>a&lt;/strong> là &lt;strong>undefined&lt;/strong> (vì mới được khởi tạo) và đồng thơi cũng được copy từ &lt;strong>argument&lt;/strong> sang - tuy nhiên hàm h lại gọi với không có &lt;strong>argument&lt;/strong> nào nên các &lt;strong>parameter&lt;/strong> vẫn giữ giá trị là undefined.&lt;/p>
+&lt;h1 id="callback--higher-order-function--closure">Callback / Higher Order Function / Closure&lt;/h1>
+&lt;p>Trong Javascrip, function được xem là một Object (một kiểu dữ liệu).Điều này đồng nghĩa với ta có thể truyền một function như là argument khi invoke/call một function khác, hay nó cũng có thể là một gì đó được trả về như là kết quả của việc invoke/call một function.&lt;/p>
+&lt;p>Những function được truyền như argument khi invoke/call một function khác thì có tên là callback. Những function không thể được truyền như callback thì được gọi là first-class function hay là higher order function.&lt;/p>
+&lt;p>Closure là khả năng ghi nhớ, kết hợp &lt;strong>lexical&lt;/strong> giữa các hàm được trả về/ callback / listener. Thay vì tìm kiếm identifier ở global lexical thì function y sẽ tìm kiếm ở lexical mà được khai báo trước (tức là lexical của function x) rồi mới tới &lt;strong>lexical&lt;/strong> hiện tại (nơi mà function được invoke/call)&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">x&lt;/span>(){
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">y&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;hihihi&amp;#39;&lt;/span>
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">u&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;huhuhu&amp;#39;&lt;/span>
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span>(){
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">y&lt;/span>)
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">u&lt;/span>)
+}
+&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span>
+}
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">u&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;?&amp;#39;&lt;/span>
+&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">y&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">x&lt;/span>()
+&lt;span style="color:#a6e22e">y&lt;/span>()
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">u&lt;/span>)
+&lt;span style="color:#75715e">// hihih
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Ngoài ra, có một ví dụ cổ điển việc closure/lexical ở MDN, mình trích dẫn nó ở đây. Hãy tự suy nghĩ xem cách giải quyết và lý giải rằng lại sao nó lại như thế nhé (cần biết về lexical/scope chain/ closure)&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-html" data-lang="html">&amp;lt;&lt;span style="color:#f92672">p&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;help&amp;#34;&lt;/span>&amp;gt;Helpful notes will appear here&amp;lt;/&lt;span style="color:#f92672">p&lt;/span>&amp;gt;
+&amp;lt;&lt;span style="color:#f92672">p&lt;/span>&amp;gt;E-mail: &amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;text&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;email&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;email&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">p&lt;/span>&amp;gt;
+&amp;lt;&lt;span style="color:#f92672">p&lt;/span>&amp;gt;Name: &amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;text&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;name&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;name&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">p&lt;/span>&amp;gt;
+&amp;lt;&lt;span style="color:#f92672">p&lt;/span>&amp;gt;Age: &amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;text&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;age&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">name&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;age&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">p&lt;/span>&amp;gt;
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">showHelp&lt;/span>(&lt;span style="color:#a6e22e">help&lt;/span>) {
+document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;help&amp;#39;&lt;/span>).&lt;span style="color:#a6e22e">textContent&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">help&lt;/span>;
+}
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">setupHelp&lt;/span>() {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">helpText&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [
+{&lt;span style="color:#e6db74">&amp;#39;id&amp;#39;&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#39;email&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;help&amp;#39;&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Your e-mail address&amp;#39;&lt;/span>},
+{&lt;span style="color:#e6db74">&amp;#39;id&amp;#39;&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#39;name&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;help&amp;#39;&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Your full name&amp;#39;&lt;/span>},
+{&lt;span style="color:#e6db74">&amp;#39;id&amp;#39;&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#39;age&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;help&amp;#39;&lt;/span>&lt;span style="color:#f92672">:&lt;/span> &lt;span style="color:#e6db74">&amp;#39;Your age (you must be over 16)&amp;#39;&lt;/span>}
+];
+&lt;span style="color:#66d9ef">for&lt;/span> (&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">helpText&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>) {
+&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">item&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">helpText&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>];
+document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#a6e22e">item&lt;/span>.&lt;span style="color:#a6e22e">id&lt;/span>).&lt;span style="color:#a6e22e">onfocus&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">function&lt;/span>() {
+&lt;span style="color:#a6e22e">showHelp&lt;/span>(&lt;span style="color:#a6e22e">item&lt;/span>.&lt;span style="color:#a6e22e">help&lt;/span>);
+}
+}
+}
+&lt;span style="color:#a6e22e">setupHelp&lt;/span>();
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="call--invoke">Call / Invoke&lt;/h1>
+&lt;p>Invoke là việc gọi trực tiếp một hàm bằng việc dùng tên &lt;code>f()&lt;/code>. Call là sử dụng HOF để invoke hàm đó bằng cách gián tiếp&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>(&lt;span style="color:#a6e22e">callback&lt;/span>){
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;From g w/love&amp;#39;&lt;/span>)
+&lt;span style="color:#a6e22e">cb&lt;/span>()
+}
+&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">h&lt;/span>(){
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#39;From h w/love&amp;#39;&lt;/span>)
+}
+&lt;span style="color:#a6e22e">g&lt;/span>(&lt;span style="color:#a6e22e">h&lt;/span>)
+&lt;span style="color:#75715e">// invoke g, but g call h instead us
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h1 id="references--more-resources">References &amp;amp; more resources&lt;/h1>
+&lt;ul>
+&lt;li>&lt;a href="https://www.britannica.com/science/function-mathematics">https://www.britannica.com/science/function-mathematics&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/50884893/calling-vs-invoking-a-function">https://stackoverflow.com/questions/50884893/calling-vs-invoking-a-function&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.w3schools.com/js/js_function_definition.asp">https://www.w3schools.com/js/js_function_definition.asp&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/12599965/lexical-environment-and-function-scope">https://stackoverflow.com/questions/12599965/lexical-environment-and-function-scope&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Variable</title><link>https://sonlhcsuit.github.io/p/variable/</link><pubDate>Mon, 12 Apr 2021 19:01:17 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/variable/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/variable/cover.png" alt="Featured image of post Variable" />&lt;h1 id="variable">Variable&lt;/h1>
 &lt;p>Biến là một khái niệm rất quan trọng trong nhiều ngôn ngữ lập trình, được sử dụng để lưu trữ cá giá trị. Chúng ta có thể gán một giá trị cho một biến, khi nào cần giá trị (số, chuỗi, etc) thì gọi tên biến thay vì giá trị, các &lt;em>interpreter&lt;/em>, &lt;em>compiler&lt;/em> truy xuất đến giá trị đã được gán vào biến khi thực hiện việc tính toán thay cho chúng ta. Con người dễ tiếp thu ngôn ngữ hơn là những giá trị, con số, biến là một ánh xạ đơn giản, từ &lt;em>một từ&lt;/em> sinh ra &lt;em>giá trị&lt;/em>. Tên của biến phải là độc nhất theo những quy tắc đặt tên của các ngôn ngữ lập trình, một biến chỉ lưu trữ một giá trị tại 1 thời điểm nhất định.&lt;/p>
 &lt;p>Thoát khỏi việc ghi nhớ các giá trị bằng cách sử dụng biến, các lập trình viên lại có thêm vài vấn đề như sau: Đặt tên biến như thế nào để ngắn gọn, dễ nhớ? Muốn nhiều biến có cùng tên được không? etc. Nhằm giải quyết vấn đề về &lt;em>cách đặt tên biến&lt;/em>, các ngôn ngữ lập trình đã hỗ trợ thêm những khái niệm &lt;em>lexical, scope,&amp;hellip;&lt;/em>&lt;/p>
-&lt;h2 id="variable-naming">Variable naming&lt;/h2>
+&lt;h1 id="variable-naming">Variable naming&lt;/h1>
 &lt;p>Nói về việc đặt tên biến thì có nhiều quy tắc&lt;/p>
 &lt;ul>
 &lt;li>Tối thiểu:
@@ -28,7 +215,7 @@ Và quan trọng hơn hết là phải tuân thủ cú pháp để khai báo bi�
 &lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">costs&lt;/span>;
 &lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">profits&lt;/span>;
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Vốn từ vựng nhiều là một lợi thế khi đặt tên biến, tuy nhiên chúng ta không đặt tên biến khác nhau hoàn toàn. Nếu đặt tên biến khác nhau hoàn toàn thì sẽ có rất nhiều biến, việc nhớ chúng sẽ rất tốn thời gian. Thay vì đó, các ngôn ngữ lập trình hỗ trợ các khái niệm &lt;em>idetifier, scope, lexical,etc.&lt;/em> để giúp chúng ta tiết kiệm thời gian, công sức.&lt;/p>
-&lt;h2 id="identifier--access-scope">Identifier &amp;amp; access scope&lt;/h2>
+&lt;h1 id="identifier--access-scope">Identifier &amp;amp; access scope&lt;/h1>
 &lt;p>Biến là một &lt;strong>identifier&lt;/strong>, tức là định danh (identifier còn có thể các function, class,etc). Chúng ta có thể khởi tạo (tạo ra) nhiều biến có cùng tên, lưu trữ các giá trị khác nhau ở các &lt;strong>scope&lt;/strong> khác nhau. Trình duyệt sẽ dựa vào các scope, xác định các &lt;strong>identifier&lt;/strong> và giá trị của chúng phù hợp. Các &lt;strong>identifier&lt;/strong> khi được khởi tạo luôn được gắn chặt với &lt;strong>scope&lt;/strong> nơi mà chúng được khởi tạo. Chúng ta chỉ có thể truy cập tới các identifier ở các &lt;strong>outer scope&lt;/strong>, không đối với &lt;strong>inner scope&lt;/strong>. &lt;strong>Scope&lt;/strong> có phạm vi truy cập lớn nhất &lt;strong>Global Scope&lt;/strong>. Sự khác biệt giữa &lt;strong>let&lt;/strong> &amp;amp; &lt;strong>var&lt;/strong>&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">revenues&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">100000&lt;/span>;
 &lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">costs&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">12345&lt;/span>
@@ -98,7 +285,7 @@ Và quan trọng hơn hết là phải tuân thủ cú pháp để khai báo bi�
 &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(window.&lt;span style="color:#a6e22e">z&lt;/span>)
 }
 &lt;span style="color:#a6e22e">f&lt;/span>()
-&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="const">&lt;code>const&lt;/code>&lt;/h2>
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="const">&lt;code>const&lt;/code>&lt;/h1>
 &lt;p>Điều khiến &lt;strong>identifier&lt;/strong> đặc biệt là không cho phép &lt;strong>direct assignment&lt;/strong>. Assignment là một toán tử cho phép cập nhật &lt;strong>giá trị&lt;/strong> đã được lưu trữ của &lt;strong>identifier&lt;/strong>.&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>;
 &lt;span style="color:#a6e22e">z&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;??&amp;#39;&lt;/span>
@@ -114,9 +301,9 @@ Và quan trọng hơn hết là phải tuân thủ cú pháp để khai báo bi�
 &lt;span style="color:#a6e22e">z&lt;/span>.&lt;span style="color:#a6e22e">name&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;z&amp;#39;&lt;/span>
 &lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#a6e22e">z&lt;/span>)
 &lt;span style="color:#75715e">// {name: &amp;#34;z&amp;#34;}
-&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="hoisting--tempotary-dead-zone">Hoisting &amp;amp; Tempotary Dead Zone&lt;/h2>
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="hoisting--tempotary-dead-zone">Hoisting &amp;amp; Tempotary Dead Zone&lt;/h1>
 &lt;ul>
-&lt;li>Một &lt;strong>identifier&lt;/strong> được khỏi tạo thông qua 1 hoặc 2 giai đoạn : &lt;strong>declaration&lt;/strong> (&lt;strong>defination&lt;/strong>) và &lt;strong>initialization&lt;/strong>. Giai đoạn 2 có thể có hoặc không. &lt;strong>declaration&lt;/strong> mang ý nghĩa cấp vùng nhớ dùng để lưu giá trị và &lt;strong>bind&lt;/strong> &lt;strong>identifier&lt;/strong>, &lt;strong>initialization&lt;/strong> mang ý nghĩa khởi tạo cho giá trị ban đầu là bao nhiêu. Nếu không có &lt;strong>initialization&lt;/strong> thì giá trị mạc định là &lt;strong>undefined&lt;/strong>&lt;/li>
+&lt;li>Một &lt;strong>identifier&lt;/strong> được khỏi tạo thông qua 1 hoặc 2 giai đoạn : &lt;strong>declaration&lt;/strong> (&lt;strong>defination&lt;/strong>) và &lt;strong>initialization&lt;/strong>. Giai đoạn 2 có thể có hoặc không. &lt;strong>declaration&lt;/strong> mang ý nghĩa cấp vùng nhớ dùng để lưu giá trị và &lt;strong>bind identifier&lt;/strong> với giá trị có sẵn ở vùng nhớ(C++), &lt;strong>initialization&lt;/strong> mang ý nghĩa khởi tạo cho giá trị ban đầu là bao nhiêu. Nếu không có &lt;strong>initialization&lt;/strong> thì giá trị mạc định là &lt;strong>undefined&lt;/strong>&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">z&lt;/span>;
 &lt;span style="color:#75715e">// declaration
