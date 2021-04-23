@@ -206,6 +206,7 @@ function setupHelp() {
 setupHelp();
 ```
 # Call / Invoke
+
 Invoke là việc gọi trực tiếp một hàm bằng việc dùng tên `f()`. Call là sử dụng HOF để invoke hàm đó bằng cách gián tiếp 
 ```js
 function g(callback){
