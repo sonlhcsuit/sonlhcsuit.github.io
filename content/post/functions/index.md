@@ -14,6 +14,7 @@ image: cover.png
 ---
 
 # Function
+
 **Function** là một khái niệm quan trọng trong nhiều ngôn ngữ lập trình bậc cao. Theo định nghĩa từ toán học thì **function** là những **expression, rules,laws** được sử dụng để định nghĩa những **relation** giữa nhiều **dependant variables** (biến độc lập). Nói một cách khó hiểu hơn, là một **mapping** (ánh xạ) từ một giá trị ở _miền giá trị_ này sang một giá trị khác ở _miền giá trị_ khác.   
 
 ![Định nghĩa về function theo toán học](function-algebra.png)
@@ -23,6 +24,8 @@ Khi làm việc với các ngôn ngữ lập trình thì chúng ta lại sử d�
 ![Định nghĩa về function nhưng bớt khó hiểu hơn](function-machine.png)
 
 # Create function
+
+
 Có một vài điều cần lưu ý khi sử dụng **function** như sau:
     - Phải khai báo **function** trước khi sử dụng
     - **function** không chạy tại thời điểm được khai báo mà chỉ chạy khi được invoke/call
@@ -43,6 +46,7 @@ const myFunctionName = (parameters_comes_here)=>{
 ```
 
 # Parameter / Argument
+
 Khi khai báo hàm thì ta cần phải chú ý **function name** (quy tắc đặt tên giống tên biến) và **function parameter**. **Parameter** nghĩa là tham số đầu vào - một cách gọi khác của **input**. **Parameter** là biến dùng để lưu giá trị nhận được khi **function** được invoke/call. **Function** sẽ yêu cầu một số lượng nhất định các **parameter** khi khai báo, đồng thời cũng phải đúng số lượng các **argument** truyền vào khi hàm được **invoke/call** và đúng thứ tự được khai báo . Tuy nhiên Javascript không bắt buộc điều này, số lượng các **parameter** và **argument** có thể khác nhau. Điều này dẫn tới một số vấn nhỏ.   
 Đối với việc số lượng các **parameter** và **argument** bằng nhau.
 ```javascript
@@ -114,15 +118,33 @@ console.log(result)
 ```
 
 # Lexical Environment / Execution Context / Execution Stack
-Khi khai báo **function** ta sử dụng cú pháp **{}** để tạo **scope** dánh cho **function body**. **Scope** này còn có tên là **Lexical Environment** (**Lexical**).Khi khai báo identifiers thi identifier sẽ bind với lexical/scope đó (mặc định). **Lexical** thường chứa thông tin về về các **identifier** , đồng thời cũng chứa thông tin về **parent lexical** khi tìm kiếm **identifier** không tồn tại trong **lexical** hiện tại. Khi một hàm được **invoke/call** thì ngay lập tức Javascrit engine tạo ra một **execution context** và một **lexical** cho việc lưu trữ các biến (giả sử nếu cùng tên trong hàm). **Execution context** đặt chúng lên đầu của **execution stack**, đồng thời lưu vào **lexical** vị trí của **statement pointer** hiện tại, đồng thời cập nhật giá trị **statement pointer** thành nơi bắt đầu hàm vừa được **invoke/call**. **Execution context** lớn nhất là **global**.
+
+Khi khai báo **function** ta sử dụng cú pháp **{}** để tạo **scope** dánh cho **function body**. **Scope** này còn có tên là **Lexical Environment** (**Lexical**).Khi khai báo identifiers thi identifier sẽ bind với lexical/scope đó (mặc định). Khi một hàm  call/invoke (scope thường sẽ được gọi) **Lexical** thường chứa thông tin về về các **identifier** , đồng thời cũng chứa thông tin về **parent lexical** khi tìm kiếm **identifier** không tồn tại trong **lexical** hiện tại. Khi một hàm được **invoke/call** thì ngay lập tức Javascrit engine tạo ra một **execution context** và một **lexical** cho việc lưu trữ các biến (giả sử nếu cùng tên trong hàm). **Execution context** đặt chúng lên đầu của **execution stack**, đồng thời lưu vào **lexical** vị trí của **statement pointer** hiện tại, đồng thời cập nhật giá trị **statement pointer** thành nơi bắt đầu hàm vừa được **invoke/call**. **Execution context** lớn nhất là **global**.
 
 Javascript engine sẽ thực hiện lần lượt từ trên xuống dưới (top to bottom of stack). Khi **function** hoàn thành, **execution context** của **function** đó sẽ được **pop** ra khỏi **execution context**,và **statement pointer** sẽ quay về vị trí đã gọi **function** vừa hoàn thành, tiếp tục công việc thực thi từng dùng. **Execution stack** đảm bảo được rằng các được gọi sau (trong các hàm bất kỳ) hoàn thành trước để đảm bảo tính đúng đắn của chương trình. 
 
-Quy tắc tìm kiếm các **identifier** dọc theo mối quan hệ cha - con của **lexical** được gọi là **scope chain**
-**function**
+Quy tắc tìm kiếm các **identifier** dọc theo mối quan hệ cha - con của **lexical** được gọi là **scope chain**. Một điều cần chú ý đối với function là, execution context mặc định nó sẽ được bind với scope được khai báo. Tức là outer scope (outer execution context) của function khi call/invoke là nơi khai báo (chứ không phải là nơi call/invoke).
+
+```js
+function A(){
+    let v = 'from A'
+    console.log(v)
+}
+function B(){
+    let v = 'from B'
+    A()
+}
+let v = 'from Global'
+B()
+// from A
+// Xoá đi dòng thứ 2 thì kết quả là 
+// from Global
+```
+Xem xét ví dụ sau thì kết quả đơn giản là `from A`. Tuy nhiên nếu xoá đi dòng `let v = 'from A'` thì kết quả lại là `from Global`. Lý do bởi vì A được khai báo ở `global` chứ không phải là `B`. Mặc dù được gọi ở lexical `B` nhưng `A` lại không thể tìm kiếm các identifiers ở lexical `B`. Vậy có cách nào để `bind` lexical ở nơi nó được gọi hay không? Theo mình biết thì hiện tại là `chưa` ngoại trừ việc bạn viết lại một runtime engine theo ý muốn.
 
 # Hoisting
-**Hoisting** (Xem thêm ở [Variable](/p/variable)), tuy nhiên có một điều bổ sung nữa là. Giai đoạn **hoisting** chỉ xảy ra khi một **execution context** được tạo ra, và việc khai báo đè cũng chỉ ảnh hưởng trong **execution context** đó.
+
+**Hoisting** (Xem thêm ở [Variable](/p/variable)), tuy nhiên có một điều bổ sung nữa là. Giai đoạn **hoisting** chỉ xảy ra khi một **execution context** được tạo ra, và việc khai báo đè cũng chỉ ảnh hưởng trong **execution context** đó. 
 ```javascript
 function f(){
     let h = 12;
@@ -154,6 +176,7 @@ Một vài sự chú ý nhỏ đây là trong **lexical** của hàm **f** thì 
 Ngoài ra thì ở dòng đầu tiên của hàm **h**, kết quả chúng ta nhận được **undefined** chứ không phải **12**. Lí do là các **parameter** cũng được khai báo bằng từ khoá **var** giống như biến (tức là cũng xảy ra **hoisting**). Sau đó mới được gán giá trị được truyền vào lúc được **invoke/call**. Vậy nên giá trị của **a** là **undefined** (vì mới được khởi tạo) và đồng thơi cũng được copy từ **argument** sang - tuy nhiên hàm h lại gọi với không có **argument** nào nên các **parameter** vẫn giữ giá trị là undefined.
 
 # Callback / Higher Order Function / Closure
+
 Trong Javascrip, function được xem là một Object (một kiểu dữ liệu).Điều này đồng nghĩa với ta có thể truyền một function như là argument khi invoke/call một function khác, hay nó cũng có thể là một gì đó được trả về như là kết quả của việc invoke/call một function.
 
 Những function được truyền như argument khi invoke/call một function khác thì có tên là callback. Những function không thể được truyền như callback thì được gọi là first-class function hay là higher order function. 
@@ -228,3 +251,6 @@ g(h)
 * https://www.w3schools.com/js/js_function_definition.asp
 * https://stackoverflow.com/questions/12599965/lexical-environment-and-function-scope
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+
+### P/S:
+Có thể tuỳ thuộc vào các engine có một cách thực thi Javascript khác nhau nên có gì sai sót xin email cho mình để mình cập nhật. Xin cảm ơn!
