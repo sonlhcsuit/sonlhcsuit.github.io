@@ -109,7 +109,7 @@ console.log("he?")
 // clicked
 ```
 
-Những tác vụ có sử dụng Web APIs được gọi là những tác vụ asynchronous (điều ngược lại không đúng). Các tác vụ asynchronous (thường là function) sẽ có độ ưu tiên kém (chỉ được thêm vào event queue khi callstack trống lần đầu tiên - Hoàn thành hết code synchronous). Sau đó thì cũng sẽ được xử lý dưới cơ chế event queue & event loops. Sau khi đã qua hoàn thành code javascript synchronous thì mọi thứ (tức là tới cuối file script.js) thì mọi thứ sẽ được nhường về cho Event Loops và những thứ liên quan.
+Những tác vụ có sử dụng Web APIs được gọi là những tác vụ asynchronous (điều ngược lại không đúng). Các tác vụ asynchronous (thường là function) sẽ có độ ưu tiên kém (chỉ được thêm vào event queue khi callstack trống lần đầu tiên - Hoàn thành hết code synchronous). Sau đó thì cũng sẽ được xử lý dưới cơ chế event queue & event loops. Sau khi đã qua hoàn thành code javascript synchronous thì mọi thứ (tức là tới cuối file script.js) thì mọi thứ sẽ được nhường về cho Event Loops và những thứ liên quan. Ngoại trừ các thứ trên thì các bạn nên chú ý một chút về các `listener`, các `listener` phải được hoàn thành toàn bộ (callstack rỗng) thì event queue mới có thể đưa `listener` kế tiếp vào hoàn thành, vậy nên nếu `listener` trước chưa được hoàn thành thì phải đợi chờ đến khi được hoàn thành. Khi một listener đang chạy (tốn thời gian rất lâu) thì các interaction khác sẽ không chạy (ví dụ như scroll, click,..) cho nên đừng có làm gì quá rắc rối trong listener - Ví dụ như animation, đệ quy không có điểm dừng, tính số fibnacci ,... - cơ chế này có tên là "Run to completion".
 
 Đây cũng chính là sức mạnh của Javascript khi so sánh với các ngôn ngữ khác!
 
@@ -118,6 +118,8 @@ Tổng kết lại, event loops sẽ xem xét xem thử có bất kỳ event nà
 ---
 
 # References & more resources
+- https://en.wikipedia.org/wiki/Event-driven_programming
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
 - https://www.youtube.com/watch?v=8aGhZQkoFbQ
 - https://medium.com/@giangcoffee/event-loop-l%C3%A0-g%C3%AC-v%C3%A0-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-th%E1%BA%BF-n%C3%A0o-d52caa908090
 
