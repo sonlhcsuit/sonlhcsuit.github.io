@@ -1,4 +1,101 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sơn Lưu Blog</title><link>https://sonlhcsuit.github.io/</link><description>Recent content on Sơn Lưu Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 18 Apr 2021 00:17:35 +0700</lastBuildDate><atom:link href="https://sonlhcsuit.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Functions</title><link>https://sonlhcsuit.github.io/p/function/</link><pubDate>Sun, 18 Apr 2021 00:17:35 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/function/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/function/cover.png" alt="Featured image of post Functions" />&lt;h1 id="function">Function&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sơn Lưu Blog</title><link>https://sonlhcsuit.github.io/</link><description>Recent content on Sơn Lưu Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 23 Apr 2021 09:02:11 +0700</lastBuildDate><atom:link href="https://sonlhcsuit.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Event Loops</title><link>https://sonlhcsuit.github.io/p/event-loops/</link><pubDate>Fri, 23 Apr 2021 09:02:11 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/event-loops/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/event-loops/cover.png" alt="Featured image of post Event Loops" />&lt;p>Javascript là một ngôn ngữ lập trình duy nhất ở thời điểm hiện tại có thể chạy trên trình duyệt web ( WA - Web assembly có thể chạy trên browser, web assembly khiến cho binary code có thể chạy trên nền web). Duy nhất ở đây không phải là không thể tạo ra ngôn ngữ nào khác thay thế mà là không cần thiết vì Javascript đã quá trở nên phổ biến (ở đây tập trung nói về client-side Javascript). Javascript được thiết kế theo &lt;strong>event-driven&lt;/strong> paradigm (Hướng sự kiện). Javascript không phải là ngôn ngữ duy nhất được thiết kế dựa trên paradigm này (Hầu hết các ngôn ngữ hỗ trợ xây dựng GUI đều hỗ trợ).&lt;/p>
+&lt;h1 id="event-driven-paradigm">Event-driven Paradigm&lt;/h1>
+&lt;p>Giống như OOP được thiết kế dựa trên các &lt;code>Object&lt;/code> &amp;amp; &lt;code>Class&lt;/code> thì event-driven programming language được thiết kế dựa trên thành phần chủ yếu là &lt;code>Event&lt;/code> &amp;amp; &lt;code>Listener&lt;/code>. Đa phần các ngôn ngữ lập trình có thể xây dựng ứng dụng (application) đều hỗ trợ paradigm (Java, C, C++, et cetera). Lưu ý rằng là application ở đây không chỉ nói riêng về các GUI ở phía client mà còn cả ở phía server, vì server cũng phải luôn lắng nghe các request từ internet (dễ dàng mở rộng, tích hợp). Các ngôn ngữ lập trình đã hỗ trợ các &lt;strong>event&lt;/strong> built-in (click, nhập liệu, di chuyển chuột, đọc file, xoá file, et cetera).&lt;/p>
+&lt;h1 id="event-emitters--event-listeners">Event Emitters / Event Listeners&lt;/h1>
+&lt;p>Event có rất nhiều loại, tuy nhiên ta có thể khái quát lại thế giới của event-driven paradigm gồm : &lt;code>emitters&lt;/code> &amp;amp; &lt;code>listeners&lt;/code>. Một &lt;strong>event&lt;/strong> được định nghĩa là một hành động nào đó xảy ra, khi các điều kiện phù hợp với một tiêu chuẩn nào đó , &lt;strong>event&lt;/strong> đó sẽ &lt;code>emit&lt;/code> ra một tín hiệu (&lt;code>signal&lt;/code>) đến cho nhiều &lt;code>listener&lt;/code> đang chờ đợi tín hiệu đó. Khi nhận được các tín hiệu thì các &lt;code>listener&lt;/code> sẽ được thực thi. Thông thường &lt;code>listener&lt;/code> là các hàm (callback) đã được khai báo sẵn, khi nhận được tín hiệu thì sẽ lập tức thực thi. Điều này cho phép ta sắp đặt các &lt;code>listener&lt;/code> phù hợp với tương ứng với các event. Ví dụ như khi người dùng click nút &lt;code>Mua&lt;/code> thì ta sẽ lập tức hiển thị lên thông tin về giao dịch, &amp;hellip;&lt;/p>
+&lt;p>Ta cũng có nhiều vấn đề phát sinh như sau:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Event&lt;/strong> &lt;code>emit&lt;/code> tín hiệu khi chương trình kết thúc thì như thế nào?&lt;/li>
+&lt;li>Làm sao chúng ta biết được khi nào một &lt;strong>Event&lt;/strong> &lt;code>emit&lt;/code> tín hiệu?&lt;/li>
+&lt;li>Lúc nhận được tín hiệu mà chúng ta đang thực hiện đoạn code khác thì sao?&lt;/li>
+&lt;li>&amp;hellip;&lt;/li>
+&lt;/ul>
+&lt;p>Thông thường đối với vấn đề thứ nhất và thứ hai, ta sẽ chọn cách giải quyết là để chương trình luôn chạy, luôn luôn khiến các &lt;code>listener&lt;/code> ỏ trong trạng thái sẵn sàng (mặc dù đã hết phần code ở phần main) tín hiệu từ Event. Vấn đề thứ ba ta có thể sử dụng đa luồng để giải quyết.&lt;/p>
+&lt;p>Nói về lợi ích của event-driven paradigm, đơn giản và dễ mở rộng. Nói về vấn đề mua hàng, ta có thể mở rộng bằng cách thêm các listener đảm nhận chức năng sign up/sign in vào mà không ảnh hưởng tới code của việc thực hiện giao dịch, giúp chúng ta tracing (theo dấu) được các hành vi của người dùng một cách tốt hơn.(Khi người dùng hoàn thành )&lt;/p>
+&lt;h1 id="event-loops">Event Loops&lt;/h1>
+&lt;p>Tổng kết lại, một hành động &lt;code>listener&lt;/code> sẽ được thực thi khi một sự kiện &lt;code>event&lt;/code> nào đó được xảy ra (không nhất thiết từ phía người dùng). Để các &lt;code>event&lt;/code> &amp;amp; &lt;code>listener&lt;/code> chạy đúng đắn (&lt;code>event&lt;/code> này xảy ra thì &lt;code>listener&lt;/code> này được thực hiện, et cetera) thì chương trình cần phải chạy liên tục, luôn luôn chờ &lt;code>signal&lt;/code> từ các &lt;code>event emitter&lt;/code> (nguồn phát tín hiệu báo sự kiện hoàn thành ) để có thể thực hiện các &lt;code>listener&lt;/code>. &lt;strong>Event Loops&lt;/strong> là cơ chế giúp javascript có thể luôn chờ các tín hiệu phát ra, và điều phối thứ tự thực hiện các &lt;code>listener&lt;/code> của nhiều &lt;code>event&lt;/code> khác nhau. Event Loops giống một đứa con nít luôn hỏi mẹ &amp;ldquo;Mẹ ơi khi nào về?&amp;rdquo;, chỉ khác thứ &lt;strong>Event Loops&lt;/strong> yêu cầu là tín hiệu của bất kỳ &lt;code>event&lt;/code>. Javascript khi nhận được &lt;code>signal&lt;/code> từ &lt;code>event emitter&lt;/code> sẽ tìm kiếm đến các &lt;code>listener&lt;/code> (một hàm callback) lắng nghe &lt;code>event&lt;/code> và thực hiện (execute, call, invoke) nó.&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 106; flex-basis: 255px">
+&lt;a href="https://sonlhcsuit.github.io/p/event-loops/img-1.png" data-size="734x689">&lt;img src="https://sonlhcsuit.github.io/p/event-loops/img-1.png"
+srcset="https://sonlhcsuit.github.io/p/event-loops/img-1_hu38b9218ffc448345a22f3f9616787b81_25269_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/event-loops/img-1_hu38b9218ffc448345a22f3f9616787b81_25269_1024x0_resize_box_2.png 1024w"
+width="734"
+height="689"
+loading="lazy"
+alt="Event loops - client side">
+&lt;/a>
+&lt;figcaption>Event loops - client side&lt;/figcaption>
+&lt;/figure>
+&lt;figure style="flex-grow: 241; flex-basis: 579px">
+&lt;a href="https://sonlhcsuit.github.io/p/event-loops/img-2.png" data-size="1120x464">&lt;img src="https://sonlhcsuit.github.io/p/event-loops/img-2.png"
+srcset="https://sonlhcsuit.github.io/p/event-loops/img-2_hu819fc556566a62b34a283c94f16a21d0_18977_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/event-loops/img-2_hu819fc556566a62b34a283c94f16a21d0_18977_1024x0_resize_box_2.png 1024w"
+width="1120"
+height="464"
+loading="lazy"
+alt="Event loops - nodejs">
+&lt;/a>
+&lt;figcaption>Event loops - nodejs&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;p>Điều đáng chú ý rằng javascript là một ngôn ngữ &lt;strong>single thread&lt;/strong> (đơn luồng) dẫn tới việc javascript chỉ có 1 heap và 1 callstack (callback có thể sử dụng nhiều hàm chức năng khác nên callstack là cần thiết). Nếu nhiều &lt;code>event&lt;/code> phát ra tín hiệu liên tiếp thì có cách giải quyết nào? Để giải quyết trường hợp này thì javascript hỗ trợ thêm khái niệm &lt;strong>Event Queue&lt;/strong>, nhằm mục đích lưu trữ thứ tự các signal được emit từ các event khác nhau. Khi một &lt;code>listener&lt;/code> được hoàn thành (thường là callstack trống), &lt;strong>Event Queue&lt;/strong> sẽ lần lượt xử lý các &lt;code>listener&lt;/code> tiếp theo.&lt;/p>
+&lt;p>Javascript lúc bình thường sẽ chạy từng dòng một từ trên xuống đồng bộ (synchronous), tuy nhiên khi các &lt;code>event&lt;/code> phát ra &lt;code>signal&lt;/code> thì phải được xử lý thông qua &lt;strong>Event Queue&lt;/strong> (Từng event một sẽ được xử lý).&lt;/p>
+&lt;h1 id="webapis-and-synchronous---asynchronous">WebAPIs and Synchronous - Asynchronous&lt;/h1>
+&lt;p>Synchronous nghĩa là đồng bộ, nhằm chỉ việc code của chúng ta sẽ được thực thi theo thứ tự nhất định (từng dòng 1). Khi gặp các tao thác I/O thì code sẽ bị block (không chạy phần phía dưới) cho đến khi I/O hoàn thành (điển hình là &lt;code>alert&lt;/code> &amp;amp; &lt;code>prompt&lt;/code>). Cơ chế event queue của javascript cũng được tính vào synchronous và asynchronous.&lt;/p>
+&lt;p>Xem xét ví dụ sau đây.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-js" data-lang="js">&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">btn&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">querySelector&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;#btn&amp;#34;&lt;/span>)
+&lt;span style="color:#a6e22e">btn&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>,()=&amp;gt;{
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;clicked&amp;#34;&lt;/span>)
+})
+&lt;span style="color:#a6e22e">btn&lt;/span>.&lt;span style="color:#a6e22e">click&lt;/span>() &lt;span style="color:#75715e">// thực hiện thao tác click vào nút, thay vì đợi người dùng click
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;he?&amp;#34;&lt;/span>)
+&lt;span style="color:#75715e">// clicked
+&lt;/span>&lt;span style="color:#75715e">// he
+&lt;/span>&lt;span style="color:#75715e">// listener được execute trước!
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Asynchronous nghĩa là bất đồng bộ, hằm chỉ việc code của chúng ta sẽ không được thực thi theo thứ tự đã viết.
+Xem xét ví dụ sau đây.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">btn&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">querySelector&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;#btn&amp;#34;&lt;/span>)
+&lt;span style="color:#a6e22e">btn&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>,()=&amp;gt;{
+&lt;span style="color:#a6e22e">setTimeout&lt;/span>(()=&amp;gt;{
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;clicked&amp;#34;&lt;/span>)
+},&lt;span style="color:#ae81ff">0&lt;/span>)
+})
+&lt;span style="color:#a6e22e">btn&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>,()=&amp;gt;{
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;clicked 2&amp;#34;&lt;/span>)
+})
+&lt;span style="color:#a6e22e">btn&lt;/span>.&lt;span style="color:#a6e22e">click&lt;/span>() &lt;span style="color:#75715e">// thực hiện thao tác click vào nút, thay vì đợi người dùng click
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;he?&amp;#34;&lt;/span>)
+&lt;span style="color:#75715e">// clicked 2
+&lt;/span>&lt;span style="color:#75715e">// he
+&lt;/span>&lt;span style="color:#75715e">// clicked
+&lt;/span>&lt;span style="color:#75715e">// listener được execute sau!
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Lí giải tại sao ví dụ thứ 2 lại có kết quả như vậy là bởi vì có sự can thiệp của &lt;code>Web API&lt;/code>. WebAPI hỗ trợ chúng ta nhiều thứ như &lt;code>ajax&lt;/code>, &lt;code>timers&lt;/code>, &lt;code>file reader&lt;/code>, et cetera. Về mặt bản chất thì Web API cũng hoạt động dựa trên event queue, tuy nhiên hơi khác một tí là: Nếu sử dụng Web APIs thì thứ tự ưu tiên của event được emit từ Web APIs sẽ &amp;ldquo;kém hơn&amp;rdquo; các event, nghĩa là Event sẽ bị hoãn cho tới khi callstack trống (code của chương trình chính được chạy hoàn toàn) thì mới được đưa vào Event Queue và bắt đầu xử lý theo quy tắc của Event Queue( lấy từng Event ra -&amp;gt; tạo callstack mới -&amp;gt; execute listener).&lt;/p>
+&lt;p>Hãy thử đoạn code trên với vòng lặp for dùng để blocking khoảng 2s&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">btn&lt;/span> &lt;span style="color:#f92672">=&lt;/span> document.&lt;span style="color:#a6e22e">querySelector&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;#btn&amp;#34;&lt;/span>)
+&lt;span style="color:#a6e22e">btn&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>,()=&amp;gt;{
+&lt;span style="color:#a6e22e">setTimeout&lt;/span>(()=&amp;gt;{
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;clicked&amp;#34;&lt;/span>)
+},&lt;span style="color:#ae81ff">0&lt;/span>)
+})
+&lt;span style="color:#a6e22e">btn&lt;/span>.&lt;span style="color:#a6e22e">addEventListener&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;click&amp;#34;&lt;/span>,()=&amp;gt;{
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;clicked 2&amp;#34;&lt;/span>)
+})
+&lt;span style="color:#a6e22e">btn&lt;/span>.&lt;span style="color:#a6e22e">click&lt;/span>() &lt;span style="color:#75715e">// thực hiện thao tác click vào nút, thay vì đợi người dùng click
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;&lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#ae81ff">3000000000&lt;/span>;&lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>){
+&lt;span style="color:#75715e">// block 3s
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;span style="color:#a6e22e">console&lt;/span>.&lt;span style="color:#a6e22e">log&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;he?&amp;#34;&lt;/span>)
+&lt;span style="color:#75715e">// clicked 2
+&lt;/span>&lt;span style="color:#75715e">// Phải đợi khoảng 3s, mặc dù hàm setTimeout có thời gian đợi là 0s!
+&lt;/span>&lt;span style="color:#75715e">// he
+&lt;/span>&lt;span style="color:#75715e">// clicked
+&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Những tác vụ có sử dụng Web APIs được gọi là những tác vụ asynchronous (điều ngược lại không đúng). Các tác vụ asynchronous (thường là function) sẽ có độ ưu tiên kém (chỉ được thêm vào event queue khi callstack trống lần đầu tiên - Hoàn thành hết code synchronous). Sau đó thì cũng sẽ được xử lý dưới cơ chế event queue &amp;amp; event loops. Sau khi đã qua hoàn thành code javascript synchronous thì mọi thứ (tức là tới cuối file script.js) thì mọi thứ sẽ được nhường về cho Event Loops và những thứ liên quan.&lt;/p>
+&lt;p>Đây cũng chính là sức mạnh của Javascript khi so sánh với các ngôn ngữ khác!&lt;/p>
+&lt;p>Tổng kết lại, event loops sẽ xem xét xem thử có bất kỳ event nào phát ra tín hiệu không? Nếu có thì sẽ thêm vào event queue. Nếu callstack trống, event queue sẽ xử lý từng listener tương ứng với signal được event phát ra. WebAPIs cung cấp cho chúng ta các công cụ tiện lợi(timers, fetch, file reader, et cetera) và hoạt động dựa vào event loops! Tuy nhiên WebAPIs bao gồm nhiều hành động asynchronous, kỹ năng xử lý hành động asynchronous rất quan trọng khi làm việc với Javascript.&lt;/p>
+&lt;hr>
+&lt;h1 id="references--more-resources">References &amp;amp; more resources&lt;/h1>
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">https://www.youtube.com/watch?v=8aGhZQkoFbQ&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/@giangcoffee/event-loop-l%C3%A0-g%C3%AC-v%C3%A0-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-th%E1%BA%BF-n%C3%A0o-d52caa908090">https://medium.com/@giangcoffee/event-loop-l%C3%A0-g%C3%AC-v%C3%A0-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-th%E1%BA%BF-n%C3%A0o-d52caa908090&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="ps">P/S:&lt;/h3>
+&lt;p>Các đoạn code ở trên được mình chạy ở trên engine V8 của Chrome thông qua trình duyệt Brave. Có thể tuỳ thuộc vào các engine có một cách thực thi Javascript khác nhau nên có gì sai sót xin email cho mình để mình cập nhật. Xin cảm ơn!&lt;/p></description></item><item><title>Functions</title><link>https://sonlhcsuit.github.io/p/function/</link><pubDate>Sun, 18 Apr 2021 00:17:35 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/function/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/function/cover.png" alt="Featured image of post Functions" />&lt;h1 id="function">Function&lt;/h1>
 &lt;p>&lt;strong>Function&lt;/strong> là một khái niệm quan trọng trong nhiều ngôn ngữ lập trình bậc cao. Theo định nghĩa từ toán học thì &lt;strong>function&lt;/strong> là những &lt;strong>expression, rules,laws&lt;/strong> được sử dụng để định nghĩa những &lt;strong>relation&lt;/strong> giữa nhiều &lt;strong>dependant variables&lt;/strong> (biến độc lập). Nói một cách khó hiểu hơn, là một &lt;strong>mapping&lt;/strong> (ánh xạ) từ một giá trị ở &lt;em>miền giá trị&lt;/em> này sang một giá trị khác ở &lt;em>miền giá trị&lt;/em> khác.&lt;/p>
 &lt;p>&lt;figure style="flex-grow: 208; flex-basis: 500px">
 &lt;a href="https://sonlhcsuit.github.io/p/function/function-algebra.png" data-size="828x397">&lt;img src="https://sonlhcsuit.github.io/p/function/function-algebra.png"
