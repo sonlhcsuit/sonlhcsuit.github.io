@@ -2,7 +2,7 @@
 title: "Event Loops"
 description: "Event loops, asynchronous and relevant concept"
 date: 2021-04-23T09:02:11+07:00
-draft: true
+draft: false
 math: false
 slug: "event-loops"
 categories:
@@ -120,3 +120,6 @@ Tổng kết lại, event loops sẽ xem xét xem thử có bất kỳ event nà
 # References & more resources
 - https://www.youtube.com/watch?v=8aGhZQkoFbQ
 - https://medium.com/@giangcoffee/event-loop-l%C3%A0-g%C3%AC-v%C3%A0-ho%E1%BA%A1t-%C4%91%E1%BB%99ng-th%E1%BA%BF-n%C3%A0o-d52caa908090
+
+### P/S:
+Các đoạn code ở trên được mình chạy ở trên engine V8 của Chrome thông qua trình duyệt Brave. Có thể tuỳ thuộc vào các engine có một cách thực thi Javascript khác nhau nên có gì sai sót xin email cho mình để mình cập nhật. Xin cảm ơn!
