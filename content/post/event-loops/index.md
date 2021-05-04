@@ -16,6 +16,7 @@ image: cover.png
 Javascript là một ngôn ngữ lập trình duy nhất ở thời điểm hiện tại có thể chạy trên trình duyệt web ( WA - Web assembly có thể chạy trên browser, web assembly khiến cho binary code có thể chạy trên nền web). Duy nhất ở đây không phải là không thể tạo ra ngôn ngữ nào khác thay thế mà là không cần thiết vì Javascript đã quá trở nên phổ biến (ở đây tập trung nói về client-side Javascript). Javascript được thiết kế theo **event-driven** paradigm (Hướng sự kiện). Javascript không phải là ngôn ngữ duy nhất được thiết kế dựa trên paradigm này (Hầu hết các ngôn ngữ hỗ trợ xây dựng GUI đều hỗ trợ). 
 
 # Event-driven Paradigm
+
 Giống như OOP được thiết kế dựa trên các `Object` & `Class` thì event-driven programming language được thiết kế dựa trên thành phần chủ yếu là `Event` & `Listener`. Đa phần các ngôn ngữ lập trình có thể xây dựng ứng dụng (application) đều hỗ trợ paradigm (Java, C, C++, et cetera). Lưu ý rằng là application ở đây không chỉ nói riêng về các GUI ở phía client mà còn cả ở phía server, vì server cũng phải luôn lắng nghe các request từ internet (dễ dàng mở rộng, tích hợp). Các ngôn ngữ lập trình đã hỗ trợ các **event** built-in (click, nhập liệu, di chuyển chuột, đọc file, xoá file, et cetera). 
 
 
@@ -31,7 +32,7 @@ Ta cũng có nhiều vấn đề phát sinh như sau:
 
 Thông thường đối với vấn đề thứ nhất và thứ hai, ta sẽ chọn cách giải quyết là để chương trình luôn chạy, luôn luôn khiến các `listener` ỏ trong trạng thái sẵn sàng (mặc dù đã hết phần code ở phần main) tín hiệu từ Event. Vấn đề thứ ba ta có thể sử dụng đa luồng để giải quyết. 
 
-Nói về lợi ích của event-driven paradigm, đơn giản và dễ mở rộng. Nói về vấn đề mua hàng, ta có thể mở rộng bằng cách thêm các listener đảm nhận chức năng sign up/sign in vào mà không ảnh hưởng tới code của việc thực hiện giao dịch, giúp chúng ta tracing (theo dấu) được các hành vi của người dùng một cách tốt hơn.(Khi người dùng hoàn thành )
+Lợi ích của event-driven paradigm gồm đơn giản và dễ mở rộng. Ví dụ về vấn đề mua hàng, ta có thể mở rộng bằng cách thêm các listener đảm nhận chức năng sign up/sign in vào mà không ảnh hưởng code của việc thực hiện giao dịch (tất nhiên vẫn phải đảm bảo logic: đã đăng nhập => điền thông tin => hiển thị thông tin giao dịch), giúp chúng ta tracing (theo dấu) được các hành vi của người dùng một cách tốt hơn.
 
 # Event Loops
 
