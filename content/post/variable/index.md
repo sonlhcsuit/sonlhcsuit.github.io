@@ -6,8 +6,7 @@ draft: false
 slug: "variable"
 categories:
     - programming-language
-tags:
-    - Javascript
+    - javascript
 image: cover.png
 ---
 # Variable

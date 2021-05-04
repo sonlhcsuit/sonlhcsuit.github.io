@@ -1,6 +1,6 @@
 ---
 title: "Event Loops"
-description: "Event loops, asynchronous and relevant concept"
+description: "Event loops, asynchronous and relevant concepts"
 date: 2021-04-23T09:02:11+07:00
 draft: false
 math: false

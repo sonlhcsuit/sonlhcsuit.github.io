@@ -7,7 +7,6 @@ math: false
 slug: "function"
 categories:
     - programming-language
-tags:
     - javascript
 image: cover.png
 

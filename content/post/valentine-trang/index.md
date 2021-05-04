@@ -5,9 +5,6 @@ draft: false
 slug: "valentine-trang"
 categories:
     - Chênh vênh tuổi trẻ
-tags:
-    - Yêu
-    - Bâng khuâng
 image: cover.png
 ---
 
