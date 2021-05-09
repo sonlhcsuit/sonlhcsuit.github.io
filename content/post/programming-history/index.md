@@ -1,13 +1,12 @@
 ---
-title: "Javascript and OOP"
-description: "Object Oriented Programming in Javascript & relevant concepts"
+title: "Programming Language History Overview"
+description: "Programming Language history & relevants concepts" 
 date: 2021-05-04T08:21:25+07:00
 draft: false
 math: true
-slug: "oop-js"
+slug: "programming-language-overview"
 categories:
     - programming-language
-    - javascript
     
 image: cover.png
 
@@ -40,7 +39,7 @@ Có rất nhiều cách để phân loại ngôn ngữ lập trình dựa trên 
 Ưu của của ngôn ngữ high-level thì không cần ai phải bàn cãi: viết code một cần, có thể chạy ở hầu hết loại máy tính. Câu lệnh tiếng anh rất dễ đọc và dễ viết, cung cấp khả năng trừu tượng. Yếu điểm là phải cần một compiler/interpreter khác nhau cho mỗi loại máy tính. Điều cần phải củng cố compiler/interpreter cho từng loại kiến trúc (x86,et cetera). Ưu điểm rất là rõ ràng, và ai cũng sử dụng high-level language nên việc phân loại tiếp theo sẽ tập trung vào các high-level language.
 
 # Structured Programming & Procedural Programming
-
+Structured Programming nghĩa là lập trình có cấu trúc, vậy thế nào là có cấu trúc? "Cấu trúc" ở đây nói về việc xử lý các dòng code một cách hợp lý bằng việc hỗ trợ thêm các khái niệm như: blocks/scopes, control flows (condition & repitition), subroutines. Tại sao lại hỗ trợ thêm các khái niệm này? 
 
 # Objet Oriented Programming & Functional Programming
 
