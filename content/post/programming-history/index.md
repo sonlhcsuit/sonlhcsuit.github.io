@@ -106,5 +106,6 @@ Một ngôn ngữ lập trình không nhất thiết chỉ hỗ trợ một para
 - https://www.youtube.com/watch?v=Pn5znSOGHcs
 - https://www.cs.uaf.edu/courses/cs301/2014-fall/notes/goto/
 - https://en.wikipedia.org/wiki/Procedural_programming
+- https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference
 - https://www.youtube.com/watch?v=aYjGXzktatA
 - https://www.youtube.com/watch?v=A38y7OO8OK4
