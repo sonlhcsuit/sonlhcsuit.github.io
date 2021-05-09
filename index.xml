@@ -11,18 +11,29 @@ alt="Block Diagram of Computer">
 &lt;figcaption>Block Diagram of Computer&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;p>CPU của máy tính được dựa trên những thành phần cơ bản gồm ALU (Arithmetic &amp;amp; Logic Unit - Bộ xử lý tính toán), Main Memory (Bộ nhớ chính), CU (Control Unit - Bộ điều khiển) và các thành phần khác như cache, register, et cetera. Chúng ta khiến computer thực hiện tác vụ bằng việc sử dụng instructions set ( bộ lệnh) phù hợp đã được định nghĩa sẵn bởi mỗi nhà thiết kế. Mỗi máy tính có một đặc điểm khác nhau như việc thiết kế kiến trúc, thiết kế các ALU khác nhau (cùng 1 việc thực hiện phép toán + nhưng có nhiều cách) nên instructions set cũng khác nhau nốt. Các developer/scientist thực hiện công việc xây dựng các chương trình hằng ngày bằng việc sử dụng instructions set bằng mã nhị phân. Điểm yếu của phương pháp này là chương trình viết trên một máy tính sẽ không chạy trên máy tính khác kiến trúc.&lt;/p>
-&lt;p>Các instructions set này còn được gọi là &lt;strong>machine language/binary language&lt;/strong>, đây là loại ngôn ngữ lập trình sơ khai nhất.&lt;/p>
-&lt;h1 id="classification">Classification&lt;/h1>
-&lt;p>low level &amp;amp; high leve
-run direct on CPU
-Có rất nhiều phong cách lập trình tồn tại từ xưa đến tận bây giờ. Đại khái có 4 phong cách lập trình gồm&lt;/p>
+&lt;p>Các instructions set này còn được gọi là &lt;strong>machine language/binary language&lt;/strong>, đây là loại ngôn ngữ lập trình sơ khai nhất. Programming language (ngôn ngữ lập trình) được tạo ra bởi con người, được sử dụng nhằm mục đích giao tiếp với máy tính, khiến cho máy tính thực hiện các hành vi do người dùng (developer/scientist) chỉ định.&lt;/p>
+&lt;h1 id="classification-of-programming-language">Classification of Programming Language&lt;/h1>
+&lt;p>Có rất nhiều cách để phân loại ngôn ngữ lập trình dựa trên nhiều tiêu chí. Một tiêu chí hay dùng nhất là dựa trên độ khó của việc viết, và một vài tiêu chí khác: &lt;strong>low-level&lt;/strong> &amp;amp; &lt;strong>high-level&lt;/strong>, hai loại ngôn ngữ này có các đặc điểm sau:&lt;/p>
 &lt;ul>
-&lt;li>Structured Programming&lt;/li>
-&lt;li>Procedural Programming&lt;/li>
-&lt;li>Objet Oriented Programming&lt;/li>
-&lt;li>Functional Programming&lt;/li>
+&lt;li>low-level:
+&lt;ul>
+&lt;li>machine langugage&lt;/li>
+&lt;li>assembly language&lt;/li>
 &lt;/ul>
-&lt;h1 id="object-oriented-programming">Object Oriented Programming&lt;/h1>
+&lt;/li>
+&lt;li>high-level:
+&lt;ul>
+&lt;li>structural language&lt;/li>
+&lt;li>procedural language&lt;/li>
+&lt;li>object oriented language&lt;/li>
+&lt;li>functional language&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Ưu điểm của ngôn ngữ low-level rất rõ ràng: siêu nhanh, chạy trực tiếp trên CPU. Tuy nhiên yếu điểm cũng không kém cạnh: chỉ gồm bit 0 hoặ 1 (machine code) dẫn tới khó đọc, khó đọc, khó viết, dể ẩn tàng lỗi, khó bảo trì. Một điểm phát triển của assembly code so với machine code là có thể sử dụng english word (dễ nhớ) cải thiện code đáng kể. Tuy nhiên vẫn rất để lập trình, và đặc biệt là không có cấu trúc rõ ràng, chỉ gồm một list instructions. Yêu cầu cần assembler để phiên dịch assembler code thành machine code. Tuy nhiên vẫn cần assembler khác nhau dành cho mỗi máy tính&lt;/p>
+&lt;p>Ưu của của ngôn ngữ high-level thì không cần ai phải bàn cãi: viết code một cần, có thể chạy ở hầu hết loại máy tính. Câu lệnh tiếng anh rất dễ đọc và dễ viết, cung cấp khả năng trừu tượng. Yếu điểm là phải cần một compiler/interpreter khác nhau cho mỗi loại máy tính. Điều cần phải củng cố compiler/interpreter cho từng loại kiến trúc (x86,et cetera). Ưu điểm rất là rõ ràng, và ai cũng sử dụng high-level language nên việc phân loại tiếp theo sẽ tập trung vào các high-level language.&lt;/p>
+&lt;h1 id="structured-programming--procedural-programming">Structured Programming &amp;amp; Procedural Programming&lt;/h1>
+&lt;h1 id="objet-oriented-programming--functional-programming">Objet Oriented Programming &amp;amp; Functional Programming&lt;/h1>
 &lt;h1 id="prototype--how-javascript-implement-oop">Prototype ? How Javascript implement OOP&lt;/h1>
 &lt;h1 id="this--relevants-concepta">this &amp;amp; relevants concepta&lt;/h1>
 &lt;h1 id="better-method">Better Method&lt;/h1>
