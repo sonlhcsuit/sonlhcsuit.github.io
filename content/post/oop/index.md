@@ -21,22 +21,29 @@ Chúng ta có thể khái quát lịch sử máy tính bằng bài viết khác,
 
 CPU của máy tính được dựa trên những thành phần cơ bản gồm ALU (Arithmetic & Logic Unit - Bộ xử lý tính toán), Main Memory (Bộ nhớ chính), CU (Control Unit - Bộ điều khiển) và các thành phần khác như cache, register, et cetera. Chúng ta khiến computer thực hiện tác vụ bằng việc sử dụng instructions set ( bộ lệnh) phù hợp đã được định nghĩa sẵn bởi mỗi nhà thiết kế. Mỗi máy tính có một đặc điểm khác nhau như việc thiết kế kiến trúc, thiết kế các ALU khác nhau (cùng 1 việc thực hiện phép toán + nhưng có nhiều cách) nên instructions set cũng khác nhau nốt. Các developer/scientist thực hiện công việc xây dựng các chương trình hằng ngày bằng việc sử dụng instructions set bằng mã nhị phân. Điểm yếu của phương pháp này là chương trình viết trên một máy tính sẽ không chạy trên máy tính khác kiến trúc.
 
-Các instructions set này còn được gọi là **machine language/binary language**, đây là loại ngôn ngữ lập trình sơ khai nhất.
+Các instructions set này còn được gọi là **machine language/binary language**, đây là loại ngôn ngữ lập trình sơ khai nhất. Programming language (ngôn ngữ lập trình) được tạo ra bởi con người, được sử dụng nhằm mục đích giao tiếp với máy tính, khiến cho máy tính thực hiện các hành vi do người dùng (developer/scientist) chỉ định.
 
-# Classification
+# Classification of Programming Language
+
+Có rất nhiều cách để phân loại ngôn ngữ lập trình dựa trên nhiều tiêu chí. Một tiêu chí hay dùng nhất là dựa trên độ khó của việc viết, và một vài tiêu chí khác: **low-level** & **high-level**, hai loại ngôn ngữ này có các đặc điểm sau:
+- low-level:
+    - machine langugage
+    - assembly language
+- high-level:
+    - structural language
+    - procedural language
+    - object oriented language
+    - functional language
+
+Ưu điểm của ngôn ngữ low-level rất rõ ràng: siêu nhanh, chạy trực tiếp trên CPU. Tuy nhiên yếu điểm cũng không kém cạnh: chỉ gồm bit 0 hoặ 1 (machine code) dẫn tới khó đọc, khó đọc, khó viết, dể ẩn tàng lỗi, khó bảo trì. Một điểm phát triển của assembly code so với machine code là có thể sử dụng english word (dễ nhớ) cải thiện code đáng kể. Tuy nhiên vẫn rất để lập trình, và đặc biệt là không có cấu trúc rõ ràng, chỉ gồm một list instructions. Yêu cầu cần assembler để phiên dịch assembler code thành machine code. Tuy nhiên vẫn cần assembler khác nhau dành cho mỗi máy tính
+
+Ưu của của ngôn ngữ high-level thì không cần ai phải bàn cãi: viết code một cần, có thể chạy ở hầu hết loại máy tính. Câu lệnh tiếng anh rất dễ đọc và dễ viết, cung cấp khả năng trừu tượng. Yếu điểm là phải cần một compiler/interpreter khác nhau cho mỗi loại máy tính. Điều cần phải củng cố compiler/interpreter cho từng loại kiến trúc (x86,et cetera). Ưu điểm rất là rõ ràng, và ai cũng sử dụng high-level language nên việc phân loại tiếp theo sẽ tập trung vào các high-level language.
+
+# Structured Programming & Procedural Programming
 
 
+# Objet Oriented Programming & Functional Programming
 
-
-low level & high leve
-run direct on CPU
-Có rất nhiều phong cách lập trình tồn tại từ xưa đến tận bây giờ. Đại khái có 4 phong cách lập trình gồm
-- Structured Programming
-- Procedural Programming
-- Objet Oriented Programming
-- Functional Programming
-
-# Object Oriented Programming
 
 # Prototype ? How Javascript implement OOP 
 
