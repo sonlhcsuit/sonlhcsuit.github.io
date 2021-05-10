@@ -80,6 +80,7 @@ swap(&lt;span style="color:#f92672">&amp;amp;&lt;/span>a,&lt;span style="color:#
 cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> a &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#34; &amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> b;
 }
 &lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="objet-oriented-programming--functional-programming">Objet Oriented Programming &amp;amp; Functional Programming&lt;/h1>
+&lt;p>Functional Programming (lập trình hướng chức năng) là một loại phong cách lập trình, mục đích chủ yếu xoay quanh về việc các &lt;code>function&lt;/code> (chức năng) được hoàn thành như thế nào. Chúng ta chỉ cần đưa vào input vào một chức năng thì sẽ có ngay lập tức output hợp lệ. &lt;em>FP&lt;/em> thường xoay quanh việc&lt;/p>
 &lt;h1 id="imperative--declarative-programming">Imperative / Declarative Programming&lt;/h1>
 &lt;h1 id="prototype--how-javascript-implement-oop">Prototype ? How Javascript implement OOP&lt;/h1>
 &lt;hr>
@@ -92,6 +93,8 @@ cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> a &lt;span style=
 &lt;li>&lt;a href="https://en.wikipedia.org/wiki/Procedural_programming">https://en.wikipedia.org/wiki/Procedural_programming&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference">https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value">https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0">https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://en.wikipedia.org/wiki/Functional_programming">https://en.wikipedia.org/wiki/Functional_programming&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.youtube.com/watch?v=aYjGXzktatA">https://www.youtube.com/watch?v=aYjGXzktatA&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.youtube.com/watch?v=A38y7OO8OK4">https://www.youtube.com/watch?v=A38y7OO8OK4&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Event Loops</title><link>https://sonlhcsuit.github.io/p/event-loops/</link><pubDate>Fri, 23 Apr 2021 09:02:11 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/event-loops/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/event-loops/cover.png" alt="Featured image of post Event Loops" />&lt;p>Javascript là một ngôn ngữ lập trình duy nhất ở thời điểm hiện tại có thể chạy trên trình duyệt web ( WA - Web assembly có thể chạy trên browser, web assembly khiến cho binary code có thể chạy trên nền web). Duy nhất ở đây không phải là không thể tạo ra ngôn ngữ nào khác thay thế mà là không cần thiết vì Javascript đã quá trở nên phổ biến (ở đây tập trung nói về client-side Javascript). Javascript được thiết kế theo &lt;strong>event-driven&lt;/strong> paradigm (Hướng sự kiện). Javascript không phải là ngôn ngữ duy nhất được thiết kế dựa trên paradigm này (Hầu hết các ngôn ngữ hỗ trợ xây dựng GUI đều hỗ trợ).&lt;/p>
