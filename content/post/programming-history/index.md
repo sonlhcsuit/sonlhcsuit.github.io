@@ -109,7 +109,7 @@ int main(){
 ```
 
 # Objet Oriented Programming & Functional Programming
-
+Functional Programming (lập trình hướng chức năng) là một loại phong cách lập trình, mục đích chủ yếu xoay quanh về việc các `function` (chức năng) được hoàn thành như thế nào. Chúng ta chỉ cần đưa vào input vào một chức năng thì sẽ có ngay lập tức output hợp lệ. _FP_ thường xoay quanh việc 
 # Imperative / Declarative Programming
 
 # Prototype ? How Javascript implement OOP
@@ -123,5 +123,7 @@ int main(){
 - https://en.wikipedia.org/wiki/Procedural_programming
 - https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference
 - https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value
+- https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0
+- https://en.wikipedia.org/wiki/Functional_programming
 - https://www.youtube.com/watch?v=aYjGXzktatA
 - https://www.youtube.com/watch?v=A38y7OO8OK4
