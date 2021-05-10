@@ -21,7 +21,7 @@ alt="Block Diagram of Computer">
 &lt;li>assembly language&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;li>high-level:
+&lt;li>high-level: gồm các paradigm sau.
 &lt;ul>
 &lt;li>structural language&lt;/li>
 &lt;li>procedural language&lt;/li>
@@ -32,7 +32,7 @@ alt="Block Diagram of Computer">
 &lt;/ul>
 &lt;p>Ưu điểm của ngôn ngữ low-level rất rõ ràng: siêu nhanh, chạy trực tiếp trên CPU. Tuy nhiên yếu điểm cũng không kém cạnh: chỉ gồm bit 0 hoặ 1 (machine code) dẫn tới khó đọc, khó đọc, khó viết, dể ẩn tàng lỗi, khó bảo trì. Một điểm phát triển của assembly code so với machine code là có thể sử dụng english word (dễ nhớ) cải thiện code đáng kể. Tuy nhiên vẫn rất để lập trình, và đặc biệt là không có cấu trúc rõ ràng, chỉ gồm một list instructions. Yêu cầu cần assembler để phiên dịch assembler code thành machine code. Tuy nhiên vẫn cần assembler khác nhau dành cho mỗi máy tính&lt;/p>
 &lt;p>Ưu của của ngôn ngữ high-level thì không cần ai phải bàn cãi: viết code một cần, có thể chạy ở hầu hết loại máy tính. Câu lệnh tiếng anh rất dễ đọc và dễ viết, cung cấp khả năng trừu tượng. Yếu điểm là phải cần một compiler/interpreter khác nhau cho mỗi loại máy tính. Điều cần phải củng cố compiler/interpreter cho từng loại kiến trúc (x86,et cetera). Ưu điểm rất là rõ ràng, và ai cũng sử dụng high-level language nên việc phân loại tiếp theo sẽ tập trung vào các high-level language. Lưu ý việc phân loại ở đây, không phải là phân loại từng ngôn ngữ lập trình mà là phân loại các paradigm (mô hình ngôn ngữ lập trình).&lt;/p>
-&lt;h1 id="structured-programming--procedural-programming">Structured Programming &amp;amp; Procedural Programming&lt;/h1>
+&lt;h1 id="structural-programming--procedural-programming">Structural Programming &amp;amp; Procedural Programming&lt;/h1>
 &lt;p>Structured Programming nghĩa là lập trình có cấu trúc, vậy thế nào là có cấu trúc? &amp;ldquo;Cấu trúc&amp;rdquo; ở đây nói về việc xử lý các dòng code một cách hợp lý bằng việc hỗ trợ thêm các khái niệm như: blocks/scopes, control flows (condition &amp;amp; repitition), subroutines. Tại sao lại hỗ trợ thêm các khái niệm này? Trước khi các khái niệm này sinh ra thì đa phần các chương trình đều viết bằng assembly nên việc sử dụng câu lệnh jump/goto là cực kỳ phổ biến. Hãy xem xét ví dụ về việc rẽ nhánh và lặp sau đây.&lt;/p>
 &lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-asm" data-lang="asm">&lt;span style="color:#a6e22e">mov&lt;/span> &lt;span style="color:#66d9ef">eax&lt;/span>,&lt;span style="color:#ae81ff">1&lt;/span>
 &lt;span style="color:#a6e22e">cmp&lt;/span> &lt;span style="color:#66d9ef">eax&lt;/span>,&lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#75715e">; how does eax compare with 3?
@@ -61,12 +61,27 @@ eax &lt;span style="color:#f92672">=&lt;/span> eax &lt;span style="color:#f92672
 edi &lt;span style="color:#f92672">=&lt;/span> edi &lt;span style="color:#f92672">-&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
 }
 &lt;/code>&lt;/pre>&lt;/div>&lt;p>Bàn về procedural programming, cơ bản là mở rộng sự hỗ trợ của khái niệm subroutines từ structured programming, đồng thời kế thừa các khái niệm như scope / control flows để mở rộng thế giới của programming language, giúp việc viết một chương trình đơn giản hơn. Procedural language sẽ xoay quanh các khái niệm như &lt;code>record&lt;/code>, &lt;code>module&lt;/code>,&lt;code>procedure&lt;/code>, &lt;code>procedure call&lt;/code>. Thuở sơ khai thì procedural programming hỗ trợ cho phép các procedure thực hiện các thao tác thực tiếp lên vùng nhớ, giá trị của các thanh ghi / biến (&lt;code>record&lt;/code>), đồng thời cũng hỗ trợ việc gom nhóm procedure liên quan tới nhau thành nhóm - &lt;code>module&lt;/code> để dễ dàng quản lý, sử dụng ở nhiều nơi. Khi &lt;code>procedure call&lt;/code> được gọi thì instruction pointer sẽ lập tức di chuyển đến nơi khai báo và thực hiện việc thao tác dựa trên dữ liệu được gọi (thường là địa chỉ của giá trị để thao tác trực tiếp). Sau khi &lt;code>procedural call&lt;/code> kết thúc thì giá trị sẽ được cập nhật ở vị trí cũ và instruction pointer quay lại nơi được gọi và tiếp tục xử lý các instruction khác. Điều cần nói ở đây là procedural programming cần phải có sự hỗ trợ từ structured language. &lt;code>procedural&lt;/code> có thể hiểu tương tự như &lt;code>function&lt;/code> (hàm). Tuy nhiên hàm thì thay vì cập nhật trực tiếp giá trị ở ô nhớ thì lại trả về giá trị mới để chúng ta có thể tính toán bước tiếp theo mà không cần phải cập nhật giá trị ở ô nhớ cũ (thường là lưu lại để chuẩn bị tính toán tiếp). Sự khác biệt giữa procedural &amp;amp; function đa phần đến từ cách truyền giá trị vào và trả về giá trị.&lt;/p>
-&lt;p>Một ngôn ngữ lập trình không nhất thiết chỉ hỗ trợ một paradigm, mà có thể nhiều paradigm. Một ví dụ điển hình hiện tại là phần lớn các ngôn như lập trình bậc cao đều hỗ trợ structured / procedural language (câu lệnh điều khiển và function/procedure). Ví dụ về pass by value &amp;amp; pass by reference là 2 trường hợp để phân biệt rõ nhất về sự khác nhau giữa function/procedure (Nếu không muốn thì cũng không sao cả vì sự khác biệt rất nhỏ). Hãy xem xét 2 ví dụ của C++ sau đây.&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cxx" data-lang="cxx">&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="objet-oriented-programming--functional-programming">Objet Oriented Programming &amp;amp; Functional Programming&lt;/h1>
+&lt;p>Một ngôn ngữ lập trình không nhất thiết chỉ hỗ trợ một paradigm, mà có thể nhiều paradigm. Một ví dụ điển hình hiện tại là phần lớn các ngôn như lập trình bậc cao đều hỗ trợ structured / procedural language (câu lệnh điều khiển và function/procedure). Ví dụ về pass by value &amp;amp; pass by reference là 2 trường hợp để phân biệt rõ nhất về sự khác nhau giữa function/procedure (Nếu không muốn thì cũng không sao cả vì sự khác biệt rất nhỏ). Để phân biệt rõ hơn về 2 khái niệm này thì cần phải tìm hiểu về các thanh ghi callee ($s) &amp;amp; caller ($t), tuy nhiên việc này cũng ít cần thiết nốt, vì đa phần các ngôn ngữ lập trình đã làm thay ta công việc này rồi. Hãy xem xét 2 ví dụ của C++ sau đây.&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-cxx" data-lang="cxx">&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;iostream&amp;gt;&lt;/span>&lt;span style="color:#75715e">
+&lt;/span>&lt;span style="color:#75715e">&lt;/span>
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">mean&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> a,&lt;span style="color:#66d9ef">int&lt;/span> b){
+&lt;span style="color:#66d9ef">return&lt;/span> (a&lt;span style="color:#f92672">+&lt;/span>b)&lt;span style="color:#f92672">/&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>;
+}
+&lt;span style="color:#66d9ef">void&lt;/span> &lt;span style="color:#a6e22e">swap&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>a, &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#f92672">*&lt;/span>b){
+&lt;span style="color:#66d9ef">int&lt;/span> t &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">*&lt;/span>a;
+&lt;span style="color:#f92672">*&lt;/span>a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#f92672">*&lt;/span>b;
+&lt;span style="color:#f92672">*&lt;/span>b &lt;span style="color:#f92672">=&lt;/span> t;
+}
+&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>(){
+&lt;span style="color:#66d9ef">int&lt;/span> a &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">100&lt;/span>;
+&lt;span style="color:#66d9ef">int&lt;/span> b &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">21&lt;/span>;
+cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> mean(a,b) &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>;
+swap(&lt;span style="color:#f92672">&amp;amp;&lt;/span>a,&lt;span style="color:#f92672">&amp;amp;&lt;/span>b);
+cout &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> a &lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#e6db74">&amp;#34; &amp;#34;&lt;/span>&lt;span style="color:#f92672">&amp;lt;&amp;lt;&lt;/span> b;
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="objet-oriented-programming--functional-programming">Objet Oriented Programming &amp;amp; Functional Programming&lt;/h1>
+&lt;h1 id="imperative--declarative-programming">Imperative / Declarative Programming&lt;/h1>
 &lt;h1 id="prototype--how-javascript-implement-oop">Prototype ? How Javascript implement OOP&lt;/h1>
-&lt;h1 id="pass">pass&lt;/h1>
-&lt;h1 id="this--relevants-concepta">this &amp;amp; relevants concepta&lt;/h1>
-&lt;h1 id="better-method">Better Method&lt;/h1>
 &lt;hr>
 &lt;h1 id="references--more-resources">References &amp;amp; more resources&lt;/h1>
 &lt;ul>
@@ -76,6 +91,7 @@ edi &lt;span style="color:#f92672">=&lt;/span> edi &lt;span style="color:#f92672
 &lt;li>&lt;a href="https://www.cs.uaf.edu/courses/cs301/2014-fall/notes/goto/">https://www.cs.uaf.edu/courses/cs301/2014-fall/notes/goto/&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://en.wikipedia.org/wiki/Procedural_programming">https://en.wikipedia.org/wiki/Procedural_programming&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference">https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value">https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.youtube.com/watch?v=aYjGXzktatA">https://www.youtube.com/watch?v=aYjGXzktatA&lt;/a>&lt;/li>
 &lt;li>&lt;a href="https://www.youtube.com/watch?v=A38y7OO8OK4">https://www.youtube.com/watch?v=A38y7OO8OK4&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Event Loops</title><link>https://sonlhcsuit.github.io/p/event-loops/</link><pubDate>Fri, 23 Apr 2021 09:02:11 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/event-loops/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/event-loops/cover.png" alt="Featured image of post Event Loops" />&lt;p>Javascript là một ngôn ngữ lập trình duy nhất ở thời điểm hiện tại có thể chạy trên trình duyệt web ( WA - Web assembly có thể chạy trên browser, web assembly khiến cho binary code có thể chạy trên nền web). Duy nhất ở đây không phải là không thể tạo ra ngôn ngữ nào khác thay thế mà là không cần thiết vì Javascript đã quá trở nên phổ biến (ở đây tập trung nói về client-side Javascript). Javascript được thiết kế theo &lt;strong>event-driven&lt;/strong> paradigm (Hướng sự kiện). Javascript không phải là ngôn ngữ duy nhất được thiết kế dựa trên paradigm này (Hầu hết các ngôn ngữ hỗ trợ xây dựng GUI đều hỗ trợ).&lt;/p>
