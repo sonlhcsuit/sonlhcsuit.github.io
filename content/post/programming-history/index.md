@@ -28,7 +28,7 @@ Có rất nhiều cách để phân loại ngôn ngữ lập trình dựa trên 
 - low-level:
     - machine langugage
     - assembly language
-- high-level:
+- high-level: gồm các paradigm sau.
     - structural language
     - procedural language
     - object oriented language
@@ -38,7 +38,7 @@ Có rất nhiều cách để phân loại ngôn ngữ lập trình dựa trên 
 
 Ưu của của ngôn ngữ high-level thì không cần ai phải bàn cãi: viết code một cần, có thể chạy ở hầu hết loại máy tính. Câu lệnh tiếng anh rất dễ đọc và dễ viết, cung cấp khả năng trừu tượng. Yếu điểm là phải cần một compiler/interpreter khác nhau cho mỗi loại máy tính. Điều cần phải củng cố compiler/interpreter cho từng loại kiến trúc (x86,et cetera). Ưu điểm rất là rõ ràng, và ai cũng sử dụng high-level language nên việc phân loại tiếp theo sẽ tập trung vào các high-level language. Lưu ý việc phân loại ở đây, không phải là phân loại từng ngôn ngữ lập trình mà là phân loại các paradigm (mô hình ngôn ngữ lập trình).
 
-# Structured Programming & Procedural Programming
+# Structural Programming & Procedural Programming
 Structured Programming nghĩa là lập trình có cấu trúc, vậy thế nào là có cấu trúc? "Cấu trúc" ở đây nói về việc xử lý các dòng code một cách hợp lý bằng việc hỗ trợ thêm các khái niệm như: blocks/scopes, control flows (condition & repitition), subroutines. Tại sao lại hỗ trợ thêm các khái niệm này? Trước khi các khái niệm này sinh ra thì đa phần các chương trình đều viết bằng assembly nên việc sử dụng câu lệnh jump/goto là cực kỳ phổ biến. Hãy xem xét ví dụ về việc rẽ nhánh và lặp sau đây.
 
 ```asm
@@ -84,20 +84,35 @@ while (edi > 0){
 
 Bàn về procedural programming, cơ bản là mở rộng sự hỗ trợ của khái niệm subroutines từ structured programming, đồng thời kế thừa các khái niệm như scope / control flows để mở rộng thế giới của programming language, giúp việc viết một chương trình đơn giản hơn. Procedural language sẽ xoay quanh các khái niệm như `record`, `module`,`procedure`, `procedure call`. Thuở sơ khai thì procedural programming hỗ trợ cho phép các procedure thực hiện các thao tác thực tiếp lên vùng nhớ, giá trị của các thanh ghi / biến (`record`), đồng thời cũng hỗ trợ việc gom nhóm procedure liên quan tới nhau thành nhóm - `module` để dễ dàng quản lý, sử dụng ở nhiều nơi. Khi `procedure call` được gọi thì instruction pointer sẽ lập tức di chuyển đến nơi khai báo và thực hiện việc thao tác dựa trên dữ liệu được gọi (thường là địa chỉ của giá trị để thao tác trực tiếp). Sau khi `procedural call` kết thúc thì giá trị sẽ được cập nhật ở vị trí cũ và instruction pointer quay lại nơi được gọi và tiếp tục xử lý các instruction khác. Điều cần nói ở đây là procedural programming cần phải có sự hỗ trợ từ structured language. `procedural` có thể hiểu tương tự như `function` (hàm). Tuy nhiên hàm thì thay vì cập nhật trực tiếp giá trị ở ô nhớ thì lại trả về giá trị mới để chúng ta có thể tính toán bước tiếp theo mà không cần phải cập nhật giá trị ở ô nhớ cũ (thường là lưu lại để chuẩn bị tính toán tiếp). Sự khác biệt giữa procedural & function đa phần đến từ cách truyền giá trị vào và trả về giá trị. 
 
-Một ngôn ngữ lập trình không nhất thiết chỉ hỗ trợ một paradigm, mà có thể nhiều paradigm. Một ví dụ điển hình hiện tại là phần lớn các ngôn như lập trình bậc cao đều hỗ trợ structured / procedural language (câu lệnh điều khiển và function/procedure). Ví dụ về pass by value & pass by reference là 2 trường hợp để phân biệt rõ nhất về sự khác nhau giữa function/procedure (Nếu không muốn thì cũng không sao cả vì sự khác biệt rất nhỏ). Hãy xem xét 2 ví dụ của C++ sau đây.
+Một ngôn ngữ lập trình không nhất thiết chỉ hỗ trợ một paradigm, mà có thể nhiều paradigm. Một ví dụ điển hình hiện tại là phần lớn các ngôn như lập trình bậc cao đều hỗ trợ structured / procedural language (câu lệnh điều khiển và function/procedure). Ví dụ về pass by value & pass by reference là 2 trường hợp để phân biệt rõ nhất về sự khác nhau giữa function/procedure (Nếu không muốn thì cũng không sao cả vì sự khác biệt rất nhỏ). Để phân biệt rõ hơn về 2 khái niệm này thì cần phải tìm hiểu về các thanh ghi callee ($s) & caller ($t), tuy nhiên việc này cũng ít cần thiết nốt, vì đa phần các ngôn ngữ lập trình đã làm thay ta công việc này rồi. Hãy xem xét 2 ví dụ của C++ sau đây.
 
 ```cxx
+#include <iostream>
+
+int mean(int a,int b){
+    return (a+b)/2;
+}
+
+void swap(int *a, int *b){
+    int t = *a;
+    *a = *b;
+    *b = t;
+}
+
+int main(){
+  int a = 100;
+  int b = 21;
+  cout << mean(a,b) << "\n";
+  swap(&a,&b);
+  cout << a <<" "<< b;
+}
 ```
+
 # Objet Oriented Programming & Functional Programming
 
+# Imperative / Declarative Programming
 
-# Prototype ? How Javascript implement OOP 
-
-# pass
-
-# this & relevants concepta
-
-# Better Method
+# Prototype ? How Javascript implement OOP
 
 ---
 # References & more resources
@@ -107,5 +122,6 @@ Một ngôn ngữ lập trình không nhất thiết chỉ hỗ trợ một para
 - https://www.cs.uaf.edu/courses/cs301/2014-fall/notes/goto/
 - https://en.wikipedia.org/wiki/Procedural_programming
 - https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference
+- https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value
 - https://www.youtube.com/watch?v=aYjGXzktatA
 - https://www.youtube.com/watch?v=A38y7OO8OK4
