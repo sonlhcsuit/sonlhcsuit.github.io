@@ -109,7 +109,25 @@ int main(){
 ```
 
 # Objet Oriented Programming & Functional Programming
-Functional Programming (lập trình hướng chức năng) là một loại phong cách lập trình, mục đích chủ yếu xoay quanh về việc các `function` (chức năng) được hoàn thành như thế nào. Chúng ta chỉ cần đưa vào input vào một chức năng thì sẽ có ngay lập tức output hợp lệ. {FP} thường xoay quanh việc áp dụng, tạo ra các function như thế nào. Những function này thường là một dãy các expression (biểu thức) để mapping (ánh xạ, biến đổi, et cetera) dữ liệu đầu vào thành dữ liệu đầu ra (input & output) mà tránh việc dữ liệu bị thay đổi (mutable state), side effects khiến cho code trở trên dễ hiểu, debug, test, et cetera. Javascript có hỗ trợ {FP}, tuy nhiên nên tránh nhầm lẫn giữa việc hỗ trợ {FP} và thuần {FP} (purely functional programming - được kế thừa dựa trên lambda calculus).
+Functional Programming (lập trình hướng chức năng) là một loại phong cách lập trình, mục đích chủ yếu xoay quanh về việc các `function` (chức năng) được hoàn thành như thế nào. Chúng ta chỉ cần đưa vào input vào một chức năng thì sẽ có ngay lập tức output hợp lệ. {FP} thường xoay quanh việc áp dụng, tạo ra các function như thế nào. Những function này thường là một dãy các expression (biểu thức) để mapping (ánh xạ, biến đổi, et cetera) dữ liệu đầu vào thành dữ liệu đầu ra (input & output) mà tránh việc dữ liệu bị thay đổi (mutable state), side effects khiến cho code trở trên dễ hiểu, debug, test, et cetera. Javascript có hỗ trợ {FP}, tuy nhiên nên tránh nhầm lẫn giữa việc hỗ trợ {FP} và thuần {FP} (purely functional programming - được kế thừa dựa trên lambda calculus). {FP} xem function là first-class citizen, lưu ý rằng ở đây không mang ý nghĩa phân biệt thượng đẳng/hạ đẳng mà là nhằm mục đích để chỉ rằng tư tưởng của {fp} xoay quanh hàm - tức là function sẽ được fully supported. {FP} là một khái niệm rất mới, dần tiếp cận với các lập trình viên từ các framework của Javascript (Hook của React), nhưng những ngôn ngữ pure functional programming language thì lại khá là kén (haskell, lisp, et cetera). Sau đây sẽ là một vài ví dụ về {FP} ở trong Javascript.
+
+```javascript
+const array = [5, 19, 16, 7, 5, 10, 17, 5, 2, 17, 15, 15, 17, 8, 15, 14, 8, 1, 11, 17]
+const array_less_than_15 = array.filter((element)=> element < 15)
+console.log(array_less_than_15)
+```
+
+```javascript
+const array = [5, 19, 16, 7, 5, 10, 17, 5, 2, 17, 15, 15, 17, 8, 15, 14, 8, 1, 11, 17]
+const array_less_than_15 = []
+    for(let i = 0;i < array.length ; i++){
+        if (array[i]<15){
+            array_less_than_15.push(array[i])
+        }
+    }
+```
+
+Một điều lưu ý ở đây là chúng ta vẫn sử dụng method built-in của Array (filter) (vẫn có dính dáng tới OOP, vì Javascript hỗ trợ cả 2 paradigm này). Ngoại trừ {FP} thì chúng ta còn có {OOP}, nói về sự phổ biến của {OOP} thì không cần phải bàn cãi, vì hiện tại đây là một tượng đài không thể được vượt qua tại thời điểm hiện tại. Giống như {FP} luôn luôn xoay quanh function thì {OOP} lại đặt class & object là first-class citizens và mọi khái niệm xung quanh. Ưu thế của {OOP} nằm ở việc mô hình hoá mọi khái niệm ở trong chương trình trở thành những thứ quen thuộc, xung quanh đời sống khiến mọi chuyện trở nên dễ dàng tiếp cận với những người mới. Điểm khác biệt lớn nhất so với {FP} có lẽ là state - trạng thái - cũng có thể hiểu là dữ liệu. {FP} dành phần lớn thời gian để giúp chúng ta mapping - ánh xạ - từ input thành ouput thông qua các function. {OOP} thì lại quan tâm tới state và cách thay đổi state
 
 
 
