@@ -120,16 +120,33 @@ console.log(array_less_than_15)
 ```javascript
 const array = [5, 19, 16, 7, 5, 10, 17, 5, 2, 17, 15, 15, 17, 8, 15, 14, 8, 1, 11, 17]
 const array_less_than_15 = []
-    for(let i = 0;i < array.length ; i++){
-        if (array[i]<15){
-            array_less_than_15.push(array[i])
-        }
+for(let i = 0;i < array.length ; i++){
+    if (array[i]<15){
+        array_less_than_15.push(array[i])
     }
+}
 ```
 
-Một điều lưu ý ở đây là chúng ta vẫn sử dụng method built-in của Array (filter) (vẫn có dính dáng tới OOP, vì Javascript hỗ trợ cả 2 paradigm này). Ngoại trừ {FP} thì chúng ta còn có {OOP}, nói về sự phổ biến của {OOP} thì không cần phải bàn cãi, vì hiện tại đây là một tượng đài không thể được vượt qua tại thời điểm hiện tại. Giống như {FP} luôn luôn xoay quanh function thì {OOP} lại đặt class & object là first-class citizens và mọi khái niệm xung quanh. Ưu thế của {OOP} nằm ở việc mô hình hoá mọi khái niệm ở trong chương trình trở thành những thứ quen thuộc, xung quanh đời sống khiến mọi chuyện trở nên dễ dàng tiếp cận với những người mới. Điểm khác biệt lớn nhất so với {FP} có lẽ là state - trạng thái - cũng có thể hiểu là dữ liệu. {FP} dành phần lớn thời gian để giúp chúng ta mapping - ánh xạ - từ input thành ouput thông qua các function. {OOP} thì lại quan tâm tới state và cách thay đổi state một cách internally (nội bộ). Có 4 đặc tính cơ bản mà {OOP} cung cấp cho chúng ta đó là : Abstraction, Encapsulation, Inheritance, and Polymorphism. Ngoại trừ 4 principles (nguyên lý) cơ bản này ra thì còn có nhiều Design Pattern - nguyên tắc thiết kế - khác. Phổ biến nhất là SOLID
+Một điều lưu ý ở đây là chúng ta vẫn sử dụng method built-in của Array (filter) (vẫn có dính dáng tới OOP, vì Javascript hỗ trợ cả 2 paradigm này). Ngoại trừ {FP} thì chúng ta còn có {OOP}, nói về sự phổ biến của {OOP} thì không cần phải bàn cãi, vì hiện tại đây là một tượng đài không thể được vượt qua tại thời điểm hiện tại. Giống như {FP} luôn luôn xoay quanh function thì {OOP} lại đặt class & object là first-class citizens và mọi khái niệm xung quanh. Ưu thế của {OOP} nằm ở việc mô hình hoá mọi khái niệm ở trong chương trình trở thành những thứ quen thuộc, xung quanh đời sống khiến mọi chuyện trở nên dễ dàng tiếp cận với những người mới. Điểm khác biệt lớn nhất so với {FP} có lẽ là state - trạng thái - cũng có thể hiểu là dữ liệu. {FP} dành phần lớn thời gian để giúp chúng ta mapping - ánh xạ - từ input thành ouput thông qua các function. {OOP} thì lại quan tâm tới state và cách thay đổi state một cách internally (nội bộ). Có 4 đặc tính cơ bản mà {OOP} cung cấp cho chúng ta đó là : Abstraction, Encapsulation, Inheritance, and Polymorphism. Ngoại trừ 4 principles (nguyên lý) cơ bản này ra thì còn có nhiều Design Pattern. SOLID guidelines là một bộ gồm 5 nguyên tắc cơ bản để thiết kế một chương trình dựa trên {OOP}. Không dám bàn sâu về OOP vì còn non và xanh. Hãy cùng xem xét ví dụ để hiểu rõ hơn (ít nhất là tổng quan). Điều thú vị của Javascript là có thể cài đặt thêm prototype/method rất nhanh dựa trên Prototype-based implementation.
 
-
+```javascript
+const array = [5, 19, 16, 7, 5, 10, 17, 5, 2, 17, 15, 15, 17, 8, 15, 14, 8, 1, 11, 17]
+// thay bằng arrow function sẽ không chạy nhé
+Array.prototype.less_than = function(number){
+    let array = new Array();
+    if (!number){
+        throw new Error(`Expected a number, but got ${typeof number}`)
+    }
+    for(let element of this){
+        if (element<number){
+            array.push(element)
+        }
+    }
+    return array
+}
+let array_less_than_15 = array.less_than(15)
+console.log(array_less_than_15)
+```
 
 # Imperative / Declarative Programming
 
