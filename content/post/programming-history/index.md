@@ -109,7 +109,10 @@ int main(){
 ```
 
 # Objet Oriented Programming & Functional Programming
-Functional Programming (lập trình hướng chức năng) là một loại phong cách lập trình, mục đích chủ yếu xoay quanh về việc các `function` (chức năng) được hoàn thành như thế nào. Chúng ta chỉ cần đưa vào input vào một chức năng thì sẽ có ngay lập tức output hợp lệ. _FP_ thường xoay quanh việc 
+Functional Programming (lập trình hướng chức năng) là một loại phong cách lập trình, mục đích chủ yếu xoay quanh về việc các `function` (chức năng) được hoàn thành như thế nào. Chúng ta chỉ cần đưa vào input vào một chức năng thì sẽ có ngay lập tức output hợp lệ. {FP} thường xoay quanh việc áp dụng, tạo ra các function như thế nào. Những function này thường là một dãy các expression (biểu thức) để mapping (ánh xạ, biến đổi, et cetera) dữ liệu đầu vào thành dữ liệu đầu ra (input & output) mà tránh việc dữ liệu bị thay đổi (mutable state), side effects khiến cho code trở trên dễ hiểu, debug, test, et cetera. Javascript có hỗ trợ {FP}, tuy nhiên nên tránh nhầm lẫn giữa việc hỗ trợ {FP} và thuần {FP} (purely functional programming - được kế thừa dựa trên lambda calculus).
+
+
+
 # Imperative / Declarative Programming
 
 # Prototype ? How Javascript implement OOP
