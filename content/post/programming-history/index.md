@@ -23,8 +23,7 @@ Chúng ta có thể khái quát lịch sử máy tính bằng bài viết khác,
 Các **instructions set** này còn được gọi là **machine language/binary language**, đây là loại ngôn ngữ lập trình sơ khai nhất. **Programming Language** (ngôn ngữ lập trình) được tạo ra bởi con người, được sử dụng nhằm mục đích giao tiếp với máy tính, khiến cho máy tính thực hiện các hành vi do người dùng (**developer/scientist**) chỉ định.
 
 # Classification of Programming Language
-
-Có rất nhiều cách để phân loại ngôn ngữ lập trình dựa trên nhiều tiêu chí. Một tiêu chí hay dùng nhất là dựa trên độ khó của việc viết, và một vài tiêu chí khác: **low-level** & **high-level**, hai loại ngôn ngữ này có các đặc điểm sau:
+Có rất nhiều cách để phân loại ngôn ngữ lập trình dựa trên nhiều tiêu chí. Một tiêu chí hay dùng nhất là dựa trên độ khó của việc viết: **low-level** & **high-level**, và nhiều tiêu chí khác, ta có thể loại sơ bộ nhất như sau :
 - low-level:
     - machine langugage
     - assembly language
@@ -34,9 +33,9 @@ Có rất nhiều cách để phân loại ngôn ngữ lập trình dựa trên 
     - object oriented language
     - functional language
 
-Ưu điểm của ngôn ngữ low-level rất rõ ràng: siêu nhanh, chạy trực tiếp trên CPU. Tuy nhiên yếu điểm cũng không kém cạnh: chỉ gồm bit 0 hoặ 1 (machine code) dẫn tới khó đọc, khó đọc, khó viết, dể ẩn tàng lỗi, khó bảo trì. Một điểm phát triển của assembly code so với machine code là có thể sử dụng english word (dễ nhớ) cải thiện code đáng kể. Tuy nhiên vẫn rất để lập trình, và đặc biệt là không có cấu trúc rõ ràng, chỉ gồm một list instructions. Yêu cầu cần assembler để phiên dịch assembler code thành machine code. Tuy nhiên vẫn cần assembler khác nhau dành cho mỗi máy tính
+Ưu điểm của ngôn ngữ **low-level** rất rõ ràng: siêu nhanh, chạy trực tiếp trên **CPU**. Tuy nhiên yếu điểm cũng không kém cạnh: chỉ gồm bit 0 hoặc 1 (**machine code**) siêu khó đọc, siêu khó viết, dể ẩn tàng lỗi, siêu khó bảo trì. Một điểm mạnh để thay thế yếu điểm của **assembly code** so với **machine code** là có thể sử dụng **english word** (dễ nhớ) cải thiện code đáng kể, tuy nhiên thì vẫn phải làm việc với 0 và 1. Dù cải thiện nhiều yếu điểm, nhưng thực sự vẫn khó bắt đầu lập trình, và đặc biệt là không có cấu trúc rõ ràng, chỉ gồm một **list instructions**. Yêu cầu cần **assembler** để phiên dịch **assembly code** thành **machine code**. Tuy nhiên vẫn cần **assembler** khác nhau dành cho mỗi máy tính kiến trúc khác nhau.
 
-Ưu của của ngôn ngữ high-level thì không cần ai phải bàn cãi: viết code một cần, có thể chạy ở hầu hết loại máy tính. Câu lệnh tiếng anh rất dễ đọc và dễ viết, cung cấp khả năng trừu tượng. Yếu điểm là phải cần một compiler/interpreter khác nhau cho mỗi loại máy tính. Điều cần phải củng cố compiler/interpreter cho từng loại kiến trúc (x86,et cetera). Ưu điểm rất là rõ ràng, và ai cũng sử dụng high-level language nên việc phân loại tiếp theo sẽ tập trung vào các high-level language. Lưu ý việc phân loại ở đây, không phải là phân loại từng ngôn ngữ lập trình mà là phân loại các paradigm (mô hình ngôn ngữ lập trình).
+Ưu của của ngôn ngữ **high-level** thì không cần ai phải bàn cãi: viết code một lần, dễ đọc, dễ hiểu, dễ debug (ít nhất là so với **assembly**), có thể chạy ở hầu hết loại máy tính. Câu lệnh tiếng anh rất dễ đọc và dễ viết, cung cấp khả năng trừu tượng. Yếu điểm là phải cần một **compiler/interpreter** khác nhau cho mỗi loại máy tính. Điều cần phải củng cố **compiler/interpreter** cho từng loại kiến trúc (x86,et cetera). Ưu điểm rất là rõ ràng, và đa phần **developer** sử dụng **high-level language** nên việc phân loại tiếp theo sẽ tập trung vào các **high-level language**. Lưu ý việc phân loại ở đây, không phải là phân loại từng ngôn ngữ lập trình mà là phân loại các **paradigm** (mô hình ngôn ngữ lập trình).
 
 # Structural Programming & Procedural Programming
 Structured Programming nghĩa là lập trình có cấu trúc, vậy thế nào là có cấu trúc? "Cấu trúc" ở đây nói về việc xử lý các dòng code một cách hợp lý bằng việc hỗ trợ thêm các khái niệm như: blocks/scopes, control flows (condition & repitition), subroutines. Tại sao lại hỗ trợ thêm các khái niệm này? Trước khi các khái niệm này sinh ra thì đa phần các chương trình đều viết bằng assembly nên việc sử dụng câu lệnh jump/goto là cực kỳ phổ biến. Hãy xem xét ví dụ về việc rẽ nhánh và lặp sau đây.
