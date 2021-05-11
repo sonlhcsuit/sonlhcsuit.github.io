@@ -127,7 +127,7 @@ const array_less_than_15 = []
     }
 ```
 
-Một điều lưu ý ở đây là chúng ta vẫn sử dụng method built-in của Array (filter) (vẫn có dính dáng tới OOP, vì Javascript hỗ trợ cả 2 paradigm này). Ngoại trừ {FP} thì chúng ta còn có {OOP}, nói về sự phổ biến của {OOP} thì không cần phải bàn cãi, vì hiện tại đây là một tượng đài không thể được vượt qua tại thời điểm hiện tại. Giống như {FP} luôn luôn xoay quanh function thì {OOP} lại đặt class & object là first-class citizens và mọi khái niệm xung quanh. Ưu thế của {OOP} nằm ở việc mô hình hoá mọi khái niệm ở trong chương trình trở thành những thứ quen thuộc, xung quanh đời sống khiến mọi chuyện trở nên dễ dàng tiếp cận với những người mới. Điểm khác biệt lớn nhất so với {FP} có lẽ là state - trạng thái - cũng có thể hiểu là dữ liệu. {FP} dành phần lớn thời gian để giúp chúng ta mapping - ánh xạ - từ input thành ouput thông qua các function. {OOP} thì lại quan tâm tới state và cách thay đổi state
+Một điều lưu ý ở đây là chúng ta vẫn sử dụng method built-in của Array (filter) (vẫn có dính dáng tới OOP, vì Javascript hỗ trợ cả 2 paradigm này). Ngoại trừ {FP} thì chúng ta còn có {OOP}, nói về sự phổ biến của {OOP} thì không cần phải bàn cãi, vì hiện tại đây là một tượng đài không thể được vượt qua tại thời điểm hiện tại. Giống như {FP} luôn luôn xoay quanh function thì {OOP} lại đặt class & object là first-class citizens và mọi khái niệm xung quanh. Ưu thế của {OOP} nằm ở việc mô hình hoá mọi khái niệm ở trong chương trình trở thành những thứ quen thuộc, xung quanh đời sống khiến mọi chuyện trở nên dễ dàng tiếp cận với những người mới. Điểm khác biệt lớn nhất so với {FP} có lẽ là state - trạng thái - cũng có thể hiểu là dữ liệu. {FP} dành phần lớn thời gian để giúp chúng ta mapping - ánh xạ - từ input thành ouput thông qua các function. {OOP} thì lại quan tâm tới state và cách thay đổi state một cách internally (nội bộ). Có 4 đặc tính cơ bản mà {OOP} cung cấp cho chúng ta đó là : Abstraction, Encapsulation, Inheritance, and Polymorphism. Ngoại trừ 4 principles (nguyên lý) cơ bản này ra thì còn có nhiều Design Pattern - nguyên tắc thiết kế - khác. Phổ biến nhất là SOLID
 
 
 
@@ -139,12 +139,10 @@ Một điều lưu ý ở đây là chúng ta vẫn sử dụng method built-in 
 # References & more resources
 - https://qz.com/852770/theres-a-limit-to-how-small-we-can-make-transistors-but-the-solution-is-photonic-chips/
 - https://en.wikipedia.org/wiki/Computer
-- https://www.youtube.com/watch?v=Pn5znSOGHcs
 - https://www.cs.uaf.edu/courses/cs301/2014-fall/notes/goto/
 - https://en.wikipedia.org/wiki/Procedural_programming
 - https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference
 - https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value
 - https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0
 - https://en.wikipedia.org/wiki/Functional_programming
-- https://www.youtube.com/watch?v=aYjGXzktatA
-- https://www.youtube.com/watch?v=A38y7OO8OK4
+- https://en.wikipedia.org/wiki/Object-oriented_programming
