@@ -2,7 +2,7 @@
 title: "Power"
 description: "Power, exponent and relevant concepts"
 date: 2021-05-23T19:18:38+07:00
-draft: true
+draft: false
 math: true
 slug: "power"
 categories:
