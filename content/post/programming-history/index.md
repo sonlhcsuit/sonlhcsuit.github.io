@@ -148,8 +148,31 @@ console.log(array_less_than_15)
 ```
 
 # Imperative / Declarative Programming
+Imperative là phong cách lập trình mà chúng ta phải khai báo từng bước thực hiện và tính toán ở mỗi dòng code, mỗi bước cực kỳ quan trọng vì nó nó thể ảnh hưởng tới kết quả. Đơn giản hơn, chúng ta phải cung cấp **công thức** giúp biến đổi **input** thành **output**.
 
-# Prototype ? How Javascript implement OOP
+Declarative thì ít rắc rối hơn, chúng ta chỉ cần khai báo input và sử dụng các công thức có sẵn một cách phù hợp để tạo ra output, chúng ta có thể thêm một vài tuỳ chọn vào, nhưng hầu hết đều không ảnh hưởng tới công thức. Bằng cách này, chúng ta tiết kiệm rất nhiều thời gian và công sức khi viết code, không cần phải mất thời gian chỉ rõ rằng phải làm gì ở bước này, bước kia, lặp như nào, điều kiện ra sao,et cetera.
+
+Điều khác biệt ở 2 programming style này nằm ở thứ tự. Bạn là một người pha chế rất giỏi, biết rất nhiều công thức pha cà phê ngon, và bây giờ bạn đang chỉ cho cái máy làm từng bước để đạt được kết quả như bạn. Kiến thức cốt lõi ở đây là **công thức** - cách giải quyết vấn đề - khi nói về Imperative, điều quan trọng nhất là **HOW**. Còn đối với Declarative thì **WHAT** hoặc là **WHICH** mới là thứ quan trọng. Giả sử chúng ta có một cái máy pha coffee có thể pha mọi loại coffee trên đời với nhiều công thức có sẵn. Vậy thứ chúng ta cung cấp chỉ đơn giản là hạt coffee và chọn thứ coffee chúng ta muốn. Điều quan trọng ở đây, là chúng ta cần phải biết được các công thức có sẵn **làm việc gì** và vận dụng nó ra sao. 
+
+Điển hình về sự khác nhau thì ta có thể xem lại 2 ví dụ trên.
+
+```javascript
+const array = [5, 19, 16, 7, 5, 10, 17, 5, 2, 17, 15, 15, 17, 8, 15, 14, 8, 1, 11, 17]
+const array_less_than_15 = []
+for(let i = 0;i < array.length ; i++){
+    if (array[i]<15){
+        array_less_than_15.push(array[i])
+    }
+}
+console.log(array_less_than_15)
+```
+
+
+```javascript
+const array = [5, 19, 16, 7, 5, 10, 17, 5, 2, 17, 15, 15, 17, 8, 15, 14, 8, 1, 11, 17]
+const array_less_than_15 = array.filter((element)=> element < 15)
+console.log(array_less_than_15)
+```
 
 ---
 # References & more resources
@@ -159,6 +182,5 @@ console.log(array_less_than_15)
 - https://en.wikipedia.org/wiki/Procedural_programming
 - https://www.educative.io/edpresso/pass-by-value-vs-pass-by-reference
 - https://stackoverflow.com/questions/373419/whats-the-difference-between-passing-by-reference-vs-passing-by-value
-- https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0
 - https://en.wikipedia.org/wiki/Functional_programming
 - https://en.wikipedia.org/wiki/Object-oriented_programming
