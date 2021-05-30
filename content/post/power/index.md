@@ -51,12 +51,19 @@ function pow(base,exp){
     return p;
 }
 ```
-Như vậy thì chúng ta đã có thể tự implement một hàm luỹ thừa manually mà không dựa vào thư viện. Tuy vậy, thực sự thì hàm luỹ thừa này vẫn còn thiếu sót rất nhiều, cụ thể là **Nếu số mũ của chúng ta số thực thì sao?**. Đến đây thì đoạn code ở trên lại không thể giúp chúng ta. **Euler** sẽ giúp chúng ta vấn đề này.
+Như vậy thì chúng ta đã có thể tự implement một hàm luỹ thừa manually mà không dựa vào thư viện. Tuy vậy, thực sự thì hàm luỹ thừa này vẫn còn thiếu sót rất nhiều, cụ thể là **Nếu số mũ của chúng ta số thực thì sao?** Đến đây thì đoạn code ở trên lại không thể giúp chúng ta. **Euler** sẽ giúp chúng ta vấn đề này.
 
 # Exponent as real number
 Vì lười nên tác giả chưa viết tiếp
+magical number
+euler's number 
+irrational constant
+natural log
+
+365 ?
 
 ---
 # References & more resources
-https://www.netlib.org/fdlibm/e_pow.c
+- https://www.netlib.org/fdlibm/e_pow.c
+- https://www.youtube.com/watch?v=_-x90wGBD8U
 
