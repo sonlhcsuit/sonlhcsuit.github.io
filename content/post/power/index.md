@@ -24,9 +24,9 @@ $$
 
 Bằng định nghĩa này thì ta có thể tự implement như sau
 ```javascript
-function pow(base,exp){
+function pow(base,deg){
     let p = 1;
-    for(let i=0;i<exp;i++){
+    for(let i=0;i<deg;i++){
         p = p*base
     }
     return p;
@@ -36,15 +36,15 @@ function pow(base,exp){
 Tuy nhiên chỉ có bấy nhiêu đây thì vẫn chưa đủ, ta cần phải cover cả các trường hợp đặc biệt như là `NaN, 0, 1, infinity`. Ta cũng có thể dựa trên các định nghĩa trên để cải tiến hàm `pow` tốt hơn.
 
 ```javascript
-function pow(base,exp){
+function pow(base,exdegp){
     if (base == 1 || base == 0) return base;
-    if (exp == 0) return 1;
-    if (exp == 1) return base;
-    if (isNaN(base) || isNaN(exp)) return NaN;
-    if (isFinite(base) || isFinite(exp)) return Infinity;
+    if (deg == 0) return 1;
+    if (deg == 1) return base;
+    if (isNaN(base) || isNaN(deg)) return NaN;
+    if (!isFinite(base) || !isFinite(deg)) return Infinity;
 
     let p = 1;
-    for(let i=0;i<exp;i++){
+    for(let i=0;i<deg;i++){
         p = p*base
     }
     return p;
@@ -153,7 +153,7 @@ function ln_upper(a) {
 ```
 Còn đây là đối với $a \le 1$
 
-![ln a - the definition](lna-proven.png)
+![](lna-proven.png)
 
 
 ```javascript
@@ -215,15 +215,14 @@ function ln(a){
     
 }
 
-function pow(base,exp){
+function pow(base,deg){
     if (base == 1 || base == 0) return base;
-    if (exp == 0) return 1;
-    if (exp == 1) return base;
-    if (isNaN(base) || isNaN(exp)) return NaN;
-    if (isFinite(base) || isFinite(exp)) return Infinity;
+    if (deg == 0) return 1;
+    if (deg == 1) return base;
+    if (isNaN(base) || isNaN(deg)) return NaN;
+    if (isFinite(base) || isFinite(deg)) return Infinity;
 
-    ret
-    return p;
+    return exp(deg*ln(base));
 }
 ```
 ---
@@ -231,5 +230,8 @@ function pow(base,exp){
 - https://www.netlib.org/fdlibm/e_pow.c
 - https://www.youtube.com/watch?v=AuA2EAgAegE
 - https://www.youtube.com/watch?v=_-x90wGBD8U
-- https://stackoverflow.com/questions/9799041/efficient-implementation-of-natural-logarithm-ln-and-exponentiation/63773160#63773160
+- https://en.wikipedia.org/wiki/E_(mathematical_constant)
+- https://en.wikipedia.org/wiki/Exponential_function
+- https://en.wikipedia.org/wiki/Natural_logarithm
 - https://math.stackexchange.com/questions/635787/how-to-calculate-lnx
+- https://stackoverflow.com/questions/9799041/efficient-implementation-of-natural-logarithm-ln-and-exponentiation/63773160#63773160
