@@ -123,7 +123,7 @@ $$</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-mo
     <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>deg</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>;
     <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>deg</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>) <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>base</span>;
     <span style=color:#66d9ef>if</span> (isNaN(<span style=color:#a6e22e>base</span>) <span style=color:#f92672>||</span> isNaN(<span style=color:#a6e22e>deg</span>)) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>NaN</span>;
-    <span style=color:#66d9ef>if</span> (isFinite(<span style=color:#a6e22e>base</span>) <span style=color:#f92672>||</span> isFinite(<span style=color:#a6e22e>deg</span>)) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>Infinity</span>;
+    <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>isFinite(<span style=color:#a6e22e>base</span>) <span style=color:#f92672>||</span> <span style=color:#f92672>!</span>isFinite(<span style=color:#a6e22e>deg</span>)) <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>Infinity</span>;
 
     <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>exp</span>(<span style=color:#a6e22e>deg</span><span style=color:#f92672>*</span><span style=color:#a6e22e>ln</span>(<span style=color:#a6e22e>base</span>));
 }
