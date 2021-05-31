@@ -125,7 +125,25 @@ alt="ln a - the definition">
 \ln a = \int_{1}^{a} \frac{1} {x} \frac{d} {dx}
 $$&lt;/p>
 &lt;p>Và làm sao chúng ta tính được nó khi nguyên hàm của $\int \frac{1} {x} = \ln|x| + C$. Lại một vòng lẩn quẩn mới chăng? Thực ra là chúng ta sẽ dùng phương pháp &lt;strong>Tích phân từng phần&lt;/strong> để nguyên hàm và tính, kết quả như sau:&lt;/p>
-&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">pow&lt;/span>(&lt;span style="color:#a6e22e">base&lt;/span>,&lt;span style="color:#a6e22e">exp&lt;/span>){
+&lt;p>$$
+\ln a = \ln (1-x) = \sum_k^\infin \frac{x^k} {k} \newline
+x = \frac {1} {1-x} \newline
+\forall a &amp;gt; 1
+$$&lt;/p>
+&lt;p>Còn đây là đối với $a \le 1$&lt;/p>
+&lt;p>&lt;figure style="flex-grow: 213; flex-basis: 511px">
+&lt;a href="https://sonlhcsuit.github.io/p/power/lna-proven.png" data-size="2038x956">&lt;img src="https://sonlhcsuit.github.io/p/power/lna-proven.png"
+srcset="https://sonlhcsuit.github.io/p/power/lna-proven_hu9e5ee3e7b34ab1644ea84e2afe1ca980_168408_480x0_resize_box_2.png 480w, https://sonlhcsuit.github.io/p/power/lna-proven_hu9e5ee3e7b34ab1644ea84e2afe1ca980_168408_1024x0_resize_box_2.png 1024w"
+width="2038"
+height="956"
+loading="lazy"
+alt="ln a - the definition">
+&lt;/a>
+&lt;figcaption>ln a - the definition&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">ln&lt;/span>(&lt;span style="color:#a6e22e">x&lt;/span>){
+}
+&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">pow&lt;/span>(&lt;span style="color:#a6e22e">base&lt;/span>,&lt;span style="color:#a6e22e">exp&lt;/span>){
 &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">base&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">||&lt;/span> &lt;span style="color:#a6e22e">base&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">base&lt;/span>;
 &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">exp&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
 &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">exp&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">base&lt;/span>;
