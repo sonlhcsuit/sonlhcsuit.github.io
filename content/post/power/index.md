@@ -1,6 +1,6 @@
 ---
-title: "Power, root, logarithms"
-description: "Power, exponent, root, logarithm and relevant things"
+title: "Power and logarithms"
+description: "Power, exponent, logarithm and relevant things"
 date: 2021-05-23T19:18:38+07:00
 draft: false
 math: true
