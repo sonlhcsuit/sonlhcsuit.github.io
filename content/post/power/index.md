@@ -109,7 +109,6 @@ $$
 
 
 ```javascript
-let a = Math.exp(10);
 function exp(x) {
     // depend ons how many accuracy, we need to specific fixed K, in this example
     let k = 50;
@@ -135,27 +134,87 @@ $$
 Và làm sao chúng ta tính được nó khi nguyên hàm của $\int \frac{1} {x} = \ln|x| + C$. Lại một vòng lẩn quẩn mới chăng? Thực ra là chúng ta sẽ dùng phương pháp **Tích phân từng phần** để nguyên hàm và tính, kết quả như sau:
 
 $$
-    \ln a = \ln (1-x) = \sum_k^\infin \frac{x^k} {k} \newline
-    x = \frac {1} {1-x} \newline
+    \ln a = - \ln (1-x) = \sum_k^\infin \frac{x^k} {k} \newline
+    a = \frac {1} {1-x} \newline
     \forall a > 1
 $$
-
+```javascript
+function ln_upper(a) {
+    let k = 50;
+    let x = 1 - 1 / a;
+    let sum = 0;
+    let exponent = 1;
+    for (let i = 1; i < k; i++) {
+        exponent = exponent * x;
+        sum = sum + exponent / i
+    }
+    return sum
+}
+```
 Còn đây là đối với $a \le 1$
 
 ![ln a - the definition](lna-proven.png)
 
 
 ```javascript
-function ln(x){
-
-
+function ln_lower(a) {
+    let k = 50;
+    let u = a - 1;
+    let sum = 0;
+    let exponent = 1;
+    for (let i = 1; i < k; i++) {
+        exponent = exponent * u;
+        sum = sum + (i % 2 == 1 ? 1 : -1) *( exponent / i)
+    }
+    return sum
 }
-
 ```
 
 
 
 ```javascript
+function exp(x) {
+    // depend ons how many accuracy, we need to specific fixed K, in this example
+    let k = 50;
+    let factorial = 1;
+    let exponent = 1;
+    let sum = 1;
+    for (let i = 1; i < k; i++) {
+        exponent = exponent * x;
+        factorial = factorial * i
+        sum = sum + exponent / factorial;
+    }
+    return sum
+}
+function ln_upper(a) {
+    let k = 50;
+    let x = 1 - 1 / a;
+    let sum = 0;
+    let exponent = 1;
+    for (let i = 1; i < k; i++) {
+        exponent = exponent * x;
+        sum = sum + exponent / i
+    }
+    return sum
+}
+function ln_lower(a) {
+    let k = 50;
+    let u = a - 1;
+    let sum = 0;
+    let exponent = 1;
+    for (let i = 1; i < k; i++) {
+        exponent = exponent * u;
+        sum = sum + (i % 2 == 1 ? 1 : -1) * (exponent / i)
+    }
+    return sum
+}
+function ln(a){
+    if (a<0) return NaN
+    if (a<=1) return ln_lower(a);
+    return ln_upper(a)
+    
+}
+
 function pow(base,exp){
     if (base == 1 || base == 0) return base;
     if (exp == 0) return 1;
@@ -163,10 +222,7 @@ function pow(base,exp){
     if (isNaN(base) || isNaN(exp)) return NaN;
     if (isFinite(base) || isFinite(exp)) return Infinity;
 
-    let power = 0;
-
-
-
+    ret
     return p;
 }
 ```
@@ -176,4 +232,4 @@ function pow(base,exp){
 - https://www.youtube.com/watch?v=AuA2EAgAegE
 - https://www.youtube.com/watch?v=_-x90wGBD8U
 - https://stackoverflow.com/questions/9799041/efficient-implementation-of-natural-logarithm-ln-and-exponentiation/63773160#63773160
-
+- https://math.stackexchange.com/questions/635787/how-to-calculate-lnx
