@@ -220,7 +220,7 @@ function pow(base,deg){
     if (deg == 0) return 1;
     if (deg == 1) return base;
     if (isNaN(base) || isNaN(deg)) return NaN;
-    if (isFinite(base) || isFinite(deg)) return Infinity;
+    if (!isFinite(base) || !isFinite(deg)) return Infinity;
 
     return exp(deg*ln(base));
 }
