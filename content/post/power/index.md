@@ -36,7 +36,7 @@ function pow(base,deg){
 Tuy nhiên chỉ có bấy nhiêu đây thì vẫn chưa đủ, ta cần phải cover cả các trường hợp đặc biệt như là `NaN, 0, 1, infinity`. Ta cũng có thể dựa trên các định nghĩa trên để cải tiến hàm `pow` tốt hơn.
 
 ```javascript
-function pow(base,exdegp){
+function pow(base,deg){
     if (base == 1 || base == 0) return base;
     if (deg == 0) return 1;
     if (deg == 1) return base;
