@@ -50,20 +50,20 @@ function pow(base,deg){
     return p;
 }
 ```
-Như vậy thì chúng ta đã có thể tự implement một hàm luỹ thừa manually mà không dựa vào thư viện. Tuy vậy, thực sự thì hàm luỹ thừa này vẫn còn thiếu sót rất nhiều, cụ thể là **Nếu số mũ của chúng ta số thực thì sao?** Đến đây thì đoạn code ở trên lại không thể giúp chúng ta, vì chúng ta không thể lặp "số thực" lần được.
+Chúng ta đã implement một hàm luỹ thừa manually mà không dựa vào thư viện. Tuy vậy, thực sự thì hàm luỹ thừa này vẫn còn thiếu sót rất nhiều, cụ thể hơn **Nếu số mũ của chúng ta số thực thì sao?** Hàm `pow` được cài đặt ở trên lại không thể giúp chúng ta, vì chúng ta không thể lặp "số thực" lần được.
 
 # Logarithms
-Cái gì cũng có mặt trái của nó, (chỉ có bản mặt của tôi là không có người yêu), ngoại trừ phép **power** thì chúng ta còn có phép toán **logarithm**. Phép toán **logarithm** giúp chúng ta tìm được **exponent** của một số. Tuy nhiên dựa vào những kiến thức hạn hẹp của tôi về toán và cả lập trình thì tôi chưa nghĩ ra cách nào để cài đặt hàm logarithm bằng vòng lặp đơn giản như phép luỹ thừa vậy. Chúng ta hãy tìm hiểu một chút về phép logarithm và **e** - magical number. 
-
+Cái gì cũng có mặt trái của nó, (chỉ có bản mặt của tôi là không có người yêu), ngoại trừ phép **power** thì chúng ta còn có phép toán **logarithm**. Phép toán **logarithm** giúp chúng ta tìm được **exponent** của một số. Tuy nhiên dựa vào những kiến thức hạn hẹp của tôi về toán và cả lập trình thì tôi chưa nghĩ ra cách nào để cài đặt hàm **logarithm** bằng vòng lặp đơn giản như phép luỹ thừa vậy. Chúng ta hãy tìm hiểu một chút về phép **logarithm** và **e** - magical number. **Logarithm** là **inverse function** của **exponential function**.
+![Exponential vs logarithm](exponential-vs-logarithm.png)
 $$
     a^n = b \newline
     \log_a b = n
 $$
 
-Nhìn vào công thức quen thuộc này thì chúng ta có thể nhận ra rằng là, nếu chúng ta biết cách tính hàm logarithm thì mọi chuyện sẽ trở nên dễ dàng khi tìm số mũ. Nhưng mà mọi chuyện đâu có dễ như vậy, bởi vì chúng ta đang giậm chân tại chỗ ở hàm power (chỉ có thể tính được luỹ thừa là số nguyên), vậy nên n sẽ luôn luôn là số nguyên (với cái cách tính hàm power ở trên đã được mình đề ra). Chúng ta cần một cách tính khác có thể giúp chúng ta tính được power với exponent là số thực, cách này này thông qua **e**.
+Nhìn vào công thức quen thuộc này thì chúng ta có thể nhận ra rằng là, nếu chúng ta biết cách tính hàm **logarithm** thì mọi chuyện sẽ trở nên dễ dàng khi tìm bậc luỹ thừa. Nhưng mà mọi chuyện đâu có dễ như vậy, bởi vì chúng ta đang giậm chân tại chỗ ở hàm `pow` hiện tại (chỉ có thể tính được nếu bậc luỹ thừa là số nguyên), vậy nên **n** sẽ luôn luôn là số nguyên (với cái cách tính hàm `pow` ở trên đã được mình đề ra). Chúng ta cần một cách tính khác có thể giúp chúng ta tính được `pow` với bậc luỹ thừa là số thực. Thứ giúp chúng ta làm được việc là **e**, và **calculus**.
 
 # Magical number
-Tầm quan trọng của e trong giải tích thì không ai phải bàn cãi, nó thực sự rất là quan trọng luôn (quan trọng tới mức tôi không thể sống thiếu e). **Vậy e được tìm ra như thế nào và ý nghĩa của e là gì?** Để làm rõ vấn đề này thì chúng ta sẽ nói về **growth** - sự tăng trưởng. Chúng ta sẽ lấy ví dụ về compound interest để dễ hình dung hơn về growth. Đặc biệt khi tính toán lãi kép thì đơn vị thời gian chúng ta sử dụng là số nguyên.
+Tầm quan trọng của **e** trong giải tích thì không ai phải bàn cãi, nó thực sự rất là quan trọng luôn (quan trọng tới mức tôi không thể sống thiếu e). **Vậy e được tìm ra như thế nào và ý nghĩa của e là gì?** Để làm rõ vấn đề này thì chúng ta sẽ nói về **growth** - sự tăng trưởng. Chúng ta sẽ lấy ví dụ về **compound interest** để dễ hình dung hơn về **growth**. Đặc biệt khi tính toán lãi kép thì đơn vị thời gian chúng ta sử dụng là số nguyên với đơn vị thời gian. Chúng ta hãy tìm hiểu một tí, **e là gì và tại sao e lại đặc biệt như vậy?**
 
 $$
     A = P(1 + \frac{r} {n})^{nt}
@@ -89,7 +89,7 @@ Nhìn qua hình này ta có thể nhận ra đây vừa là ví dụ của lãi 
 ![50% interest per 6 month](compound-interest-2.png)
 ![25% interest per 3 month](compound-interest-3.png)
 
-Vậy khi chúng ta chia lãi càng nhỏ (tới mức $10^{-9}$), thì chúng ta sẽ đạt được growth càng lớn, giá trị này hội tụ lại tại **e = 2.71828...**( ~171% growth per year). e được gọi với cai tên: con số của sự tăng tưởng, luỹ thừa bằng một cách nào cũng được xem là growth (tăng trưởng). e kết quả lớn nhất có thể khi áp dụng lãi kép liên tục ở mức lãi 100% sau một đơn vị thời gian (lãi kép liên tục là việc chia nhỏ lãi ). Và hàm $f(x) = e^x$ được gọi là hàm tăng trưởng (The exponential function). Một điều tuyệt vời rằng giá trị của $f'(x) = e^x$. Một hàm tuyệt vời. Đây là hàm duy nhất tại thời điểm hiện tại có tính chất này. Thực hiện phép log với cơ số e: $\log_e x$, được gọi là natural logarithm. 
+Vậy khi chúng ta chia lãi càng nhỏ (tới mức $10^{-9}$), thì chúng ta sẽ đạt được **growth** càng lớn, giá trị này hội tụ lại tại **e = 2.71828...**( ~171% rate per year). **e** được gọi với cái tên: con số của sự tăng tưởng. **e** là kết quả lớn nhất có thể khi áp dụng **lãi kép liên tục** ở mức lãi 100% sau một đơn vị thời gian (lãi kép liên tục là việc chia nhỏ lãi đến mức không thể nhỏ hơn). Và hàm $f(x) = e^x$ được gọi là hàm mũ tự nhiên (The natural exponential function). Một điều tuyệt vời rằng giá trị của $f'(x) = e^x$. Một hàm tuyệt vời. Đây là hàm duy nhất tại thời điểm hiện tại có tính chất này. Thực hiện phép log với cơ số e: $\log_e x$, được gọi là **natural logarithm**. 
 
 # Real exponent
 Làm sao để tính $a^b$ với b là số thực? Chúng ta sẽ cần tới phép natural logarithm, cơ số a ta có thể biểu diễn dưới dạng $e^x$ và natural logarithm như sau
