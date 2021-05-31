@@ -95,7 +95,7 @@ alt="25% interest per 3 month">
 &lt;/figure>&lt;/p>
 &lt;p>Vậy khi chúng ta chia lãi càng nhỏ (tới mức $10^{-9}$), thì chúng ta sẽ đạt được &lt;strong>growth&lt;/strong> càng lớn, giá trị này hội tụ lại tại &lt;strong>e = 2.71828&amp;hellip;&lt;/strong>( ~171% rate per year). &lt;strong>e&lt;/strong> được gọi với cái tên: con số của sự tăng tưởng. &lt;strong>e&lt;/strong> là kết quả lớn nhất có thể khi áp dụng &lt;strong>lãi kép liên tục&lt;/strong> ở mức lãi 100% sau một đơn vị thời gian (lãi kép liên tục là việc chia nhỏ lãi đến mức không thể nhỏ hơn). Và hàm $f(x) = e^x$ được gọi là hàm mũ tự nhiên (The natural exponential function). Một điều tuyệt vời rằng giá trị của $f'(x) = e^x$. Một hàm tuyệt vời. Đây là hàm duy nhất tại thời điểm hiện tại có tính chất này. Thực hiện phép log với cơ số e: $\log_e x$, được gọi là &lt;strong>natural logarithm&lt;/strong>.&lt;/p>
 &lt;h1 id="real-exponent">Real exponent&lt;/h1>
-&lt;p>Làm sao để tính $a^b$ với b là số thực? Chúng ta sẽ cần tới phép natural logarithm, cơ số a ta có thể biểu diễn dưới dạng $e^x$ và natural logarithm như sau
+&lt;p>Làm sao để tính $a^b$ với b là số thực? Chúng ta sẽ cần tới phép &lt;strong>natural logarithm&lt;/strong>, cơ số &lt;strong>a&lt;/strong> ta có thể biểu diễn dưới dạng $e^x$ và natural logarithm như sau
 $$
 e^a = b \newline \log_e b = a \newline \rightarrow b = e^{\ln b}
 $$&lt;/p>
@@ -133,7 +133,7 @@ alt="ln a - the definition">
 &lt;p>$$
 \ln a = \int_{1}^{a} \frac{1} {x} \frac{d} {dx}
 $$&lt;/p>
-&lt;p>Và làm sao chúng ta tính được nó khi nguyên hàm của $\int \frac{1} {x} = \ln|x| + C$. Lại một vòng lẩn quẩn mới chăng? Thực ra là chúng ta sẽ dùng phương pháp &lt;strong>Tích phân từng phần&lt;/strong> để nguyên hàm và tính, kết quả như sau:&lt;/p>
+&lt;p>Và làm sao chúng ta tính được nó khi nguyên hàm của $\int \frac{1} {x} = \ln|x| + C$. Lại một vòng lẩn quẩn mới chăng? Thực ra là chúng ta sẽ dùng cả kiến thức về chuỗi luỹ thừa, khai triển &lt;strong>Taylor&lt;/strong> nữa,p hương pháp &lt;strong>tích phân từng phần&lt;/strong>, &amp;hellip; Kết quả như sau:&lt;/p>
 &lt;p>$$
 \ln a = - \ln (1-x) = \sum_k^\infin \frac{x^k} {k} \newline
 a = \frac {1} {1-x} \newline
@@ -219,7 +219,8 @@ loading="lazy"
 &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#f92672">!&lt;/span>isFinite(&lt;span style="color:#a6e22e">base&lt;/span>) &lt;span style="color:#f92672">||&lt;/span> &lt;span style="color:#f92672">!&lt;/span>isFinite(&lt;span style="color:#a6e22e">deg&lt;/span>)) &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">Infinity&lt;/span>;
 &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#a6e22e">exp&lt;/span>(&lt;span style="color:#a6e22e">deg&lt;/span>&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#a6e22e">ln&lt;/span>(&lt;span style="color:#a6e22e">base&lt;/span>));
 }
-&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Tới đoạn này thì việc cài đặt một hàm trông có vẻ nhỏ như con thỏ, nhưng lại tốn rất nhiều chất xám, và khó khăn khi cài đặt. Chúng ta đã làm được việc đó rồi. (Ít nhất thì độ chính xác của chúng ta chưa cần thiết quá cao khi nói về các kiến trúc mạng)&lt;/p>
+&lt;hr>
 &lt;h1 id="references--more-resources">References &amp;amp; more resources&lt;/h1>
 &lt;ul>
 &lt;li>&lt;a href="https://www.youtube.com/watch?v=AuA2EAgAegE">https://www.youtube.com/watch?v=AuA2EAgAegE&lt;/a>&lt;/li>
