@@ -227,7 +227,6 @@ function pow(base,deg){
 ```
 ---
 # References & more resources
-- https://www.netlib.org/fdlibm/e_pow.c
 - https://www.youtube.com/watch?v=AuA2EAgAegE
 - https://www.youtube.com/watch?v=_-x90wGBD8U
 - https://en.wikipedia.org/wiki/E_(mathematical_constant)
@@ -235,3 +234,7 @@ function pow(base,deg){
 - https://en.wikipedia.org/wiki/Natural_logarithm
 - https://math.stackexchange.com/questions/635787/how-to-calculate-lnx
 - https://stackoverflow.com/questions/9799041/efficient-implementation-of-natural-logarithm-ln-and-exponentiation/63773160#63773160
+- https://www.netlib.org/fdlibm/e_pow.c
+
+### P/S:
+Nếu có gì sai sót xin gửi email cho mình để cập nhật, xin cảm ơn!
