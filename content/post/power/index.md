@@ -13,16 +13,16 @@ tags:
 image: cover.png
 
 ---
-Một trong nhiều vấn đề khá là nan giải (thực ra không phải là nan giải, "người ta" đã giải quyết nó từ lâu rồi - từ có nghĩa là cách tiếp cận khó khăn) trong lập trình, hoặc toán học đó là phép toán luỹ thừa. Một câu hỏi có thể hay được đặt ra đó là: "Làm sao để tính luỹ thừa bậc n của một số bất kỳ?". Vấn đề trở nên rất đơn giản nếu như chúng ta sử dụng các ngôn ngữ lập trình Javascript, Python, hoặc là các thư viện kèm theo của các ngôn ngữ bậc thấp như *math.h* của C / *cmath* của C++. Nhưng trong trường hợp không không thể sử dụng các built-in, chúng ta tính luỹ thừa như thế nào?
+Một trong nhiều vấn đề khá là nan giải (thực ra không phải là nan giải, "người ta" đã giải quyết nó từ lâu rồi - từ này ở đây với ý nghĩa cách tiếp cận khó khăn) trong lập trình, hoặc toán học đó là phép toán luỹ thừa. Một câu hỏi có thể hay được đặt ra đó là: "Làm sao để tính luỹ thừa bậc n của một số bất kỳ?". Vấn đề trở nên rất đơn giản nếu như chúng ta sử dụng các ngôn ngữ lập trình Javascript, Python, hoặc là các thư viện kèm theo của các ngôn ngữ bậc thấp như *math.h* của C / *cmath* của C++. Nhưng trong trường hợp không không thể sử dụng các built-in, chúng ta tính luỹ thừa như thế nào? Để hiểu rõ được việc làm sao chúng ta có thể cài đặt được phép luỹ thừa, ta sẽ cần rất nhiều kiến thức về toán học cơ bản (bên cạnh đó còn)
 
 # Exponent as natural number
-Bằng một vài định nghĩa toán học cơ bản, ta biết được rằng phép toán luỹ thừa là việc thực hiện các phép nhân liên tục. Cụ thể hơn, *base* được nhân với chính bản thân *n* lần.
+Bằng một vài định nghĩa toán học cơ bản, ta biết được rằng phép toán luỹ thừa là việc thực hiện các phép nhân liên tục. Cụ thể hơn, *base* được nhân với chính bản thân *n* lần. Phép toán luỹ thừa đồng thời là một ví dụ điển hình về sự tăng trưởng.
 
 $$
  \underbrace{b^n = b.b.b...b}_\text{n times} 
 $$
 
-Bằng định nghĩa này thì ta có thể tự implement như sau
+Bằng định nghĩa này, ta có thể tự implement hàm luỹ thừa như sau:
 ```javascript
 function pow(base,deg){
     let p = 1;
@@ -33,7 +33,7 @@ function pow(base,deg){
 }
 ```
 
-Tuy nhiên chỉ có bấy nhiêu đây thì vẫn chưa đủ, ta cần phải cover cả các trường hợp đặc biệt như là `NaN, 0, 1, infinity`. Ta cũng có thể dựa trên các định nghĩa trên để cải tiến hàm `pow` tốt hơn.
+Tuy nhiên hàm luỹ thừa vẫn chưa đủ nếu chỉ có bấy nhiêu, ta cần phải xem xét, bao quát cả các trường hợp đặc biệt như là `NaN, 0, 1, infinity`. Bằng việc thêm các trường hợp đặc biệt, hàm `pow` đã tốt hơn một tí. 
 
 ```javascript
 function pow(base,deg){
