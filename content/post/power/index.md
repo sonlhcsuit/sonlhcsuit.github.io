@@ -134,7 +134,24 @@ $$
 
 Và làm sao chúng ta tính được nó khi nguyên hàm của $\int \frac{1} {x} = \ln|x| + C$. Lại một vòng lẩn quẩn mới chăng? Thực ra là chúng ta sẽ dùng phương pháp **Tích phân từng phần** để nguyên hàm và tính, kết quả như sau:
 
+$$
+    \ln a = \ln (1-x) = \sum_k^\infin \frac{x^k} {k} \newline
+    x = \frac {1} {1-x} \newline
+    \forall a > 1
+$$
 
+Còn đây là đối với $a \le 1$
+
+![ln a - the definition](lna-proven.png)
+
+
+```javascript
+function ln(x){
+
+
+}
+
+```
 
 
 
