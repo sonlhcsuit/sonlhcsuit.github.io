@@ -92,7 +92,7 @@ Nhìn qua hình này ta có thể nhận ra đây vừa là ví dụ của lãi 
 Vậy khi chúng ta chia lãi càng nhỏ (tới mức $10^{-9}$), thì chúng ta sẽ đạt được **growth** càng lớn, giá trị này hội tụ lại tại **e = 2.71828...**( ~171% rate per year). **e** được gọi với cái tên: con số của sự tăng tưởng. **e** là kết quả lớn nhất có thể khi áp dụng **lãi kép liên tục** ở mức lãi 100% sau một đơn vị thời gian (lãi kép liên tục là việc chia nhỏ lãi đến mức không thể nhỏ hơn). Và hàm $f(x) = e^x$ được gọi là hàm mũ tự nhiên (The natural exponential function). Một điều tuyệt vời rằng giá trị của $f'(x) = e^x$. Một hàm tuyệt vời. Đây là hàm duy nhất tại thời điểm hiện tại có tính chất này. Thực hiện phép log với cơ số e: $\log_e x$, được gọi là **natural logarithm**. 
 
 # Real exponent
-Làm sao để tính $a^b$ với b là số thực? Chúng ta sẽ cần tới phép natural logarithm, cơ số a ta có thể biểu diễn dưới dạng $e^x$ và natural logarithm như sau
+Làm sao để tính $a^b$ với b là số thực? Chúng ta sẽ cần tới phép **natural logarithm**, cơ số **a** ta có thể biểu diễn dưới dạng $e^x$ và natural logarithm như sau
 $$
     e^a = b \newline \log_e b = a \newline \rightarrow b = e^{\ln b} 
 $$
@@ -131,7 +131,7 @@ $$
     \ln a = \int_{1}^{a} \frac{1} {x} \frac{d} {dx}
 $$
 
-Và làm sao chúng ta tính được nó khi nguyên hàm của $\int \frac{1} {x} = \ln|x| + C$. Lại một vòng lẩn quẩn mới chăng? Thực ra là chúng ta sẽ dùng phương pháp **Tích phân từng phần** để nguyên hàm và tính, kết quả như sau:
+Và làm sao chúng ta tính được nó khi nguyên hàm của $\int \frac{1} {x} = \ln|x| + C$. Lại một vòng lẩn quẩn mới chăng? Thực ra là chúng ta sẽ dùng cả kiến thức về chuỗi luỹ thừa, khai triển **Taylor** nữa,p hương pháp **tích phân từng phần**, ... Kết quả như sau:
 
 $$
     \ln a = - \ln (1-x) = \sum_k^\infin \frac{x^k} {k} \newline
@@ -225,6 +225,9 @@ function pow(base,deg){
     return exp(deg*ln(base));
 }
 ```
+
+Tới đoạn này thì việc cài đặt một hàm trông có vẻ nhỏ như con thỏ, nhưng lại tốn rất nhiều chất xám, và khó khăn khi cài đặt. Chúng ta đã làm được việc đó rồi. (Ít nhất thì độ chính xác của chúng ta chưa cần thiết quá cao khi nói về các kiến trúc mạng)
+
 ---
 
 # References & more resources
