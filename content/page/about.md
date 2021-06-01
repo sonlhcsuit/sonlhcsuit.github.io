@@ -12,6 +12,7 @@ lastmod: '2020-10-09'
 ---
 
 You can find me here:
+- email: sonlh.cs.uit@gmail.com
 - github: https://github.com/sonlhcsuit
 - facebook: https://www.facebook.com/sjIv3r/
-- email: sonlh.cs.uit@gmail.com
+- in: https://www.linkedin.com/in/sonlhcsuit/
