@@ -28,11 +28,42 @@ Class-base là cách implement (cài đặt) ngôn ngữ lập trình hướng �
 Cách ngược lại là protoype-base thì giúp coder viết code nhanh và mượt hơn, không strict chặt chẽ, dễ tiếp cận với người mới. Tuy nhiên đánh đổi lại là hạn chế về phần tuỳ biến, tính năng. Đồng thời sinhra thêm khái niệm mới để đảm bảo tính về mặt tư tưởng. Javascript &amp;amp; Python là 2 ngôn ngữ điển hình cài đặt OOP theo prototype&lt;/p>
 &lt;h1 id="prototype-overview">Prototype overview&lt;/h1>
 &lt;ul>
-&lt;li>Prototype&lt;/li>
+&lt;li>
+&lt;p>Prototype-bases implementation là việc cài đặt OOP, đặc biệt là Inheritance các behavior thông qua một predefined object (object đã được khởi tạo sẵn) gọi là prototype . Việc tạo ra 1 object trong các ngôn ngữ này được gọi là &amp;ldquo;clone&amp;rdquo; (chứ không phải construct - class-base implementation) dựaa trên một object chuẩn nhất (gọi là generalized object - có thể gọi là clone hoặc extend)&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nguyên lý này giúp coder tập trung vào việc xử lý các behavior cụ thể của một object cụ thể tại một thời điểm cụ thể hơn là việc phải định nghĩa chúng nó trước (class-base implemetation luôn ưu tiên abstraction, điển hình là Java/Microsoft Java tới mức cao nhất) bằng việc định nghĩa class. Sau khi nó những object cụ thể rồi thì lúc đấy coder mới phải quan tâm tới việc tạo ra archetypal structure (cấu trúc nguyên mẫu).&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Và khi coder thực hiện implemtation theo style prototype này thì thường có xu hướng thay đổi, tạo ra, thực thi, kiểm tra các behavior tại run-time hơn là ở compile-time. Điều này có một nguy cơ tiềm ẩn là các behavior luôn luôn có nguy cơ tiềm ẩn gây ra exception cao(không phải là class-base không có). Một ví dụ cụ thể là các callback function ở Javascript. Các interpreter &amp;amp; dynamic typed language (Javascript, Python, &amp;hellip;) thường là một lựa chọn hoàn hảo dành cho Prototype-base&lt;/p>
+&lt;/li>
 &lt;/ul>
 &lt;h2 id="construction">Construction&lt;/h2>
+&lt;ul>
+&lt;li>Khi nói tới OOP, việc tạo ra một object thì chắc hẳn phải nói tới constructor đầu tiên, và trước khi có thể sử dụng được constructor thì phải định nghĩa class và các attribute trước đối ngược hoàn toàn với việc tạo object trước rồi mới định nghĩa&lt;/li>
+&lt;li>Từ một vài phiên bản mới thì Javascript đã khắc phục chuyện này bằng cách thêm từ khoá &lt;code>new&lt;/code> cùng với &lt;code>constructor&lt;/code> để khiến bản thân có thể trông giống như class-base implementation từ đó dễ tiếp cận đối với các coder từ class-base chuyển sang (Java/Microsoft Java/ C++)&lt;/li>
+&lt;li>Một ưu điểm của Javascript là có thể khởi tạo object &lt;code>literal&lt;/code> (theo nghĩa đen). Một điều thú vị ở đây là Inheritance được thực hiện thông qua việc &lt;code>clone&lt;/code>, nghĩa là chúng ta sẽ tạo một &lt;code>doppelganger&lt;/code> của object cụ thể, tất cả attribute &amp;amp; behavior của object mới vừa đươc &lt;code>clone&lt;/code> đều giống chính xác như bản gốc, và coder sẽ thực hiện việc manipulate / modify phiên bản &lt;code>doppelganger&lt;/code> này thành object mong muốn.&lt;/li>
+&lt;/ul>
 &lt;h2 id="delegation">Delegation&lt;/h2>
+&lt;ul>
+&lt;li>Nếu trong class-base OOP, việc xác định một behavior của object sẽ dựa vào Inheritance tree, thì đại diện là Javascript sẽ sử dụng một cơ chế gọi là &lt;code>delegation&lt;/code> nhằm xác định đúng prototype (attribute &amp;amp; behavior của object) tại thời điểm runtime &amp;hellip;&lt;/li>
+&lt;li>Javascript implement prototype thông qua &lt;code>Object.prototype&lt;/code>, và tất cả những object khác kế thừ từ object này cũng mang theo một màu như vậy, tuy nhiên lại không thể hiện rõ ra ở &lt;code>obj.prototype&lt;/code> mà được ngầm hiểu nhờ cơ chế delegation và được ẩn giấu ở &lt;code>[[Prototype]]&lt;/code> cũng tức là những thứ đã được clone từ original version. Để truy cập thì ta chỉ cần dấu &lt;code>dot(.)&lt;/code> mà thôi . Javascript sẽ truy cập vào &lt;code>[[Prototype]]&lt;/code> hiện tại của object để có thể lấy ra được thứ mình muốn.&lt;/li>
+&lt;li>Và attribute &amp;amp; behavior của original khi được clone sẽ được hop-in (chuyển vào) &lt;code>[[Prototype]]&lt;/code> và điều này tạo thành 1 cái cây. Nếu chẳng may phiên bản doppelganger một behavior trùng tên với cái cũ thì cũng không sao bởi vì cơ chế delegation duyệt prototype bottom-up.&lt;/li>
+&lt;/ul>
+&lt;p>&lt;figure style="flex-grow: 269; flex-basis: 645px">
+&lt;a href="https://sonlhcsuit.github.io/p/oop-implementation/image-1.png" data-size="958x356">&lt;img src="https://sonlhcsuit.github.io/p/oop-implementation/image-1.png"
+srcset="https://sonlhcsuit.github.io/p/oop-implementation/image-1_hu16fdedee5ecd38efce0f7645e37599b8_58863_480x0_resize_box_3.png 480w, https://sonlhcsuit.github.io/p/oop-implementation/image-1_hu16fdedee5ecd38efce0f7645e37599b8_58863_1024x0_resize_box_3.png 1024w"
+width="958"
+height="356"
+loading="lazy"
+alt="Archetypal Structure">
+&lt;/a>
+&lt;figcaption>Archetypal Structure&lt;/figcaption>
+&lt;/figure>&lt;/p>
 &lt;h2 id="concatenation">Concatenation&lt;/h2>
+&lt;ul>
+&lt;li>Việc replace các&lt;/li>
+&lt;/ul>
 &lt;h2 id="criticism">Criticism&lt;/h2>
 &lt;hr>
 &lt;h1 id="references--more-resources">References &amp;amp; more resources&lt;/h1>
