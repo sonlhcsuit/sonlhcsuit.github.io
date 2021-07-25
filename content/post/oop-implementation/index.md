@@ -42,15 +42,27 @@ Lập trình hướng đối tượng là tư tưởng, là phong cách lập tr
 **Ở trên chỉ là đôi chút kinh nghiệm nhỏ, tâm đắc được rút ra từ bản thân tác giả.**
 # Implement language with OO supported
 Có 2 cách để implement một ngôn ngữ hỗ trợ hướng đối tượng (OO supported). Đó là class-base & prototype-base.
-Class-base là cách implement (cài đặt) ngôn ngữ lập trình hướng đối tượng chặt chẽ nhất, thể hiện được khía cạnh mạnh mẽ của OO (hướng đối tượng), các ngôn ngữ bậc trung như C++, Java, C#,... được cài đặt theo cách này. Tuy nhiên điểm yếu là khi bắt đầu code với các ngôn ngữ này thì nên tảng về hướng đối tượng cực kỳ quan trọng, kỹ thuật lập trình là thứ không thể thiếu, đôi khi cài đặt dài dòng rườm ra mất thời gian của coder nhưng đánh đổi được là dễ quản lý, dễ tìm lỗi và bảo trì. Nôm na là sẽ đánh đổi công sức của coder lấy về một source code tốt (hoặc ít nhất thì đó là lý tưởng). Cách ngược lại thì giúp coder viết code nhanh và mượt hơn, không strict chặt chẽ, dễ tiếp cận với người mới  
+Class-base là cách implement (cài đặt) ngôn ngữ lập trình hướng đối tượng chặt chẽ nhất, thể hiện được khía cạnh mạnh mẽ của OO (hướng đối tượng), các ngôn ngữ bậc trung như C++, Java, C#,... được cài đặt theo cách này. Tuy nhiên điểm yếu là khi bắt đầu code với các ngôn ngữ này thì nên tảng về hướng đối tượng cực kỳ quan trọng, kỹ thuật lập trình là thứ không thể thiếu, đôi khi cài đặt dài dòng rườm ra mất thời gian của coder nhưng đánh đổi được là dễ quản lý, dễ tìm lỗi và bảo trì. Nôm na là sẽ đánh đổi công sức của coder lấy về một source code tốt (hoặc ít nhất thì đó là lý tưởng). 
+Cách ngược lại là protoype-base thì giúp coder viết code nhanh và mượt hơn, không strict chặt chẽ, dễ tiếp cận với người mới. Tuy nhiên đánh đổi lại là hạn chế về phần tuỳ biến, tính năng. Đồng thời sinhra thêm khái niệm mới để đảm bảo tính về mặt tư tưởng. Javascript & Python là 2 ngôn ngữ điển hình cài đặt OOP theo prototype
 
+# Prototype overview
+- Prototype 
 
-# How Javascript implements OOP
+## Construction
 
-# How Python implements OOp
+## Delegation
+
+## Concatenation
+
+## Criticism
 
 ---
 # References & more resources
 
 ### P/S:
 Nếu có gì sai sót xin gửi email cho mình để cập nhật, xin cảm ơn!
+
+
+<!-- # How Javascript implements OOP
+
+# How Python implements OOp -->
