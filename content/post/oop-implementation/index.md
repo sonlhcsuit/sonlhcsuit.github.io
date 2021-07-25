@@ -1,10 +1,10 @@
 ---
-title: "Object Oriented Programing Implementation"
+title: "Object Oriented Programing Implementations"
 description: "No Description"
 date: 2021-05-23T20:34:57+07:00
 draft: false
 math: false
-slug: "object-oriented-programming"
+slug: "oop-implementation"
 categories:
     - Javascript
     - Python
