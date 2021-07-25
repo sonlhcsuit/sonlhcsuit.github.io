@@ -70,16 +70,16 @@ Cách ngược lại là **protoype-base** thì giúp coder viết code nhanh v�
 ## Delegation 
 - Nếu trong **class-base** OOP, việc xác định một **behavior** của object sẽ dựa vào **Inheritance tree**, thì đại diện của **prototype-base** là **Javascript** sẽ sử dụng một cơ chế gọi là **delegation** nhằm xác định đúng **prototype** (**attribute** & **behavior** của **object**) tại thời điểm runtime ...
 
-- **Javascript** implement **prototype** thông qua **Object.prototype**, và tất cả những object khác kế thừ từ object này cũng mang theo một màu như vậy, tuy nhiên lại không thể hiện rõ ra ở **obj.prototype** mà được ngầm hiểu nhờ cơ chế **delegation** và được ẩn giấu ở **[[Prototype]]** cũng tức là những thứ **đã được clone từ original version**. Để truy cập thì ta chỉ cần dấu **dot(.)** mà thôi . Javascript sẽ truy cập vào **[[Prototype]]** hiện tại của object để có thể lấy ra được thứ mình muốn. 
+- **Javascript** implement **prototype** thông qua **Object.prototype**, và tất cả những object khác kế thừ từ object này cũng mang theo một màu như vậy, tuy nhiên lại không thể hiện rõ ra ở **obj.prototype** mà được ngầm hiểu nhờ cơ chế **delegation** và được ẩn giấu ở `[[Prototype]]` cũng tức là những thứ **đã được clone từ original version**. Để truy cập thì ta chỉ cần dấu `.` (**dot**) mà thôi . Javascript sẽ truy cập vào `[[Prototype]]` hiện tại của object để có thể lấy ra được thứ mình muốn. 
 
-- Attribute & behavior của original khi được clone sẽ được hop-in (chuyển vào) **[[Prototype]]** tạo thành 1 cái cây. Nếu chẳng may phiên bản **doppelganger** có tồn tại một **behavior** trùng tên **original version** với cái cũ thì cũng không sao bởi vì cơ chế **delegation** duyệt **prototype** bottom-up. Nhìn hình thì các bạn có thể hiểu rõ hơn một xíu.
+- Attribute & behavior của original khi được clone sẽ được hop-in (chuyển vào) `[[Prototype]]` tạo thành 1 cái cây. Nếu chẳng may phiên bản **doppelganger** có tồn tại một **behavior** trùng tên **original version** với cái cũ thì cũng không sao bởi vì cơ chế **delegation** duyệt **prototype** bottom-up. Nhìn hình thì các bạn có thể hiểu rõ hơn một xíu.
 
 ![Archetypal Structure](image-1.png)
 
 ## Concatenation
 - Hiểu một cách đơn giản về việc **concatenation** là khi bạn thay đổi **behavior** của object lớn thì những **doppelganger verions** của **object** đó không hề bị ảnh hưởng. Nó có thể là một điểm mạnh, hoặc cũng có thể là một điểm yếu khi có những **behavior** không đồng bộ nhưng vậy. Tác giả vì còn kém nên chỉ thấy được bất lợi trước mắt là phải gán lại tất cả **behavior** cho các object đã được khai báo (nếu gặp trường hợp cần thay đổi **behavior** như thế này)
 
-Sẽ ráng update một bài nói chi tiết về việc Javascript/Python implement theo Prototype này có điểm lợi và hại gì.
+Sẽ ráng update một bài nói chi tiết về việc **Javascript/Python** implement theo `Prototype` này có điểm lợi và hại gì và những gotcha.
 
 ---
 # References & more resources

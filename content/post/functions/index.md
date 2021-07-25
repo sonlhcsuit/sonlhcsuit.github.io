@@ -26,8 +26,10 @@ Khi làm việc với các ngôn ngữ lập trình thì chúng ta lại sử d�
 
 
 Có một vài điều cần lưu ý khi sử dụng **function** như sau:
-    - Phải khai báo **function** trước khi sử dụng
-    - **function** không chạy tại thời điểm được khai báo mà chỉ chạy khi được invoke/call
+
+- Phải khai báo **function** trước khi sử dụng
+- **function** không chạy tại thời điểm được khai báo mà chỉ chạy khi được **invoke/call**
+
 Ngoại trừ những điều trên thì còn một vài thứ linh tinh nữa. Trong Javascript thì chúng ta có thể khai báo **function** bằng 2 cách - sử dụng **function definition** hoặc **function expression**. Javascript xem **function** như là một đối tượng, nên **function** có thể là **output** của một function khác.
 
 ```javascript
