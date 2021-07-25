@@ -5,9 +5,11 @@ date: 2021-05-23T20:34:57+07:00
 draft: false
 math: false
 slug: "oop-implementation"
-categories:
+tags:
     - Javascript
     - Python
+categories:
+    - programming-language
 image: cover.jpg
 
 ---
