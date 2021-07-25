@@ -46,13 +46,26 @@ Class-base là cách implement (cài đặt) ngôn ngữ lập trình hướng �
 Cách ngược lại là protoype-base thì giúp coder viết code nhanh và mượt hơn, không strict chặt chẽ, dễ tiếp cận với người mới. Tuy nhiên đánh đổi lại là hạn chế về phần tuỳ biến, tính năng. Đồng thời sinhra thêm khái niệm mới để đảm bảo tính về mặt tư tưởng. Javascript & Python là 2 ngôn ngữ điển hình cài đặt OOP theo prototype
 
 # Prototype overview
-- Prototype 
+- Prototype-bases implementation là việc cài đặt OOP, đặc biệt là Inheritance các behavior thông qua một predefined object (object đã được khởi tạo sẵn) gọi là prototype . Việc tạo ra 1 object trong các ngôn ngữ này được gọi là "clone" (chứ không phải construct - class-base implementation) dựaa trên một object chuẩn nhất (gọi là generalized object - có thể gọi là clone hoặc extend)
+
+- Nguyên lý này giúp coder tập trung vào việc xử lý các behavior cụ thể của một object cụ thể tại một thời điểm cụ thể hơn là việc phải định nghĩa chúng nó trước (class-base implemetation luôn ưu tiên abstraction, điển hình là Java/Microsoft Java tới mức cao nhất) bằng việc định nghĩa class. Sau khi nó những object cụ thể rồi thì lúc đấy coder mới phải quan tâm tới việc tạo ra archetypal structure (cấu trúc nguyên mẫu).
+
+- Và khi coder thực hiện implemtation theo style prototype này thì thường có xu hướng thay đổi, tạo ra, thực thi, kiểm tra các behavior tại run-time hơn là ở compile-time. Điều này có một nguy cơ tiềm ẩn là các behavior luôn luôn có nguy cơ tiềm ẩn gây ra exception cao(không phải là class-base không có). Một ví dụ cụ thể là các callback function ở Javascript. Các interpreter & dynamic typed language (Javascript, Python, ...) thường là một lựa chọn hoàn hảo dành cho Prototype-base 
 
 ## Construction
+- Khi nói tới OOP, việc tạo ra một object thì chắc hẳn phải nói tới constructor đầu tiên, và trước khi có thể sử dụng được constructor thì phải định nghĩa class và các attribute trước đối ngược hoàn toàn với việc tạo object trước rồi mới định nghĩa 
+- Từ một vài phiên bản mới thì Javascript đã khắc phục chuyện này bằng cách thêm từ khoá `new` cùng với `constructor` để khiến bản thân có thể trông giống như class-base implementation từ đó dễ tiếp cận đối với các coder từ class-base chuyển sang (Java/Microsoft Java/ C++)
+- Một ưu điểm của Javascript là có thể khởi tạo object `literal` (theo nghĩa đen). Một điều thú vị ở đây là Inheritance được thực hiện thông qua việc `clone`, nghĩa là chúng ta sẽ tạo một `doppelganger` của object cụ thể, tất cả attribute & behavior của object mới vừa đươc `clone` đều giống chính xác như bản gốc, và coder sẽ thực hiện việc manipulate / modify phiên bản `doppelganger` này thành object mong muốn. 
 
-## Delegation
+## Delegation 
+- Nếu trong class-base OOP, việc xác định một behavior của object sẽ dựa vào Inheritance tree, thì đại diện là Javascript sẽ sử dụng một cơ chế gọi là `delegation` nhằm xác định đúng prototype (attribute & behavior của object) tại thời điểm runtime ...
+- Javascript implement prototype thông qua `Object.prototype`, và tất cả những object khác kế thừ từ object này cũng mang theo một màu như vậy, tuy nhiên lại không thể hiện rõ ra ở `obj.prototype` mà được ngầm hiểu nhờ cơ chế delegation và được ẩn giấu ở `[[Prototype]]` cũng tức là những thứ đã được clone từ original version. Để truy cập thì ta chỉ cần dấu `dot(.)` mà thôi . Javascript sẽ truy cập vào `[[Prototype]]` hiện tại của object để có thể lấy ra được thứ mình muốn. 
+- Và attribute & behavior của original khi được clone sẽ được hop-in (chuyển vào) `[[Prototype]]` và điều này tạo thành 1 cái cây. Nếu chẳng may phiên bản doppelganger một behavior trùng tên với cái cũ thì cũng không sao bởi vì cơ chế delegation duyệt prototype bottom-up. 
+
+![Archetypal Structure](image-1.png)
 
 ## Concatenation
+- Việc replace các 
 
 ## Criticism
 
