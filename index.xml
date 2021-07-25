@@ -24,13 +24,24 @@
 &lt;p>&lt;strong>Ở trên chỉ là đôi chút kinh nghiệm nhỏ, tâm đắc được rút ra từ bản thân tác giả.&lt;/strong>&lt;/p>
 &lt;h1 id="implement-language-with-oo-supported">Implement language with OO supported&lt;/h1>
 &lt;p>Có 2 cách để implement một ngôn ngữ hỗ trợ hướng đối tượng (OO supported). Đó là class-base &amp;amp; prototype-base.
-Class-base là cách implement (cài đặt) ngôn ngữ lập trình hướng đối tượng chặt chẽ nhất, thể hiện được khía cạnh mạnh mẽ của OO (hướng đối tượng), các ngôn ngữ bậc trung như C++, Java, C#,&amp;hellip; được cài đặt theo cách này. Tuy nhiên điểm yếu là khi bắt đầu code với các ngôn ngữ này thì nên tảng về hướng đối tượng cực kỳ quan trọng, kỹ thuật lập trình là thứ không thể thiếu, đôi khi cài đặt dài dòng rườm ra mất thời gian của coder nhưng đánh đổi được là dễ quản lý, dễ tìm lỗi và bảo trì. Nôm na là sẽ đánh đổi công sức của coder lấy về một source code tốt (hoặc ít nhất thì đó là lý tưởng). Cách ngược lại thì giúp coder viết code nhanh và mượt hơn, không strict chặt chẽ, dễ tiếp cận với người mới&lt;/p>
-&lt;h1 id="how-javascript-implements-oop">How Javascript implements OOP&lt;/h1>
-&lt;h1 id="how-python-implements-oop">How Python implements OOp&lt;/h1>
+Class-base là cách implement (cài đặt) ngôn ngữ lập trình hướng đối tượng chặt chẽ nhất, thể hiện được khía cạnh mạnh mẽ của OO (hướng đối tượng), các ngôn ngữ bậc trung như C++, Java, C#,&amp;hellip; được cài đặt theo cách này. Tuy nhiên điểm yếu là khi bắt đầu code với các ngôn ngữ này thì nên tảng về hướng đối tượng cực kỳ quan trọng, kỹ thuật lập trình là thứ không thể thiếu, đôi khi cài đặt dài dòng rườm ra mất thời gian của coder nhưng đánh đổi được là dễ quản lý, dễ tìm lỗi và bảo trì. Nôm na là sẽ đánh đổi công sức của coder lấy về một source code tốt (hoặc ít nhất thì đó là lý tưởng).
+Cách ngược lại là protoype-base thì giúp coder viết code nhanh và mượt hơn, không strict chặt chẽ, dễ tiếp cận với người mới. Tuy nhiên đánh đổi lại là hạn chế về phần tuỳ biến, tính năng. Đồng thời sinhra thêm khái niệm mới để đảm bảo tính về mặt tư tưởng. Javascript &amp;amp; Python là 2 ngôn ngữ điển hình cài đặt OOP theo prototype&lt;/p>
+&lt;h1 id="prototype-overview">Prototype overview&lt;/h1>
+&lt;ul>
+&lt;li>Prototype&lt;/li>
+&lt;/ul>
+&lt;h2 id="construction">Construction&lt;/h2>
+&lt;h2 id="delegation">Delegation&lt;/h2>
+&lt;h2 id="concatenation">Concatenation&lt;/h2>
+&lt;h2 id="criticism">Criticism&lt;/h2>
 &lt;hr>
 &lt;h1 id="references--more-resources">References &amp;amp; more resources&lt;/h1>
 &lt;h3 id="ps">P/S:&lt;/h3>
-&lt;p>Nếu có gì sai sót xin gửi email cho mình để cập nhật, xin cảm ơn!&lt;/p></description></item><item><title>Power and logarithms</title><link>https://sonlhcsuit.github.io/p/power/</link><pubDate>Sun, 23 May 2021 19:18:38 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/power/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/power/cover.png" alt="Featured image of post Power and logarithms" />&lt;p>Một trong nhiều vấn đề khá là nan giải (thực ra không phải là nan giải, &amp;ldquo;người ta&amp;rdquo; đã giải quyết nó từ lâu rồi - từ này ở đây với ý nghĩa cách tiếp cận khó khăn) trong lập trình, hoặc toán học đó là phép toán luỹ thừa. Một câu hỏi có thể hay được đặt ra đó là: &amp;ldquo;Làm sao để tính luỹ thừa bậc n của một số bất kỳ?&amp;rdquo;. Vấn đề trở nên rất đơn giản nếu như chúng ta sử dụng các ngôn ngữ lập trình Javascript, Python, hoặc là các thư viện kèm theo của các ngôn ngữ bậc thấp như &lt;em>math.h&lt;/em> của C / &lt;em>cmath&lt;/em> của C++. Nhưng trong trường hợp không không thể sử dụng các built-in, chúng ta tính luỹ thừa như thế nào? Để hiểu rõ được việc làm sao chúng ta có thể cài đặt được phép luỹ thừa, ta sẽ cần rất nhiều kiến thức về toán học cơ bản (bên cạnh đó còn)&lt;/p>
+&lt;p>Nếu có gì sai sót xin gửi email cho mình để cập nhật, xin cảm ơn!&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;blockquote>
+&lt;/blockquote></description></item><item><title>Power and logarithms</title><link>https://sonlhcsuit.github.io/p/power/</link><pubDate>Sun, 23 May 2021 19:18:38 +0700</pubDate><guid>https://sonlhcsuit.github.io/p/power/</guid><description>&lt;img src="https://sonlhcsuit.github.io/p/power/cover.png" alt="Featured image of post Power and logarithms" />&lt;p>Một trong nhiều vấn đề khá là nan giải (thực ra không phải là nan giải, &amp;ldquo;người ta&amp;rdquo; đã giải quyết nó từ lâu rồi - từ này ở đây với ý nghĩa cách tiếp cận khó khăn) trong lập trình, hoặc toán học đó là phép toán luỹ thừa. Một câu hỏi có thể hay được đặt ra đó là: &amp;ldquo;Làm sao để tính luỹ thừa bậc n của một số bất kỳ?&amp;rdquo;. Vấn đề trở nên rất đơn giản nếu như chúng ta sử dụng các ngôn ngữ lập trình Javascript, Python, hoặc là các thư viện kèm theo của các ngôn ngữ bậc thấp như &lt;em>math.h&lt;/em> của C / &lt;em>cmath&lt;/em> của C++. Nhưng trong trường hợp không không thể sử dụng các built-in, chúng ta tính luỹ thừa như thế nào? Để hiểu rõ được việc làm sao chúng ta có thể cài đặt được phép luỹ thừa, ta sẽ cần rất nhiều kiến thức về toán học cơ bản (bên cạnh đó còn)&lt;/p>
 &lt;h1 id="exponent-as-natural-number">Exponent as natural number&lt;/h1>
 &lt;p>Bằng một vài định nghĩa toán học cơ bản, ta biết được rằng phép toán luỹ thừa là việc thực hiện các phép nhân liên tục. Cụ thể hơn, &lt;em>base&lt;/em> được nhân với chính bản thân &lt;em>n&lt;/em> lần. Phép toán luỹ thừa đồng thời là một ví dụ điển hình về sự tăng trưởng.&lt;/p>
 &lt;p>$$
