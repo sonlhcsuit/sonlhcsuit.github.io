@@ -1,6 +1,6 @@
 ---
 title: "Object Oriented Programing Implementations"
-description: "No Description"
+description: "Object Oriented Programming & how to implement OO in programming language "
 date: 2021-05-23T20:34:57+07:00
 draft: false
 math: false
@@ -30,7 +30,7 @@ Dựa vào công thức: `Algorithms + Data Structure = Programs`, ta có hiểu
 
 `Class` là một khái niệm trừu tượng hơn, bao quát hơn `object`, là khuôn mẫu để định hình các `object` (các `object` có `attribute` nào và `behavior` nào) từ dưới góc độ thực tế. Hãy xem xét thử một vài game RPG có các `class` character như là `knight`, `warrior`, `magician`,... Tuỳ thuộc vào các `class` này, ta có thể biết được khả năng của nhân vật `knight` thì có máu nhiều và phòng thủ cao, `magician` thì có sát thương lớn và phòng thủ kém,... Từ góc độ lập trình, thì `object` được xem là thành phần của `class`. Lấy một ví dụ thực tế, ta có 1234 là số nguyên, thuộc về tập hợp số nguyên, và bởi vì nhiều ngôn ngữ đã được cài đặt sẵn số nguyên là gì, nên chúng ta có thể sử dụng ngay lập tức mà không cần phải khai báo thêm, tất nhiên là đi kèm các behavior khác như cộng trừ nhân chia các số khác. `Class` có xu hướng tổng quát, còn `object` thì có xu hướng cụ thể. Đơn giản hơn thì `Class` chính là khuôn mẫu của `object`, chúng ta từ một `class`, có thể tạo ra nhiều `object` thuộc `class` đó. Và những `object` thuộc cùng `class` với nhau, sẽ có các `behavior`, `attribute` như nhau (tất nhiên là khác giá trị) đã được định nghĩa chung ở `class`, `object` là `instance` của `class` (thể hiện của `class`).
 
-Khi viết một chương trình theo dạng OOP, chúng ta dành đa phần thời gian vào việc khai báo class , sau đó tạo các object và để chúng tương tác với nhau (cộng phân số, nông trại vui vẻ,...)
+Khi viết một chương trình theo dạng OOP, chúng ta dành đa phần thời gian vào việc khai báo `class` , sau đó tạo các `object` và để chúng tương tác với nhau (cộng phân số, nông trại vui vẻ,...)
 
 # 4 fundamental principles of OOP
 Lập trình hướng đối tượng là tư tưởng, là phong cách lập trình, hơn là một kỹ thuật. Bản chất của hướng đối tượng có thể dựa trên các nguyên lý cơ bản sau:
@@ -65,17 +65,14 @@ Cách ngược lại là protoype-base thì giúp coder viết code nhanh và m�
 ![Archetypal Structure](image-1.png)
 
 ## Concatenation
-- Việc replace các 
+- Hiểu một cách đơn giản về việc concatenation là khi bạn thay đổi behavior của object lớn thì những doppelgagger verions của object đó không hề bị ảnh hưởng. Nó có thể là một điểm mạnh, hoặc cũng có thể là một điểm yếu khi có những behavior không đồng bộ nhưng vậy. Tác giả vì còn kém nên chỉ thấy được bất lợi trước mắt là phải gán lại tất cả behavior cho các object đã được khai báo (nếu gặp trường hợp cần thay đổi behavior như thế này)
 
-## Criticism
-
+Sẽ ráng update một bài nói chi tiết về việc Javascript/Python implement theo Prototype này có điểm lợi và hại gì.
 ---
 # References & more resources
+- Object-Oriented Programming in C++, Fourth Edition p.10 - p.25
+- https://en.wikipedia.org/wiki/Prototype-based_programming
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
 
 ### P/S:
 Nếu có gì sai sót xin gửi email cho mình để cập nhật, xin cảm ơn!
-
-
-<!-- # How Javascript implements OOP
-
-# How Python implements OOp -->
