@@ -64,10 +64,10 @@
 &lt;p>Nếu trong &lt;strong>class-base&lt;/strong> OOP, việc xác định một &lt;strong>behavior&lt;/strong> của object sẽ dựa vào &lt;strong>Inheritance tree&lt;/strong>, thì đại diện của &lt;strong>prototype-base&lt;/strong> là &lt;strong>Javascript&lt;/strong> sẽ sử dụng một cơ chế gọi là &lt;strong>delegation&lt;/strong> nhằm xác định đúng &lt;strong>prototype&lt;/strong> (&lt;strong>attribute&lt;/strong> &amp;amp; &lt;strong>behavior&lt;/strong> của &lt;strong>object&lt;/strong>) tại thời điểm runtime &amp;hellip;&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>&lt;strong>Javascript&lt;/strong> implement &lt;strong>prototype&lt;/strong> thông qua &lt;strong>Object.prototype&lt;/strong>, và tất cả những object khác kế thừ từ object này cũng mang theo một màu như vậy, tuy nhiên lại không thể hiện rõ ra ở &lt;strong>obj.prototype&lt;/strong> mà được ngầm hiểu nhờ cơ chế &lt;strong>delegation&lt;/strong> và được ẩn giấu ở &lt;strong>[[Prototype]]&lt;/strong> cũng tức là những thứ &lt;strong>đã được clone từ original version&lt;/strong>. Để truy cập thì ta chỉ cần dấu &lt;strong>dot(.)&lt;/strong> mà thôi . Javascript sẽ truy cập vào &lt;strong>[[Prototype]]&lt;/strong> hiện tại của object để có thể lấy ra được thứ mình muốn.&lt;/p>
+&lt;p>&lt;strong>Javascript&lt;/strong> implement &lt;strong>prototype&lt;/strong> thông qua &lt;strong>Object.prototype&lt;/strong>, và tất cả những object khác kế thừ từ object này cũng mang theo một màu như vậy, tuy nhiên lại không thể hiện rõ ra ở &lt;strong>obj.prototype&lt;/strong> mà được ngầm hiểu nhờ cơ chế &lt;strong>delegation&lt;/strong> và được ẩn giấu ở &lt;code>[[Prototype]]&lt;/code> cũng tức là những thứ &lt;strong>đã được clone từ original version&lt;/strong>. Để truy cập thì ta chỉ cần dấu &lt;code>.&lt;/code> (&lt;strong>dot&lt;/strong>) mà thôi . Javascript sẽ truy cập vào &lt;code>[[Prototype]]&lt;/code> hiện tại của object để có thể lấy ra được thứ mình muốn.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Attribute &amp;amp; behavior của original khi được clone sẽ được hop-in (chuyển vào) &lt;strong>[[Prototype]]&lt;/strong> tạo thành 1 cái cây. Nếu chẳng may phiên bản &lt;strong>doppelganger&lt;/strong> có tồn tại một &lt;strong>behavior&lt;/strong> trùng tên &lt;strong>original version&lt;/strong> với cái cũ thì cũng không sao bởi vì cơ chế &lt;strong>delegation&lt;/strong> duyệt &lt;strong>prototype&lt;/strong> bottom-up. Nhìn hình thì các bạn có thể hiểu rõ hơn một xíu.&lt;/p>
+&lt;p>Attribute &amp;amp; behavior của original khi được clone sẽ được hop-in (chuyển vào) &lt;code>[[Prototype]]&lt;/code> tạo thành 1 cái cây. Nếu chẳng may phiên bản &lt;strong>doppelganger&lt;/strong> có tồn tại một &lt;strong>behavior&lt;/strong> trùng tên &lt;strong>original version&lt;/strong> với cái cũ thì cũng không sao bởi vì cơ chế &lt;strong>delegation&lt;/strong> duyệt &lt;strong>prototype&lt;/strong> bottom-up. Nhìn hình thì các bạn có thể hiểu rõ hơn một xíu.&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;p>&lt;figure style="flex-grow: 269; flex-basis: 645px">
@@ -84,7 +84,7 @@ alt="Archetypal Structure">
 &lt;ul>
 &lt;li>Hiểu một cách đơn giản về việc &lt;strong>concatenation&lt;/strong> là khi bạn thay đổi &lt;strong>behavior&lt;/strong> của object lớn thì những &lt;strong>doppelganger verions&lt;/strong> của &lt;strong>object&lt;/strong> đó không hề bị ảnh hưởng. Nó có thể là một điểm mạnh, hoặc cũng có thể là một điểm yếu khi có những &lt;strong>behavior&lt;/strong> không đồng bộ nhưng vậy. Tác giả vì còn kém nên chỉ thấy được bất lợi trước mắt là phải gán lại tất cả &lt;strong>behavior&lt;/strong> cho các object đã được khai báo (nếu gặp trường hợp cần thay đổi &lt;strong>behavior&lt;/strong> như thế này)&lt;/li>
 &lt;/ul>
-&lt;p>Sẽ ráng update một bài nói chi tiết về việc Javascript/Python implement theo Prototype này có điểm lợi và hại gì.&lt;/p>
+&lt;p>Sẽ ráng update một bài nói chi tiết về việc &lt;strong>Javascript/Python&lt;/strong> implement theo &lt;code>Prototype&lt;/code> này có điểm lợi và hại gì và những gotcha.&lt;/p>
 &lt;hr>
 &lt;h1 id="references--more-resources">References &amp;amp; more resources&lt;/h1>
 &lt;ul>
@@ -613,10 +613,12 @@ alt="Định nghĩa về function nhưng bớt khó hiểu hơn">
 &lt;figcaption>Định nghĩa về function nhưng bớt khó hiểu hơn&lt;/figcaption>
 &lt;/figure>&lt;/p>
 &lt;h1 id="create-function">Create function&lt;/h1>
-&lt;p>Có một vài điều cần lưu ý khi sử dụng &lt;strong>function&lt;/strong> như sau:
-- Phải khai báo &lt;strong>function&lt;/strong> trước khi sử dụng
-- &lt;strong>function&lt;/strong> không chạy tại thời điểm được khai báo mà chỉ chạy khi được invoke/call
-Ngoại trừ những điều trên thì còn một vài thứ linh tinh nữa. Trong Javascript thì chúng ta có thể khai báo &lt;strong>function&lt;/strong> bằng 2 cách - sử dụng &lt;strong>function definition&lt;/strong> hoặc &lt;strong>function expression&lt;/strong>. Javascript xem &lt;strong>function&lt;/strong> như là một đối tượng, nên &lt;strong>function&lt;/strong> có thể là &lt;strong>output&lt;/strong> của một function khác.&lt;/p>
+&lt;p>Có một vài điều cần lưu ý khi sử dụng &lt;strong>function&lt;/strong> như sau:&lt;/p>
+&lt;ul>
+&lt;li>Phải khai báo &lt;strong>function&lt;/strong> trước khi sử dụng&lt;/li>
+&lt;li>&lt;strong>function&lt;/strong> không chạy tại thời điểm được khai báo mà chỉ chạy khi được &lt;strong>invoke/call&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;p>Ngoại trừ những điều trên thì còn một vài thứ linh tinh nữa. Trong Javascript thì chúng ta có thể khai báo &lt;strong>function&lt;/strong> bằng 2 cách - sử dụng &lt;strong>function definition&lt;/strong> hoặc &lt;strong>function expression&lt;/strong>. Javascript xem &lt;strong>function&lt;/strong> như là một đối tượng, nên &lt;strong>function&lt;/strong> có thể là &lt;strong>output&lt;/strong> của một function khác.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-javascript" data-lang="javascript">&lt;span style="color:#75715e">// Sử dụng function definition với từ khoá function
 &lt;/span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">functionName&lt;/span>(&lt;span style="color:#a6e22e">parameters_comes_here&lt;/span>){
 &lt;span style="color:#75715e">// function_body here

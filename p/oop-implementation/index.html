@@ -154,10 +154,10 @@ Object Oriented Programming & how to implement OO in programming language
 <p>Nếu trong <strong>class-base</strong> OOP, việc xác định một <strong>behavior</strong> của object sẽ dựa vào <strong>Inheritance tree</strong>, thì đại diện của <strong>prototype-base</strong> là <strong>Javascript</strong> sẽ sử dụng một cơ chế gọi là <strong>delegation</strong> nhằm xác định đúng <strong>prototype</strong> (<strong>attribute</strong> & <strong>behavior</strong> của <strong>object</strong>) tại thời điểm runtime &mldr;</p>
 </li>
 <li>
-<p><strong>Javascript</strong> implement <strong>prototype</strong> thông qua <strong>Object.prototype</strong>, và tất cả những object khác kế thừ từ object này cũng mang theo một màu như vậy, tuy nhiên lại không thể hiện rõ ra ở <strong>obj.prototype</strong> mà được ngầm hiểu nhờ cơ chế <strong>delegation</strong> và được ẩn giấu ở <strong>[[Prototype]]</strong> cũng tức là những thứ <strong>đã được clone từ original version</strong>. Để truy cập thì ta chỉ cần dấu <strong>dot(.)</strong> mà thôi . Javascript sẽ truy cập vào <strong>[[Prototype]]</strong> hiện tại của object để có thể lấy ra được thứ mình muốn.</p>
+<p><strong>Javascript</strong> implement <strong>prototype</strong> thông qua <strong>Object.prototype</strong>, và tất cả những object khác kế thừ từ object này cũng mang theo một màu như vậy, tuy nhiên lại không thể hiện rõ ra ở <strong>obj.prototype</strong> mà được ngầm hiểu nhờ cơ chế <strong>delegation</strong> và được ẩn giấu ở <code>[[Prototype]]</code> cũng tức là những thứ <strong>đã được clone từ original version</strong>. Để truy cập thì ta chỉ cần dấu <code>.</code> (<strong>dot</strong>) mà thôi . Javascript sẽ truy cập vào <code>[[Prototype]]</code> hiện tại của object để có thể lấy ra được thứ mình muốn.</p>
 </li>
 <li>
-<p>Attribute & behavior của original khi được clone sẽ được hop-in (chuyển vào) <strong>[[Prototype]]</strong> tạo thành 1 cái cây. Nếu chẳng may phiên bản <strong>doppelganger</strong> có tồn tại một <strong>behavior</strong> trùng tên <strong>original version</strong> với cái cũ thì cũng không sao bởi vì cơ chế <strong>delegation</strong> duyệt <strong>prototype</strong> bottom-up. Nhìn hình thì các bạn có thể hiểu rõ hơn một xíu.</p>
+<p>Attribute & behavior của original khi được clone sẽ được hop-in (chuyển vào) <code>[[Prototype]]</code> tạo thành 1 cái cây. Nếu chẳng may phiên bản <strong>doppelganger</strong> có tồn tại một <strong>behavior</strong> trùng tên <strong>original version</strong> với cái cũ thì cũng không sao bởi vì cơ chế <strong>delegation</strong> duyệt <strong>prototype</strong> bottom-up. Nhìn hình thì các bạn có thể hiểu rõ hơn một xíu.</p>
 </li>
 </ul>
 <p><figure style=flex-grow:269;flex-basis:645px>
@@ -169,7 +169,7 @@ Object Oriented Programming & how to implement OO in programming language
 <ul>
 <li>Hiểu một cách đơn giản về việc <strong>concatenation</strong> là khi bạn thay đổi <strong>behavior</strong> của object lớn thì những <strong>doppelganger verions</strong> của <strong>object</strong> đó không hề bị ảnh hưởng. Nó có thể là một điểm mạnh, hoặc cũng có thể là một điểm yếu khi có những <strong>behavior</strong> không đồng bộ nhưng vậy. Tác giả vì còn kém nên chỉ thấy được bất lợi trước mắt là phải gán lại tất cả <strong>behavior</strong> cho các object đã được khai báo (nếu gặp trường hợp cần thay đổi <strong>behavior</strong> như thế này)</li>
 </ul>
-<p>Sẽ ráng update một bài nói chi tiết về việc Javascript/Python implement theo Prototype này có điểm lợi và hại gì.</p>
+<p>Sẽ ráng update một bài nói chi tiết về việc <strong>Javascript/Python</strong> implement theo <code>Prototype</code> này có điểm lợi và hại gì và những gotcha.</p>
 <hr>
 <h1 id=references--more-resources>References & more resources</h1>
 <ul>
