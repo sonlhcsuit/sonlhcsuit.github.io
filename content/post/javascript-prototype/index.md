@@ -76,7 +76,34 @@ human_ex.speak()
 // I am Human, you can call me Harry
 // I am Human, you can call me Hermione
 ```
-Cách thứ 2 thì lại ít được sử dụng hơn
+Cách thứ 2 là sử dụng thực thể tối thượng là `Object`
+```js
+let human_wife = Object.create(human)
+human_wife.firstName = 'Ginny'
+human_wife.lastName = 'Weasly'
+human_wife.age = 18
+console.log(human)
+console.log(human_wife)
+```
+
+Thứ chúng ta nhận được ở console là
+
+![](image-1.png)
+
+trông có vẻ là đúng nhưng mà speak của `human_wife` lại biến mất đâu rồi, còn `[[Prototype]]` là cái gì nữa vậy nhỉ? 
+
+# Prototype
+Prototype là có thể hiểu là một cơ chế phân cấp, để quản lý các method của object. Giả sử khi mình gọi một method của một object, method này không tồn tại trong object hiện tại, thì object này sẽ tìm cách đưa yêu cầu lên cấp cao hơn tìm kiếm method có tên đó. Giống như khi bạn bị đánh, bạn đánh không lại người ta, bạn sẽ gọi anh của bạn, anh của bạn vẫn đánh không lại, thì anh của bạn sẽ gọi một ông anh nào đó nữa để giành lại công bằng cho bạn, và câu chuyện gọi hội sẽ tiếp tục đến khi không còn ai để gọi (đã gọi đến cấp cao nhất mà vẫn không có method đó). Prototype là cơ chế phân cấp như vậy. Việc truy xuất các phần tử (có thể là attribute & method ) dựa theo một quy tắc là prototype chain cho phép truy xuất các phần tử dần dần từ cấp bậc thấp đến cấp bậc cao - cao nhất là Object.
+
+Object có thể truy xuất tới prototype của cấp lớn hơn thông qua key `__proto__`. Tất cả các thuộc tính được kế thừa đều nằm ở trong `__proto__ object`. Lấy ví dụ cũ, chúng ta sẽ thêm một vài chi tiết và kết quả
+
+```js 
+console.log(human)
+console.log(human_wife)
+console.log(human_wife.__proto__)
+```
+
+![](image-2.png)
 ---
 # References & more resources
 
