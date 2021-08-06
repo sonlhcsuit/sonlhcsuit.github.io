@@ -2,7 +2,7 @@
 title: "Javascript Prototype"
 description: "How Javascript implements OOP in details"
 date: 2021-07-25T21:32:38+07:00
-draft: true
+draft: false
 math: false
 slug: "javascript-prototype"
 categories:
@@ -21,7 +21,7 @@ Vốn dĩ từ ban đầu Javascript được tạo ra với mục đích chính
 # Everything is Object
 Có một câu nói về Javascript thế này : "Everything is an object, or a primitive". Về cơ bản thì mọi thứ ở trong Javascript đều là object (object trong object oriented programming), ngoại trừ một vài thứ khác như là: number, strings, null, undefined, boolean, symbols.
 
-Để hiểu một cách đơn giản thì object trong Javascript giống như một hash map, một mapping **k**ey sang **v**alue. Chúng ta có thể truy cập đến value thông qua một key unique. Chúng ta có thể dễ dàng truy cập tới các phần tử mà object lưu trữ thông qua key và dot notation (toán tử .)
+Để hiểu một cách đơn giản thì object trong Javascript giống như một hash map, một key-value pair. Chúng ta có thể truy cập đến value thông qua một key unique. Chúng ta có thể dễ dàng truy cập tới các phần tử mà object lưu trữ thông qua key và dot notation (toán tử .)
 
 # Encapsulation 
 Nói về hướng đối tượng, tính đóng gói được đặt lên hàng đầu đối với các ngôn ngữ định hướng đối tượng. Tuy nhiên Javascript làm điều này rất linh hoạt và loosely (lỏng lẻo). Với Java, tính đóng gói được thể hiển ở việc định nghĩa một class.
@@ -130,12 +130,13 @@ class Human {
 }
 ```
 thì sẽ được thay thế bằng ở phần backgroud (bằng chứng là kết quả khi console 2 object được tạo ra 2 cách giống nhau Prototype cơ bản)
+
 ```js
 function Human(firstName,lastName,age){
     this.firstName = firstName
     this.lastName = firstName
     this.age = age
-    this.speak =function (){
+    this.speak = function (){
         console.log(`I am Human, you can call me ${this.firstName}`)
     }
 }
@@ -143,7 +144,6 @@ function Human(firstName,lastName,age){
 // Human.prototype.speak = function (){
 //     console.log(`I am Human, you can call me ${this.firstName}`)
 // }
-
 ```
 
 Có thể một vài điều khó hiểu là tại sao mình khi thì dùng `__proto__` và khi thì dùng `prototype`. 2 cách này đều được sử dụng nhằm mục đích truy cập vào `prototype` của một object. Tuy nhiên `__proto__` sử dụng với mục đích truy cập `prototype` của object gốc (object được clone sẽ sử dụng `__proto__` để truy cập tới `prototype` của `object` có bậc cao hơn - gọi anh xã hội). Còn `prototype` thì sử dụng để định nghĩa các `prototype` của `class` (chính xác hơn là `constructor function`) hiện tại. Xét thử ví dụ sau
@@ -183,13 +183,16 @@ human_wife.speak()
 
 Và lúc này thì prototype được copy từ `human` đã bị replace hoàn toàn, chúng ta có thể giữ lại bằng viêc sử dụng rest operator (...)
 
+
 # Conclusion
-Tóm lại, `prototype` khác với `property`, khi chúng ta sử dụng `dot notation` (.) thì javascript sẽ dựa vào cơ chế `prototype chain` để lookup giá trị. Về bản chất `prototype` là một `object`, chứa thông các `property` đã được xác định trước. Chúng ta có thể khai báo `prototype` thông qua `func.prototype`. Khi khởi tạo một `object`, `object` sẽ có quyền truy cập tới `prototype` của object gốc (thông thường là Object). Nếu sử dụng `Objet.create`, thì object truyền vào hàm `object` chính là `prototype`. Chúng ta có thể truy cập tới `prototype` của object gốc thông qua `property` là `__proto__`. Javascript khiến cho việc sử dụng OOP rất linh hoạt, dễ dàng , không cứng nhắc như Java, nhưng đồng thời cũng có những bất lợi tiềm ẩn.
+Tóm lại, `prototype` khác với `property`, khi chúng ta sử dụng `dot notation` (.) thì javascript sẽ dựa vào cơ chế `prototype chain` để lookup giá trị. Về bản chất `prototype` là một `object`, chứa thông các `property` đã được xác định trước. Chúng ta có thể khai báo `prototype` thông qua `func.prototype`. Khi khởi tạo một `object`, `object` sẽ có quyền truy cập tới `prototype` của object gốc (thông thường là Object). Nếu sử dụng `Objet.create`, thì object truyền vào hàm `object` chính là `prototype`. Chúng ta có thể truy cập tới `prototype` của object gốc thông qua `property` là `__proto__`. Javascript khiến cho việc sử dụng OOP rất linh hoạt, dễ dàng , không cứng nhắc như Java, nhưng đồng thời cũng có những bất lợi là quà tặng kèm. Từ phiên bản ECMA2015 thì Javascript đã hỗ trợ các từ khoá như `class`,`super`,`constructor`, `extends` ,... để giúp viết code hướng đối tượng dễ dàng hơn (thay vì sử dụng `Object.create`)
 
 ---
+
 # References & more resources
 - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object-oriented_JS
 - https://kipalog.com/posts/prototype-la-khi-gi-
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain
+
 ### P/S:
 Nếu có gì sai sót xin gửi email cho mình để cập nhật, xin cảm ơn!
